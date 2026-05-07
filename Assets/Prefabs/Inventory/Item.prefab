@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Mena Hierro
-  quantity: 1
+  quantity: 5
   sprite: {fileID: 21300000, guid: d531326ad17558648af65bfbe8c37f76, type: 3}
   inventoryManager: {fileID: 0}
 --- !u!1 &9202834917609519400

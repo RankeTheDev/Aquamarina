@@ -45,17 +45,22 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite)
     {
         //Debug.Log("itemName = " + itemName + ", quantity = " + quantity + ", itemSprite = " + itemSprite);
-        for (int i = 0; i < itemSlots.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++) //CIclo por todas las casillas del inventario
         {
-            if (itemSlots[i].isFull == false)
+            if (itemSlots[i].isFull == false && itemSlots[i].itemName == itemName || itemSlots[i].quantity == 0)
             { 
-                itemSlots[i].AddItem(itemName, quantity, itemSprite);
-                return;
+                int leftOverItems = itemSlots[i].AddItem(itemName, quantity, itemSprite);
+                if (leftOverItems > 0) 
+                {
+                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite);
+                }
+                return leftOverItems;
             }
         }
+        return quantity;
     }
 
     public void DeselectAllSlots()

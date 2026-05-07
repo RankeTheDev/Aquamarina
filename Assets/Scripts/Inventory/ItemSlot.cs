@@ -9,8 +9,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     #region VARIABLES
     //ITEM DATA
-    [SerializeField] string itemName;
-    [SerializeField] int quantity;
+    public string itemName;
+    public int quantity;
+    [SerializeField] int maxNumberOfItems;
     [SerializeField] Sprite itemSprite;
     public bool isFull;
 
@@ -29,16 +30,40 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         inventoryManager = FindAnyObjectByType<InventoryManager>();
     }
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite)
     {
-        this.itemName = itemName;
-        this.quantity = quantity;
-        this.itemSprite = itemSprite;
-        isFull = true;
+        //Check if the slot is already full
+        if (isFull)
+        {
+            return quantity;
+        }
 
-        quantityText.text = quantity.ToString();
-        quantityText.enabled = true;
+        //Update NAME
+        this.itemName = itemName;
+
+        //Update IMAGE
+        this.itemSprite = itemSprite;
         itemImage.sprite = itemSprite;
+
+        //Update QUANTITY
+        this.quantity += quantity;
+        if (this.quantity >= maxNumberOfItems)
+        {
+            quantityText.text = maxNumberOfItems.ToString();
+            quantityText.enabled = true;
+            isFull = true;
+
+            //Return the LEFTOVERS
+            int extraItems = this.quantity - maxNumberOfItems;
+            this.quantity = maxNumberOfItems;
+            return extraItems;
+        }
+
+        //Update QUANTITY TEXT
+        quantityText.text = this.quantity.ToString();
+        quantityText.enabled = true;
+
+        return 0;
     }
 
     public void OnPointerClick(PointerEventData eventData)
