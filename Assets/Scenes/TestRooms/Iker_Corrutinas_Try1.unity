@@ -375,8 +375,8 @@ MonoBehaviour:
   tarjectRigidbody: {fileID: 1362743827}
   agresive: 0
   distanceDifference: {x: 0, y: 0}
-  agresiveVelocity: 0
-  detectVelocity: 1
+  agresiveVelocity: 1
+  detectVelocity: 1.5
   playerScript: {fileID: 1362743826}
   spriteRenderer: {fileID: 1362743839}
   launchToPlayerPosition: {x: 0, y: 0}

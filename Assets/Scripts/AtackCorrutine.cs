@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,7 +19,7 @@ public class AtackCorrutine : MonoBehaviour
     public float detectVelocity; //Velocidad límite para detectar al Player
     public PlayerControllerWater playerScript;
     [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] Vector2 launchToPlayerPosition;
+    [SerializeField] Vector2 tarjectPosition;
     #endregion
 
     #region variables no usadas
@@ -30,7 +31,6 @@ public class AtackCorrutine : MonoBehaviour
 
     private Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         #region Ajustes Iniciales
@@ -42,6 +42,7 @@ public class AtackCorrutine : MonoBehaviour
         agent.updateUpAxis = false;
         agent.SetDestination(points[currentPosition].position);
         #endregion
+        StartCoroutine(AtackRutine());
     }
 
     void Update()
@@ -51,47 +52,54 @@ public class AtackCorrutine : MonoBehaviour
         animator.SetBool("Scared", agresive);
 
         #endregion
-
-        if (agresive == false)
-        {
-            //Cambio de posición entre puntos
-            if (!agent.pathPending && agent.remainingDistance <= 0.1)
-            {
-                currentPosition = (currentPosition + 1) % points.Length;
-                agent.SetDestination(points[currentPosition].position);
-
-             /*   
-                if (spriteRenderer.flipX == false)
-                {
-                    spriteRenderer.flipX = true;
-                }
-
-                else if (spriteRenderer.flipX == true)
-                {
-                    spriteRenderer.flipX = false;
-                }
-             */
-            }
-        }
-
-        else
-        {
-            Agresive();
-        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    IEnumerator AtackRutine()
+    {
+            if (agresive == false)
+            {
+                agent.isStopped = false;
+
+                //Cambio de posición entre puntos
+                if (!agent.pathPending && agent.remainingDistance <= 0.1)
+                {
+                    currentPosition = (currentPosition + 1) % points.Length;
+                    agent.SetDestination(points[currentPosition].position);
+
+                }
+                yield return null;
+            }
+
+            else
+            {
+                agent.isStopped = false;
+
+                //Jesus, danos un 10 porfaporfi. No se lo digo a Dani porque me manda a la mierda.
+                Vector2 distanceDifference = (transform.position - tarject.position).normalized;
+                Debug.Log("ÑomÑom");
+
+                transform.Translate(tarjectPosition * agresiveVelocity * Time.deltaTime);
+            }
+        }
+    }
+        
+
+    
+
+       //Detecta si el multiplicador de velocidad del player es mayor que su límite de detección, en tal caso   , se cumple el if
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == ("Player"))
         {
-            if (detectVelocity < playerScript.speedMultiplier) //Detecta si el multiplicador de velocidad del player es mayor que su límite de detección, en tal caso   , se cumple el if
+            if (detectVelocity < playerScript.speedMultiplier)
             {
                 Debug.Log("Collision");
                 agresive = true;
-                
+                tarjectPosition = tarject.transform.position;
             }
         }
     }
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -100,7 +108,7 @@ public class AtackCorrutine : MonoBehaviour
             agresive = false;
         }
     }
-
+    /*
     void Agresive()
     {
         //Jesus, un 10 porfaporfi. No se lo digo a Dani porque me manda a la mierda.
@@ -113,5 +121,8 @@ public class AtackCorrutine : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-   */
+   */ 
 }
+
+
+
