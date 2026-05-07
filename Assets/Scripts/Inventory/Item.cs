@@ -26,9 +26,9 @@ public class Item : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D trigger)
     {
-        if(collision.gameObject.tag == "Player")
+        if(trigger.gameObject.tag == "Player")
         {
             int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite);
             if (leftOverItems <= 0)

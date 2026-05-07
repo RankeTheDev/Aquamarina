@@ -50,7 +50,7 @@ public class InventoryManager : MonoBehaviour
         //Debug.Log("itemName = " + itemName + ", quantity = " + quantity + ", itemSprite = " + itemSprite);
         for (int i = 0; i < itemSlots.Length; i++) //CIclo por todas las casillas del inventario
         {
-            if (itemSlots[i].isFull == false && itemSlots[i].itemName == itemName || itemSlots[i].quantity == 0)
+            if (itemSlots[i].isFull == false && itemSlots[i].itemName == itemName || itemSlots[i].quantity == 0) 
             { 
                 int leftOverItems = itemSlots[i].AddItem(itemName, quantity, itemSprite);
                 if (leftOverItems > 0) 
