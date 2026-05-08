@@ -10,6 +10,8 @@ public class InventoryManager : MonoBehaviour
     bool menuActivated;
     public ItemSlot[] itemSlots;
 
+    public ItemSO[] itemSOs;
+
     [Header("Variables Input System")]
     [SerializeField] InputActionAsset inputActionAsset;
 
@@ -43,6 +45,18 @@ public class InventoryManager : MonoBehaviour
             inventoryMenu.SetActive(true);
             menuActivated = true;
         }
+    }
+
+    public void UseItem(string itemName)
+    {
+        for (int i = 0; i < itemSOs.Length; i++)
+        { 
+            if(itemSOs[i].itemName == itemName)
+            {
+                itemSOs[i].UseItem();
+            }
+        }
+
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite)

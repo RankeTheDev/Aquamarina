@@ -56,5 +56,10 @@ public class Timer : MonoBehaviour
         //Update the UI text
         timerText.text = timeString;
     }
+
+    public void AddTime(float ammountTOChangeStat)
+    {
+        currentTime += ammountTOChangeStat;
+    }
     #endregion
 }
