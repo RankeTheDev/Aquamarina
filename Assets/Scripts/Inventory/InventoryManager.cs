@@ -28,9 +28,9 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OpenCloseInventory();
+        //OpenCloseInventory();
     }
-
+    /*
     void OpenCloseInventory()
     {
         if (actionInventory.WasPressedThisFrame() && menuActivated)
@@ -46,7 +46,7 @@ public class InventoryManager : MonoBehaviour
             menuActivated = true;
         }
     }
-
+    */
     public bool UseItem(string itemName)
     {
         for (int i = 0; i < itemSOs.Length; i++)
