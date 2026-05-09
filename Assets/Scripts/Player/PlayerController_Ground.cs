@@ -21,6 +21,8 @@ public class PlayerController_Ground : MonoBehaviour
     // Variables Animator
     [Header("Variables del Animator")]
     bool isAttacking;
+    public float longIdleTime = 5f;
+    [SerializeField] float longIdleTimer;
 
     [Header("Variables de Componente y Scripts")]
     [SerializeField] Animator animator;
@@ -52,10 +54,28 @@ public class PlayerController_Ground : MonoBehaviour
         CheckGravity();
 
         //CHECKING IF GRAVITY IS RIGHT FOR THE LEVEL TYPE
-        CheckAir();
+        CheckAir(); 
+    }
 
+    void LateUpdate()
+    {
         //ANIMATOR VARIABLES SETTINGS
         animator.SetBool("Idle", moveAmmount == Vector2.zero);
+
+        // Long Idle
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Idle"))
+        {
+            longIdleTimer += Time.deltaTime;
+
+            if (longIdleTimer >= longIdleTime)
+            {
+                animator.SetTrigger("LongIdle");
+            }
+        }
+        else
+        {
+            longIdleTimer = 0f;
+        }
     }
 
     void FixedUpdate() //PHYSICS BASED METHODS CALLING
@@ -79,7 +99,6 @@ public class PlayerController_Ground : MonoBehaviour
             timer.currentTime = timer.totalTime;
         }
     }
-
 
     #region MOVIMIENTO
     //MAIN BASIC MOVEMENT
