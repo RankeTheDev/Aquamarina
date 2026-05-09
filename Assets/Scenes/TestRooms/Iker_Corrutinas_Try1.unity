@@ -375,11 +375,13 @@ MonoBehaviour:
   tarjectRigidbody: {fileID: 1362743827}
   agresive: 0
   distanceDirecction: {x: 0, y: 0}
+  distanceDifference: 0
   agresiveVelocity: 3
   detectVelocity: 1
   playerScript: {fileID: 0}
   spriteRenderer: {fileID: 623464919}
-  tarjectPosition: {x: 0, y: 0}
+  tarjectPosition: {x: 0, y: 0, z: 0}
+  tarjectPositionAlways: {x: 0, y: 0}
 --- !u!195 &623464914
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -824,6 +826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barracuda
       objectReference: {fileID: 0}
+    - target: {fileID: 2163844374635399857, guid: a519b8df6d0ff484b97b549c5f51bd25, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6015629146320151503, guid: a519b8df6d0ff484b97b549c5f51bd25, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9936576
@@ -834,7 +840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6015629146320151503, guid: a519b8df6d0ff484b97b549c5f51bd25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.037114814
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6015629146320151503, guid: a519b8df6d0ff484b97b549c5f51bd25, type: 3}
       propertyPath: m_LocalRotation.w

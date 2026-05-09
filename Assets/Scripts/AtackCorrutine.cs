@@ -16,12 +16,13 @@ public class AtackCorrutine : MonoBehaviour
     public Rigidbody2D tarjectRigidbody;
     public bool agresive = false;
     public Vector2 distanceDirecction;
-    private float distanceDifference;
+    [SerializeField] float distanceDifference;
     public float agresiveVelocity; //Velocidad en la que se mueve cuendo se asusta
     public float detectVelocity; //Velocidad límite para detectar al Player
     public PlayerControllerWater playerScript;
     [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] Vector2 tarjectPosition;
+    [SerializeField] Vector3 tarjectPosition;
+    [SerializeField] Vector2 tarjectPositionAlways;
     #endregion
 
     #region variables no usadas
@@ -66,6 +67,8 @@ public class AtackCorrutine : MonoBehaviour
         {
             tarject = GameObject.FindWithTag("Player").GetComponent<Transform>();
         }
+
+        tarjectPositionAlways = tarject.transform.position;
     }
 
     IEnumerator AtackRutine()
@@ -92,12 +95,12 @@ public class AtackCorrutine : MonoBehaviour
 
                 distanceDifference = Vector2.Distance(transform.position, tarjectPosition);
 
-                Vector2 distanceDirecction = (transform.position - tarject.position).normalized;
+                Vector2 distanceDirecction = (transform.position - tarjectPosition).normalized;
                 Debug.Log("ÑomÑom");
 
                 transform.Translate(distanceDirecction * -1f * agresiveVelocity * Time.deltaTime);
 
-                if(distanceDifference < 0.1) //Deja de ser agresivo si 
+                if(distanceDifference < 0.4) //Deja de ser agresivo si es casi la distancia al player
                 {
                     agresive = false;
                 }
@@ -122,7 +125,7 @@ public class AtackCorrutine : MonoBehaviour
         }
     }
 
-
+    /*
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == ("Player"))
@@ -130,20 +133,7 @@ public class AtackCorrutine : MonoBehaviour
             agresive = false;
         }
     }
-    /*
-    void Agresive()
-    {
-        //Jesus, un 10 porfaporfi. No se lo digo a Dani porque me manda a la mierda.
-        launchToPlayerPosition = tarject.transform.position;
-        distanceDifference = (transform.position - tarject.position);
-        Debug.Log("ÑomÑom");
-        transform.Translate(launchToPlayerPosition * agresiveVelocity * Time.deltaTime);
-    }
-   /* public void TriggerEvent() //Se triggerea al final de la animación del pez huyendo
-    {
-        Destroy(this.gameObject);
-    }
-   */ 
+    */
 }
 
 
