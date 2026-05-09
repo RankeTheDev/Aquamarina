@@ -33,8 +33,8 @@ Transform:
   - {fileID: 3959372541352997656}
   - {fileID: 709727312505423081}
   - {fileID: 4908178455917223617}
-  - {fileID: 6210912085870907813}
   - {fileID: 1498966347304111193}
+  - {fileID: 6210912085870907813}
   - {fileID: 3759684143310951154}
   - {fileID: 6990237892145105226}
   - {fileID: 9203005688286947723}
@@ -50,18 +50,18 @@ Transform:
   - {fileID: 4007032886108863687}
   - {fileID: 712679926400527724}
   - {fileID: 703874943531477719}
-  - {fileID: 3041089350389267045}
-  - {fileID: 7725932426023244381}
   - {fileID: 192232795634679667}
+  - {fileID: 7725932426023244381}
   - {fileID: 4139759207436363581}
-  - {fileID: 1776464546343032563}
   - {fileID: 8731082201180829043}
-  - {fileID: 800388128663965433}
+  - {fileID: 1776464546343032563}
+  - {fileID: 2193799124120654793}
   - {fileID: 1233560268835440158}
   - {fileID: 3205083331672936027}
-  - {fileID: 7697830428847647915}
-  - {fileID: 2193799124120654793}
   - {fileID: 5552552765243060488}
+  - {fileID: 3041089350389267045}
+  - {fileID: 800388128663965433}
+  - {fileID: 7697830428847647915}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &677717711932824206
@@ -697,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4853940785032612425, guid: c06fa4e09c152c3409c0e6aef08f462a, type: 3}
       propertyPath: m_Name
-      value: PezPeluche_Panel
+      value: PezFosil_Panel
       objectReference: {fileID: 0}
     - target: {fileID: 4853940785032612425, guid: c06fa4e09c152c3409c0e6aef08f462a, type: 3}
       propertyPath: m_IsActive

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8281021878013839539}
   - component: {fileID: 2283229187007651962}
   - component: {fileID: 4152200038884304387}
-  - component: {fileID: 8672626558214603178}
+  - component: {fileID: 1632865120433238313}
   m_Layer: 0
   m_Name: Camera
   m_TagString: CameraPhotos
@@ -146,10 +146,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   mainCameraComponent: {fileID: 0}
-  maxSpeed: 10
+  maxSpeed: 9
   player: {fileID: 0}
   playerControllerWater: {fileID: 0}
---- !u!114 &8672626558214603178
+--- !u!114 &1632865120433238313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,35 +161,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34981eb9d20f594e9abddcde3f76dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pezPayaso: 0
-  caballitoDeMar: 0
-  pezGlobo: 0
-  pezCirujanoAzul: 0
-  anchoa: 0
-  medusaLuna: 0
-  raya: 0
-  pezCometa: 0
-  atun: 0
-  barracuda: 0
-  delfin: 0
-  tortugaBoba: 0
-  tiburonBlanco: 0
-  pezLuna: 0
-  orca: 0
-  angelMarino: 0
-  pezHacha: 0
-  gamba: 0
-  pezFoco: 0
-  pezCristal: 0
-  pulpo: 0
-  calamar: 0
-  pezComecocos: 0
-  anguilaPelicano: 0
-  pezBala: 0
-  pezLinterna: 0
-  pezDinosaurio: 0
-  pezGato: 0
-  pezLaboratorio: 0
+  buttonsPecesRegistro:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  imagesPecesRegistro:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1454644744081574198
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +537,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454644744081574198}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82427c9977816554198206ea1afa667d, type: 3}
   m_Name: 
