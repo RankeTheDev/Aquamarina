@@ -7,7 +7,6 @@ public class InventoryManager : MonoBehaviour
 {
     #region VARIABLES
     public ItemSlot[] itemSlots;
-
     public ItemSO[] itemSOs;
 
     #endregion

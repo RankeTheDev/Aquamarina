@@ -40,8 +40,8 @@ public class ItemSO : ScriptableObject
             else
             {
                 timer.AddTime(ammountTOChangeStat);
-                return true;
                 Debug.Log("Se añadieron " + ammountTOChangeStat + " puntos de vida");
+                return true;
             }
         }
         return false;

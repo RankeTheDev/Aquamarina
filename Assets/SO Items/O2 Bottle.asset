@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: O2 Bottle
   statToChange: 1
-  ammountTOChangeStat: 5
+  ammountTOChangeStat: 30
   timer: {fileID: 0}

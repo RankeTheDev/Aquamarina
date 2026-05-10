@@ -11,9 +11,8 @@ public class PlayerController_Equipment : MonoBehaviour
     [SerializeField] InputActionAsset inputActionAsset;
     InputAction actionAttack;
     InputAction actionEquipo1Camera;
-    InputAction actionEquipo2Net;
-    InputAction actionEquipo3NetLauncher;
-    InputAction actionInventory;
+    InputAction actionEquipo2NetLauncher;
+    InputAction actionPDA;
 
     [Header("Variables generales")]
     [SerializeField] Vector2 moveAmmount;
@@ -23,7 +22,6 @@ public class PlayerController_Equipment : MonoBehaviour
     [Header("Variables del Animator")]
     public bool cameraEquipped;
     [SerializeField] bool cameraTakePhoto;
-    [SerializeField] bool netEquipped;
     [SerializeField] bool netLauncherEquipped;
 
     [Header("Variables de Componente y Scripts")]
@@ -44,9 +42,8 @@ public class PlayerController_Equipment : MonoBehaviour
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
         actionAttack = InputSystem.actions.FindAction("Attack");
         actionEquipo1Camera = InputSystem.actions.FindAction("Equipo1_Camera");
-        actionEquipo2Net = InputSystem.actions.FindAction("Equipo2_Net");
-        actionEquipo3NetLauncher = InputSystem.actions.FindAction("Equipo3_NetLauncher");
-        actionInventory = InputSystem.actions.FindAction("Inventory");
+        actionEquipo2NetLauncher = InputSystem.actions.FindAction("Equipo2_NetLauncher");
+        actionPDA = InputSystem.actions.FindAction("PDA");
 
         //ASIGNO LAS VARIABLES DE COMPONENTES
         animator = GetComponent<Animator>();
@@ -64,12 +61,10 @@ public class PlayerController_Equipment : MonoBehaviour
         OpenClosePDA();
         CameraEquip();
         TakePhoto();
-        NetEquip();
         NetLauncherEquip();
 
         //ANIMATOR VARIABLES SETTINGS
         animator.SetBool("CameraEquipped", cameraEquipped);
-        animator.SetBool("NetEquipped", netEquipped);
         animator.SetBool("NetLauncherEquipped", netLauncherEquipped);
     }
 
@@ -104,37 +99,15 @@ public class PlayerController_Equipment : MonoBehaviour
         }
     }
 
-    void NetEquip()
-    {
-        if (actionEquipo2Net.WasPressedThisFrame() && netEquipped == false)
-        {
-            netEquipped = true;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
-            //followMouse.enabled = true;
-        }
-        else if (actionEquipo2Net.WasPressedThisFrame() && netEquipped == true)
-        {
-            netEquipped = false;
-            //followMouse.enabled = false;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
-        }
-        else if (playerControllerWater.moveAmmount != Vector2.zero)
-        {
-            netEquipped = false;
-            //followMouse.enabled = false;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
-        }
-    }
-
     void NetLauncherEquip()
     {
-        if (actionEquipo3NetLauncher.WasPressedThisFrame() && netLauncherEquipped == false)
+        if (actionEquipo2NetLauncher.WasPressedThisFrame() && netLauncherEquipped == false)
         {
             netLauncherEquipped = true;
             //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
             //followMouse.enabled = true;
         }
-        else if (actionEquipo3NetLauncher.WasPressedThisFrame() && netLauncherEquipped == true)
+        else if (actionEquipo2NetLauncher.WasPressedThisFrame() && netLauncherEquipped == true)
         {
             netLauncherEquipped = false;
             //followMouse.enabled = false;
@@ -157,13 +130,13 @@ public class PlayerController_Equipment : MonoBehaviour
             menuPDA.SetActive(false);
         }
 
-        if (actionInventory.WasPressedThisFrame() && menuPDAActivated)
+        if (actionPDA.WasPressedThisFrame() && menuPDAActivated)
         {
             Time.timeScale = 1;
             menuPDA.SetActive(false);
             menuPDAActivated = false;
         }
-        else if (actionInventory.WasPressedThisFrame() && !menuPDAActivated)
+        else if (actionPDA.WasPressedThisFrame() && !menuPDAActivated)
         {
             Time.timeScale = 0;
             menuPDA.SetActive(true);

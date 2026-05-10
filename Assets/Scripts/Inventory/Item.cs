@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
     #region VARIABLES
     [SerializeField] string itemName;
     [SerializeField] int quantity;
-    [SerializeField] Sprite sprite;
+    [SerializeField] Sprite sprite; //SPRITE QUE SE MOSTRARA EN EL INVENTARIO
 
     [SerializeField] InventoryManager inventoryManager;
 

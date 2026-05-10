@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   mainCameraComponent: {fileID: 0}
-  maxSpeed: 9
+  maxSpeed: 15
   player: {fileID: 0}
   playerControllerWater: {fileID: 0}
 --- !u!114 &1632865120433238313
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34981eb9d20f594e9abddcde3f76dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishNames: {fileID: 0}
   buttonsPecesRegistro:
   - {fileID: 0}
   - {fileID: 0}
@@ -478,7 +479,6 @@ MonoBehaviour:
   menuPDAActivated: 0
   cameraEquipped: 0
   cameraTakePhoto: 0
-  netEquipped: 0
   netLauncherEquipped: 0
   followMouse: {fileID: 0}
   animator: {fileID: 0}
