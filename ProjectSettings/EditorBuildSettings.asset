@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestRooms/Kris_TR_SceneChange2.unity
     guid: 513e47115cd972a4583105d90fd17d71
+  - enabled: 1
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: 8062374f4892076438564d1d87b77a76
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
