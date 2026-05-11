@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class FollowMouse : MonoBehaviour
+public class NetLauncherFollowMouse : MonoBehaviour
 {
     #region VARIABLES
     [SerializeField] GameObject mainCamera;

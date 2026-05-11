@@ -22,6 +22,8 @@ TagManager:
   - Fish
   - Net
   - FishGatherer
+  - NetLauncher
+  - NetLauncherBasePoint
   layers:
   - Default
   - TransparentFX

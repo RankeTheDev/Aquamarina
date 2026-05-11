@@ -884,10 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 912242065}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2098570872850567413, guid: 8b33b5e9fd1373f43a650334959303f2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 230029272}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b33b5e9fd1373f43a650334959303f2, type: 3}
 --- !u!114 &218504510 stripped
@@ -901,37 +898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &230029271
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 230029272}
-  m_Layer: 0
-  m_Name: FishGatherer
-  m_TagString: FishGatherer
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &230029272
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230029271}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1452776262}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &358248897 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9027428579597253468, guid: 4e799ea1bce741c44ba462642fcd8057, type: 3}
@@ -3463,11 +3429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1452776262 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2098570872850567413, guid: 8b33b5e9fd1373f43a650334959303f2, type: 3}
-  m_PrefabInstance: {fileID: 202427010}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1453912359 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5781579755988116923, guid: 4e799ea1bce741c44ba462642fcd8057, type: 3}

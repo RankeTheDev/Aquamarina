@@ -29,15 +29,14 @@ public class PlayerController_Equipment : MonoBehaviour
     [SerializeField] bool netLauncherEquipped;
 
     [Header("Variables de Componente y Scripts")]
-    [SerializeField] FollowMouse followMouse;
+    [SerializeField] CameraFollowMouse cameraFollowMouse;
+    [SerializeField] NetLauncherFollowMouse netLauncherFollowMouse;
     [SerializeField] Animator animator;
     [SerializeField] PlayerControllerWater playerControllerWater;
     [SerializeField] NetLauncher netLauncher;
 
     [Header("Otras Variables")]
     Vector2 movement;
-    [SerializeField] GameObject cameraEquipment;
-    [SerializeField] GameObject cameraEquipmentBasePosition;
 
     #endregion
 
@@ -52,12 +51,11 @@ public class PlayerController_Equipment : MonoBehaviour
 
         //ASIGNO LAS VARIABLES DE COMPONENTES
         animator = GetComponent<Animator>();
-        followMouse = GetComponentInChildren<FollowMouse>();
+        cameraFollowMouse = GetComponentInChildren<CameraFollowMouse>();
+        netLauncherFollowMouse = GetComponentInChildren<NetLauncherFollowMouse>();
         playerControllerWater = GetComponentInChildren<PlayerControllerWater>();
         netLauncher = GetComponentInChildren<NetLauncher>();
-        cameraEquipment = GameObject.FindWithTag("CameraPhotos");
         menuPDA = GameObject.FindWithTag("PDAMenu");
-        cameraEquipmentBasePosition = GameObject.FindWithTag("CameraPhotosBasePoint");
     }
 
     // Update is called once per frame
@@ -80,21 +78,18 @@ public class PlayerController_Equipment : MonoBehaviour
     {
         if (actionEquipo1Camera.WasPressedThisFrame() && cameraEquipped == false)
         {
-            cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
             cameraEquipped = true;
-            followMouse.enabled = true;
+            cameraFollowMouse.enabled = true;
         }
         else if (actionEquipo1Camera.WasPressedThisFrame() && cameraEquipped == true)
         {
             cameraEquipped = false;
-            followMouse.enabled = false;
-            cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            cameraFollowMouse.enabled = false;
         }
         else if (playerControllerWater.moveAmmount != Vector2.zero)
         {
             cameraEquipped = false;
-            followMouse.enabled = false;
-            cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            cameraFollowMouse.enabled = false;
         }
     }
 
@@ -111,20 +106,17 @@ public class PlayerController_Equipment : MonoBehaviour
         if (actionEquipo2NetLauncher.WasPressedThisFrame() && netLauncherEquipped == false)
         {
             netLauncherEquipped = true;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
-            //followMouse.enabled = true;
+            netLauncherFollowMouse.enabled = true;
         }
         else if (actionEquipo2NetLauncher.WasPressedThisFrame() && netLauncherEquipped == true)
         {
             netLauncherEquipped = false;
-            //followMouse.enabled = false;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            netLauncherFollowMouse.enabled = false;
         }
         else if (playerControllerWater.moveAmmount != Vector2.zero)
         {
             netLauncherEquipped = false;
-            //followMouse.enabled = false;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            netLauncherFollowMouse.enabled = false;
         }
     }
 

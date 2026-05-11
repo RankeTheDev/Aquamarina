@@ -17,8 +17,6 @@ public class Net : MonoBehaviour
 	private Rigidbody2D _rigidbody;
 	private float _startingTime;
 
-	private bool _returning;
-
 	void Awake()
 	{
 		_renderer = GetComponent<SpriteRenderer>();
@@ -70,12 +68,6 @@ public class Net : MonoBehaviour
 			Vanish();
         }
     }
-
-    public void AddDamage()
-	{
-		_returning = true;
-		direction = direction * -1f;
-	}
 
 	public void Vanish()
 	{
