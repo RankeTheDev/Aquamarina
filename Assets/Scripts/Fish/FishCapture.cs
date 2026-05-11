@@ -8,7 +8,9 @@ public class FishCapture : MonoBehaviour
     [SerializeField] SpriteRenderer fishStandard;
     [SerializeField] GameObject fishCaptured;
     [SerializeField] Transform player;
-    [SerializeField] float speed = 0.1f; // 0 = no movement, 1 = instant
+    [SerializeField] float speed = 10f; // Units per second
+
+    [SerializeField] bool moveToPlayer = false;
     [SerializeField] Fish fishScript;
 
     #endregion
@@ -28,7 +30,13 @@ public class FishCapture : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (moveToPlayer)
+        {
+            if (transform.position != player.position)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            }
+        }
     }
 
     public void Captured()
@@ -36,17 +44,7 @@ public class FishCapture : MonoBehaviour
         fishStandard.enabled = false; //Desactivo sprite normal
         fishCaptured.GetComponent<SpriteRenderer>().enabled = true; //Activo sprite de la version capturada
         fishScript.enabled = true;
-
-        StartCoroutine("MoveToPlayer");
-    }
-
-    IEnumerator MoveToPlayer()
-    { 
-        yield return new WaitForSeconds(0.5f);
-        while (transform.position != player.position)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
+        moveToPlayer = true;
     }
     #endregion
 }
