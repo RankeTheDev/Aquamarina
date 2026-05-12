@@ -45,7 +45,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
         currentScene = SceneManager.GetActiveScene(); //Obtiene la escena actual
         sceneIndex = currentScene.buildIndex; //Obtiene el indice de la escena actual (0 es la terrestre)
 
-        if (sceneIndex == 0)
+        if (sceneIndex == 1)
         {
             playerControllerGround.enabled = true; //Activa el script de control terrestre
             playerControllerWater.enabled = false; //Desactiva el script de control acuático

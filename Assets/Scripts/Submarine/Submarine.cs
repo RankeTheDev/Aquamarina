@@ -19,9 +19,11 @@ public class Submarine : MonoBehaviour
     [SerializeField] AnimationClip animacionFinal;
     [SerializeField] GameObject submarineMark;
 
-    [SerializeField] GameObject buttonZone0;
     [SerializeField] GameObject buttonZone1;
     [SerializeField] GameObject buttonZone2;
+    [SerializeField] GameObject buttonZone3;
+    [SerializeField] GameObject buttonZone4;
+    [SerializeField] GameObject buttonZone5;
 
     [SerializeField] GameObject player;
     int sceneToTPSubmarine;
@@ -43,8 +45,8 @@ public class Submarine : MonoBehaviour
     {
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
         actionInteract = InputSystem.actions.FindAction("Interact");
-        submarineMark = GameObject.FindWithTag("SubmarineRangeMark");
-        //submarineMark = GameObject.FindWithTag("SubmarineMap");
+        //submarineMark = GameObject.FindWithTag("SubmarineRangeMark");
+        //submarineMap = GameObject.FindWithTag("SubmarineMap");
         canvasFades = GameObject.FindWithTag("PanelFades");
         player = GameObject.FindWithTag("Player");
         submarinePositionOnEnter = GameObject.FindWithTag("SubmarinePositions");
@@ -166,15 +168,7 @@ public class Submarine : MonoBehaviour
 
     void SubmarineMapButtonsActivate()
     {
-        if (submarineZones.zone1Discovered)
-        {
-            buttonZone1.SetActive(true);
-        }
-        else 
-        {
-            buttonZone1.SetActive(false);
-        }
-
+        //Activar - desacttivar boton de viaje rapido con submarino a la zona 2 en funcion de si esta descubierta o no
         if (submarineZones.zone2Discovered)
         {
             buttonZone2.SetActive(true);
@@ -182,6 +176,36 @@ public class Submarine : MonoBehaviour
         else
         {
             buttonZone2.SetActive(false);
+        }
+
+        //Activar - desacttivar boton de viaje rapido con submarino a la zona 3 en funcion de si esta descubierta o no
+        if (submarineZones.zone2Discovered)
+        {
+            buttonZone3.SetActive(true);
+        }
+        else
+        {
+            buttonZone3.SetActive(false);
+        }
+
+        //Activar - desacttivar boton de viaje rapido con submarino a la zona 4 en funcion de si esta descubierta o no
+        if (submarineZones.zone2Discovered)
+        {
+            buttonZone4.SetActive(true);
+        }
+        else
+        {
+            buttonZone4.SetActive(false);
+        }
+
+        //Activar - desacttivar boton de viaje rapido con submarino a la zona 5 en funcion de si esta descubierta o no
+        if (submarineZones.zone2Discovered)
+        {
+            buttonZone5.SetActive(true);
+        }
+        else
+        {
+            buttonZone5.SetActive(false);
         }
     }
 

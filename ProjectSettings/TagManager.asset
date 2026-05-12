@@ -24,6 +24,10 @@ TagManager:
   - FishGatherer
   - NetLauncher
   - NetLauncherBasePoint
+  - CanvasTimer
+  - SubmarineZone3
+  - SubmarineZone4
+  - SubmarineZone5
   layers:
   - Default
   - TransparentFX
