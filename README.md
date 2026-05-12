@@ -12,7 +12,7 @@ Sistema de viaje rapido con zonas nuevas de viaje rápido descubribles.
 Una bonita interfaz pixel art.
 Más de 30 peces a descubrir!
 Con sistema de inventario e items con funciones únicas.
-Interfaz en una PDA con secciones toggleables como registro de peces e inventario.
+Interfaz en una PDA con secciones toggleables como registro de peces e inventario, además de una sección con acceso restringido en la demo.
 Animaciones nuevas de idle para el player en tierra.
 Registro de peces para la camara de fotos, con descripciones y peces desbloqueados solo si se les ha hecho una foto.
 Escenarios creados con Tilesets pixelart.
