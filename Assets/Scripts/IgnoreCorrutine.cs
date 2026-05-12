@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BasicCorrutine : MonoBehaviour
+public class IgnoreCorrutine : MonoBehaviour
 {
     #region variables
     int speed;
@@ -18,21 +18,21 @@ public class BasicCorrutine : MonoBehaviour
     public bool scared = false;
     public Vector2 distanceDifference;
     public float scaredVelocity; //Velocidad en la que se mueve cuendo se asusta
-    public float detectVelocity; //Velocidad l韒ite para detectar al Player
+    public float detectVelocity; //Velocidad l铆mite para detectar al Player
     public PlayerControllerWater playerScript;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] bool catchFailed;
     #endregion
 
     #region variables no usadas
-  /*public float alfa;
-    public float alfaMax = 1f;
-    public float alfaMin = 0f;
-    public float tiempoDesaparici髇 = 1f;*/
+    /*public float alfa;
+      public float alfaMax = 1f;
+      public float alfaMin = 0f;
+      public float tiempoDesaparici贸n = 1f;*/
     #endregion
 
     private Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         #region Ajustes Iniciales
@@ -54,7 +54,6 @@ public class BasicCorrutine : MonoBehaviour
         animator.SetBool("Scared", scared);
 
         #endregion
-
         if (!tarject)
         {
             tarject = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -62,32 +61,34 @@ public class BasicCorrutine : MonoBehaviour
 
         if (scared == false)
         {
-            //Cambio de posici髇 entre puntos
+            //Cambio de posici贸n entre puntos
             if (!agent.pathPending && agent.remainingDistance <= 0.1)
             {
                 currentPosition = (currentPosition + 1) % points.Length;
                 agent.SetDestination(points[currentPosition].position);
             }
         }
-        else
+        else if (catchFailed == true)
         {
             Scared();
         }
-
     }
 
+
+
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if(collision.gameObject.tag == ("Player"))
-       {
-            if (detectVelocity < playerScript.speedMultiplier) //Detecta si el multiplicador de velocidad del player es mayor que su l韒ite de detecci髇, en tal caso, se cumple el if
+        if (collision.gameObject.tag == ("Player"))
+        {
+            if (detectVelocity < playerScript.speedMultiplier) //Detecta si el multiplicador de velocidad del player es mayor que su l铆mite de detecci贸n, en tal caso, se cumple el if
             {
-                Debug.Log("tontopolla AY AY AY");
+                Debug.Log("Collide");
                 scared = true;
             }
-       }
+        }
     }
-
+    */
     void Scared()
     {
         //Huida
@@ -95,7 +96,7 @@ public class BasicCorrutine : MonoBehaviour
         transform.Translate(distanceDifference * scaredVelocity * Time.deltaTime);
     }
 
-    public void TriggerEvent() //Se triggerea al final de la animaci髇 del pez huyendo
+    public void TriggerEvent() //Se triggerea al final de la animaci贸n del pez huyendo
     {
         Destroy(this.gameObject);
     }
