@@ -100,11 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 3.5
+  speed: 2
   direction: {x: 0, y: 0}
   livingTime: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   finalColor: {r: 1, g: 1, b: 1, a: 0}
+  netLauncherFollowMouse: {fileID: 0}
 --- !u!50 &-5992090430245882812
 Rigidbody2D:
   serializedVersion: 4

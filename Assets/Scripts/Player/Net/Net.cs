@@ -7,10 +7,10 @@ using UnityEngine.U2D;
 public class Net : MonoBehaviour
 {
 	public int damage = 1;
-	public float speed = 3f;
+	public float speed = 2f;
 	public Vector2 direction;
 
-	public float livingTime = 3f;
+	public float livingTime = 2f;
 	public Color initialColor = Color.white;
 	public Color finalColor;
 
@@ -43,6 +43,10 @@ public class Net : MonoBehaviour
 		{
 			transform.position = Vector2.MoveTowards(transform.position, netLauncherFollowMouse.GetWorldPositionFromMouse(), speed * Time.deltaTime);
 		}
+		else if (netPosition == netLauncherFollowMouse.GetWorldPositionFromMouse())
+		{
+            Vanish();
+        }
 
         // Change bullet's color over time
         float _timeSinceStarted = Time.time - _startingTime;
@@ -84,7 +88,7 @@ public class Net : MonoBehaviour
 	public void Vanish()
 	{
 		speed = 0f;
-		_renderer.enabled = false;
+        _renderer.enabled = false;
 		Destroy(this.gameObject);
 	}
 }
