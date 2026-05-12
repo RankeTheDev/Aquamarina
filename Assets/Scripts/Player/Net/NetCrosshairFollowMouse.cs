@@ -11,7 +11,6 @@ public class NetLauncherFollowMouse : MonoBehaviour
     [SerializeField] float maxSpeed = 10f;
     [SerializeField] GameObject player;
     [SerializeField] PlayerControllerWater playerControllerWater;
-
     #endregion
 
     #region METHODS
@@ -35,7 +34,7 @@ public class NetLauncherFollowMouse : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, GetWorldPositionFromMouse(), maxSpeed * Time.deltaTime);
     }
 
-    private Vector2 GetWorldPositionFromMouse()
+    public Vector2 GetWorldPositionFromMouse()
     {
         return mainCameraComponent.ScreenToWorldPoint(Input.mousePosition);
     }

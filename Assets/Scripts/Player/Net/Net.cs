@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
 
 public class Net : MonoBehaviour
 {
 	public int damage = 1;
-	public float speed = 2f;
+	public float speed = 3f;
 	public Vector2 direction;
 
 	public float livingTime = 3f;
@@ -17,11 +18,14 @@ public class Net : MonoBehaviour
 	private Rigidbody2D _rigidbody;
 	private float _startingTime;
 
-	void Awake()
+    [SerializeField] NetLauncherFollowMouse netLauncherFollowMouse;
+
+    void Awake()
 	{
 		_renderer = GetComponent<SpriteRenderer>();
 		_rigidbody = GetComponent<Rigidbody2D>();
-	}
+        netLauncherFollowMouse = FindObjectOfType<NetLauncherFollowMouse>();
+    }
 
 	// Start is called before the first frame update
 	void Start()
@@ -33,13 +37,21 @@ public class Net : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		// Change bullet's color over time
-		float _timeSinceStarted = Time.time - _startingTime;
+		Vector2 netPosition = transform.position;
+
+        if (netPosition != netLauncherFollowMouse.GetWorldPositionFromMouse())
+		{
+			transform.position = Vector2.MoveTowards(transform.position, netLauncherFollowMouse.GetWorldPositionFromMouse(), speed * Time.deltaTime);
+		}
+
+        // Change bullet's color over time
+        float _timeSinceStarted = Time.time - _startingTime;
 		float _percentageCompleted = _timeSinceStarted / livingTime;
 
 		_renderer.color = Color.Lerp(initialColor, finalColor, _percentageCompleted);
 
-		if (_percentageCompleted >= 1f) {
+		if (_percentageCompleted >= 1f) 
+		{
             Vanish(); 
 		}
 	}
@@ -73,6 +85,6 @@ public class Net : MonoBehaviour
 	{
 		speed = 0f;
 		_renderer.enabled = false;
-		Destroy(gameObject, 1.5f);
+		Destroy(this.gameObject, 1f);
 	}
 }

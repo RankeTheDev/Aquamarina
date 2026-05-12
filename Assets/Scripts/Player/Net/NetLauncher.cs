@@ -6,11 +6,6 @@ using UnityEngine.InputSystem;
 public class NetLauncher : MonoBehaviour
 {
     #region VARIABLES
-    [Header("Variables Input System")]
-    [SerializeField] InputActionAsset inputActionAsset;
-    InputAction actionAttack;
-
-
     public GameObject netPrefab;
 	public GameObject shooter;
 
@@ -21,7 +16,7 @@ public class NetLauncher : MonoBehaviour
     void Awake()
 	{
 		_firePoint = this.transform;
-	}
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,10 +28,11 @@ public class NetLauncher : MonoBehaviour
 	{
 		if (netPrefab && _firePoint && shooter) 
 		{
-			GameObject myNet = Instantiate(netPrefab, _firePoint.position, Quaternion.identity) as GameObject;
+            GameObject myNet = Instantiate(netPrefab, _firePoint.position, Quaternion.identity) as GameObject;
 
-			Net netComponent = myNet.GetComponent<Net>();
+            Net netComponent = myNet.GetComponent<Net>();
 
+            //LIMITA A QUE LADO PUEDES DISPARAR
 			if (shooter.transform.localScale.x > 0f) {
 				// Left
 				netComponent.direction = Vector2.left; // new Vector2(-1f, 0f)
@@ -44,7 +40,7 @@ public class NetLauncher : MonoBehaviour
                 // Right
                 netComponent.direction = Vector2.right; // new Vector2(1f, 0f)
 			}
-		}
+        }
 	}
     #endregion
 }
