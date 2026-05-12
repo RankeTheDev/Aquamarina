@@ -85,6 +85,6 @@ public class Net : MonoBehaviour
 	{
 		speed = 0f;
 		_renderer.enabled = false;
-		Destroy(this.gameObject, 1f);
+		Destroy(this.gameObject);
 	}
 }

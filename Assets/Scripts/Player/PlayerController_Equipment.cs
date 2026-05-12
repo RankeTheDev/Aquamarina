@@ -122,7 +122,7 @@ public class PlayerController_Equipment : MonoBehaviour
 
     void NetShoot()
     {
-        if (netLauncherEquipped && actionAttack.WasPressedThisFrame())
+        if (netLauncherEquipped && !netLauncher.netAlreadyInstantiated && actionAttack.WasPressedThisFrame())
         {
             animator.SetTrigger("NetLauncherShoot");
             netLauncher.Shoot();
