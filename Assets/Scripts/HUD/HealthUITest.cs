@@ -16,7 +16,7 @@ public class HealthBarUI : MonoBehaviour
     void Start()
     {
         // Validaciones
-    /*
+        /*
         if (spritesHealthBar == null || spritesHealthBar.Length != 7)
         {
             Debug.LogError("Debes asignar exactamente 7 sprites en el array");

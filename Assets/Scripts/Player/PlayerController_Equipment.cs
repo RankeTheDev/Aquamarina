@@ -11,30 +11,32 @@ public class PlayerController_Equipment : MonoBehaviour
     [SerializeField] InputActionAsset inputActionAsset;
     public InputAction actionAttack;
     InputAction actionEquipo1Camera;
-    InputAction actionEquipo2Net;
-    InputAction actionEquipo3NetLauncher;
-    InputAction actionInventory;
+    InputAction actionEquipo2NetLauncher;
+    InputAction actionPDA;
 
     [Header("Variables generales")]
     [SerializeField] Vector2 moveAmmount;
     public GameObject menuPDA;
+    [SerializeField] float shootingInterval; 
+
+    //Variables base para controlar la cadencia de disparo del arma
     public bool menuPDAActivated;
+    [SerializeField] bool canShoot;
 
     [Header("Variables del Animator")]
     public bool cameraEquipped;
     [SerializeField] bool cameraTakePhoto;
-    [SerializeField] bool netEquipped;
     [SerializeField] bool netLauncherEquipped;
 
     [Header("Variables de Componente y Scripts")]
-    [SerializeField] FollowMouse followMouse;
+    [SerializeField] CameraFollowMouse cameraFollowMouse;
+    [SerializeField] NetLauncherFollowMouse netLauncherFollowMouse;
     [SerializeField] Animator animator;
     [SerializeField] PlayerControllerWater playerControllerWater;
+    [SerializeField] NetLauncher netLauncher;
 
     [Header("Otras Variables")]
     Vector2 movement;
-    [SerializeField] GameObject cameraEquipment;
-    [SerializeField] GameObject cameraEquipmentBasePosition;
 
     #endregion
 
@@ -44,17 +46,16 @@ public class PlayerController_Equipment : MonoBehaviour
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
         actionAttack = InputSystem.actions.FindAction("Attack");
         actionEquipo1Camera = InputSystem.actions.FindAction("Equipo1_Camera");
-        actionEquipo2Net = InputSystem.actions.FindAction("Equipo2_Net");
-        actionEquipo3NetLauncher = InputSystem.actions.FindAction("Equipo3_NetLauncher");
-        actionInventory = InputSystem.actions.FindAction("Inventory");
+        actionEquipo2NetLauncher = InputSystem.actions.FindAction("Equipo2_NetLauncher");
+        actionPDA = InputSystem.actions.FindAction("PDA");
 
         //ASIGNO LAS VARIABLES DE COMPONENTES
         animator = GetComponent<Animator>();
-        followMouse = GetComponentInChildren<FollowMouse>();
+        cameraFollowMouse = GetComponentInChildren<CameraFollowMouse>();
+        netLauncherFollowMouse = GetComponentInChildren<NetLauncherFollowMouse>();
         playerControllerWater = GetComponentInChildren<PlayerControllerWater>();
-        cameraEquipment = GameObject.FindWithTag("CameraPhotos");
+        netLauncher = GetComponentInChildren<NetLauncher>();
         menuPDA = GameObject.FindWithTag("PDAMenu");
-        cameraEquipmentBasePosition = GameObject.FindWithTag("CameraPhotosBasePoint");
     }
 
     // Update is called once per frame
@@ -64,12 +65,11 @@ public class PlayerController_Equipment : MonoBehaviour
         OpenClosePDA();
         CameraEquip();
         TakePhoto();
-        NetEquip();
         NetLauncherEquip();
+        NetShoot();
 
         //ANIMATOR VARIABLES SETTINGS
         animator.SetBool("CameraEquipped", cameraEquipped);
-        animator.SetBool("NetEquipped", netEquipped);
         animator.SetBool("NetLauncherEquipped", netLauncherEquipped);
     }
 
@@ -78,21 +78,18 @@ public class PlayerController_Equipment : MonoBehaviour
     {
         if (actionEquipo1Camera.WasPressedThisFrame() && cameraEquipped == false)
         {
-            cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
             cameraEquipped = true;
-            followMouse.enabled = true;
+            cameraFollowMouse.enabled = true;
         }
         else if (actionEquipo1Camera.WasPressedThisFrame() && cameraEquipped == true)
         {
             cameraEquipped = false;
-            followMouse.enabled = false;
-            cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            cameraFollowMouse.enabled = false;
         }
         else if (playerControllerWater.moveAmmount != Vector2.zero)
         {
             cameraEquipped = false;
-            followMouse.enabled = false;
-            cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            cameraFollowMouse.enabled = false;
         }
     }
 
@@ -104,47 +101,31 @@ public class PlayerController_Equipment : MonoBehaviour
         }
     }
 
-    void NetEquip()
+    void NetLauncherEquip()
     {
-        if (actionEquipo2Net.WasPressedThisFrame() && netEquipped == false)
+        if (actionEquipo2NetLauncher.WasPressedThisFrame() && netLauncherEquipped == false)
         {
-            netEquipped = true;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
-            //followMouse.enabled = true;
+            netLauncherEquipped = true;
+            netLauncherFollowMouse.enabled = true;
         }
-        else if (actionEquipo2Net.WasPressedThisFrame() && netEquipped == true)
+        else if (actionEquipo2NetLauncher.WasPressedThisFrame() && netLauncherEquipped == true)
         {
-            netEquipped = false;
-            //followMouse.enabled = false;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            netLauncherEquipped = false;
+            netLauncherFollowMouse.enabled = false;
         }
         else if (playerControllerWater.moveAmmount != Vector2.zero)
         {
-            netEquipped = false;
-            //followMouse.enabled = false;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            netLauncherEquipped = false;
+            netLauncherFollowMouse.enabled = false;
         }
     }
 
-    void NetLauncherEquip()
+    void NetShoot()
     {
-        if (actionEquipo3NetLauncher.WasPressedThisFrame() && netLauncherEquipped == false)
+        if (netLauncherEquipped && !netLauncher.netAlreadyInstantiated && actionAttack.WasPressedThisFrame())
         {
-            netLauncherEquipped = true;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
-            //followMouse.enabled = true;
-        }
-        else if (actionEquipo3NetLauncher.WasPressedThisFrame() && netLauncherEquipped == true)
-        {
-            netLauncherEquipped = false;
-            //followMouse.enabled = false;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
-        }
-        else if (playerControllerWater.moveAmmount != Vector2.zero)
-        {
-            netLauncherEquipped = false;
-            //followMouse.enabled = false;
-            //cameraEquipment.transform.position = cameraEquipmentBasePosition.transform.position;
+            animator.SetTrigger("NetLauncherShoot");
+            netLauncher.Shoot();
         }
     }
 
@@ -157,13 +138,13 @@ public class PlayerController_Equipment : MonoBehaviour
             menuPDA.SetActive(false);
         }
 
-        if (actionInventory.WasPressedThisFrame() && menuPDAActivated)
+        if (actionPDA.WasPressedThisFrame() && menuPDAActivated)
         {
             Time.timeScale = 1;
             menuPDA.SetActive(false);
             menuPDAActivated = false;
         }
-        else if (actionInventory.WasPressedThisFrame() && !menuPDAActivated)
+        else if (actionPDA.WasPressedThisFrame() && !menuPDAActivated)
         {
             Time.timeScale = 0;
             menuPDA.SetActive(true);

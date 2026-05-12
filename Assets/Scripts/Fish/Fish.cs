@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Fish : MonoBehaviour
 {
     #region VARIABLES
-    [SerializeField] string itemName;
+    [SerializeField] FishName fish;
+    [SerializeField] FishCapture fishCapture;
     [SerializeField] int quantity;
     [SerializeField] Sprite sprite; //SPRITE QUE SE MOSTRARA EN EL INVENTARIO
-
     [SerializeField] InventoryManager inventoryManager;
-
     #endregion
 
     #region METHODS
@@ -18,6 +17,8 @@ public class Item : MonoBehaviour
     void Start()
     {
         inventoryManager = FindAnyObjectByType<InventoryManager>();
+        fish = GetComponent<FishName>();
+        fishCapture = GetComponent<FishCapture>();
     }
 
     // Update is called once per frame
@@ -29,19 +30,24 @@ public class Item : MonoBehaviour
         }
     }
 
+    public void AddItem()
+    {
+        int leftOverItems = inventoryManager.AddItem(fish.fishName, quantity, sprite);
+        if (leftOverItems <= 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            quantity = leftOverItems;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        if(trigger.gameObject.tag == "Player")
+        if (trigger.gameObject.tag == "Player" && fishCapture.moveToPlayer)
         {
-            int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite);
-            if (leftOverItems <= 0)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                quantity = leftOverItems;
-            }
+            AddItem();
         }
     }
     #endregion

@@ -52,18 +52,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Equipo2_Net",
+                    "name": "Equipo2_NetLauncher",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Equipo3_NetLauncher",
-                    "type": "Button",
-                    "id": "093771ec-1ce5-4928-aa9d-34ffca06261f",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -79,7 +70,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Inventory",
+                    "name": "PDA",
                     "type": "Button",
                     "id": "3ea6fdf8-b7d7-4813-b73b-29d42f4d3ab9",
                     "expectedControlType": "",
@@ -283,7 +274,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Equipo2_Net",
+                    "action": "Equipo2_NetLauncher",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -294,29 +285,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Equipo2_Net",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9485099b-213a-4978-b5c3-cc17c2e2caeb",
-                    "path": "<Keyboard>/3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Equipo3_NetLauncher",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f27ab015-ba35-4b06-90bb-9f53299dcaca",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Equipo3_NetLauncher",
+                    "action": "Equipo2_NetLauncher",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -393,7 +362,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Inventory",
+                    "action": "PDA",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -404,7 +373,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Inventory",
+                    "action": "PDA",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -430,6 +399,15 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PDA",
+                    "type": "Button",
+                    "id": "0a81eab5-25fc-47e9-9b77-ce45c5d87cae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -519,6 +497,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f6dfdf18-b784-40d9-9f42-dccd5082c6be",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PDA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf0e6db8-c076-43ca-97a8-515a279ab69d",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PDA",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class FollowMouse : MonoBehaviour
+public class CameraFollowMouse : MonoBehaviour
 {
     #region VARIABLES
     [SerializeField] GameObject mainCamera;
@@ -11,7 +11,7 @@ public class FollowMouse : MonoBehaviour
     [SerializeField] float maxSpeed = 10f;
     [SerializeField] GameObject player;
     [SerializeField] PlayerControllerWater playerControllerWater;
-    
+
     #endregion
 
     #region METHODS
@@ -47,5 +47,6 @@ public class FollowMouse : MonoBehaviour
             playerControllerWater.Flip();
         }
     }*/
+
     #endregion
 }

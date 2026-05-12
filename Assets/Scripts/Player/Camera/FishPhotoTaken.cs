@@ -311,8 +311,8 @@ public class FishPhotoTaken : MonoBehaviour
                     if (!anguilaPelicano)
                     {
                         anguilaPelicano = true;
-                        buttonsPecesRegistro[25].enabled = true;
-                        imagesPecesRegistro[25].color = Color.white;
+                        buttonsPecesRegistro[26].enabled = true;
+                        imagesPecesRegistro[26].color = Color.white;
                     }
                     break;
 
@@ -320,8 +320,8 @@ public class FishPhotoTaken : MonoBehaviour
                     if (!pezBala)
                     {
                         pezBala = true;
-                        buttonsPecesRegistro[26].enabled = true;
-                        imagesPecesRegistro[26].color = Color.white;
+                        buttonsPecesRegistro[27].enabled = true;
+                        imagesPecesRegistro[27].color = Color.white;
                     }
                     break;
 
@@ -329,8 +329,8 @@ public class FishPhotoTaken : MonoBehaviour
                     if (!pezLinterna)
                     {
                         pezLinterna = true;
-                        buttonsPecesRegistro[27].enabled = true;
-                        imagesPecesRegistro[27].color = Color.white;
+                        buttonsPecesRegistro[28].enabled = true;
+                        imagesPecesRegistro[28].color = Color.white;
                     }
                     break;
 
@@ -338,8 +338,8 @@ public class FishPhotoTaken : MonoBehaviour
                     if (!pezGato)
                     {
                         pezGato = true;
-                        buttonsPecesRegistro[28].enabled = true;
-                        imagesPecesRegistro[28].color = Color.white;
+                        buttonsPecesRegistro[29].enabled = true;
+                        imagesPecesRegistro[29].color = Color.white;
                     }
                     break;
 
@@ -347,8 +347,8 @@ public class FishPhotoTaken : MonoBehaviour
                     if (!pezGema)
                     {
                         pezGema = true;
-                        buttonsPecesRegistro[29].enabled = true;
-                        imagesPecesRegistro[29].color = Color.white;
+                        buttonsPecesRegistro[30].enabled = true;
+                        imagesPecesRegistro[30].color = Color.white;
                     }
                     break;
 
@@ -356,8 +356,8 @@ public class FishPhotoTaken : MonoBehaviour
                     if (!pezqueleto)
                     {
                         pezqueleto = true;
-                        buttonsPecesRegistro[30].enabled = true;
-                        imagesPecesRegistro[30].color = Color.white;
+                        buttonsPecesRegistro[31].enabled = true;
+                        imagesPecesRegistro[31].color = Color.white;
                     }
                     break;
 
@@ -365,8 +365,8 @@ public class FishPhotoTaken : MonoBehaviour
                     if (!pezFosil)
                     {
                         pezFosil = true;
-                        buttonsPecesRegistro[31].enabled = true;
-                        imagesPecesRegistro[31].color = Color.white;
+                        buttonsPecesRegistro[32].enabled = true;
+                        imagesPecesRegistro[32].color = Color.white;
                     }
                     break;
             }
