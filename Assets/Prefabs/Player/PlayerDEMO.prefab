@@ -367,8 +367,8 @@ GameObject:
   - component: {fileID: 7737499367827128783}
   - component: {fileID: 5260413005651079804}
   - component: {fileID: 2590989497295030318}
-  - component: {fileID: 2223255431538443812}
   - component: {fileID: 217133733573458813}
+  - component: {fileID: 2223255431538443812}
   - component: {fileID: 6807518153193870056}
   - component: {fileID: 7269162332515678563}
   - component: {fileID: 7920944891700734010}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 3597490466662552891}
   - component: {fileID: 8064327675050168116}
   m_Layer: 0
-  m_Name: PlayerBase
+  m_Name: PlayerDEMO
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,6 +540,37 @@ MonoBehaviour:
   player: {fileID: 0}
   playerControllerWater: {fileID: 0}
   playerControllerGround: {fileID: 0}
+  animatorPlayer: {fileID: 0}
+--- !u!114 &217133733573458813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454644744081574198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65f76bfccc137c46bad04a6d82c43dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActionAsset: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
+  actionMove:
+    m_Name: Action Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 00dea5e9-32db-4779-8255-02fbee3dc270
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  moveAmmount: {x: 0, y: 0}
+  speed: 3
+  longIdleTime: 5
+  longIdleTimer: 0
+  animator: {fileID: 0}
+  rigidbodyPlayer: {fileID: 0}
+  timer: {fileID: 0}
+  sceneTypeChecker: {fileID: 0}
 --- !u!114 &2223255431538443812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,36 +593,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   rigidbodyPlayer: {fileID: 0}
   timer: {fileID: 7920944891700734010}
-  sceneTypeChecker: {fileID: 0}
---- !u!114 &217133733573458813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454644744081574198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65f76bfccc137c46bad04a6d82c43dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActionAsset: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
-  actionMoveGround:
-    m_Name: Action Move Ground
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 7c4141d6-5adf-4274-815f-b33aea1a896b
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  moveAmmount: {x: 0, y: 0}
-  speed: 3
-  longIdleTime: 5
-  longIdleTimer: 0
-  animator: {fileID: 0}
-  rigidbodyPlayer: {fileID: 0}
-  timer: {fileID: 0}
   sceneTypeChecker: {fileID: 0}
 --- !u!114 &6807518153193870056
 MonoBehaviour:
@@ -724,7 +725,7 @@ Animator:
   m_GameObject: {fileID: 1454644744081574198}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 50adb01a5c60a1b4bb1c43fb45f906b3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 397f6ac3618f66348bb50aae4d7cc742, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

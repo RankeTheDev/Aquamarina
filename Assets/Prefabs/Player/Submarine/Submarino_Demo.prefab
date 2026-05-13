@@ -145,10 +145,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 8962422029025853095}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 8398810796539994389}
+        m_TargetAssemblyTypeName: Submarine, Assembly-CSharp
+        m_MethodName: CloseSubmarineMap
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -386,10 +386,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 8962422029025853095}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 8398810796539994389}
+        m_TargetAssemblyTypeName: Submarine, Assembly-CSharp
+        m_MethodName: CloseSubmarineMap
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1144,7 +1144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4172558704865875057, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4172558704865875057, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1157,18 +1157,18 @@ PrefabInstance:
     - target: {fileID: 4172558704865875057, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 8962422029025853095}
+      objectReference: {fileID: 8398810796539994389}
     - target: {fileID: 4172558704865875057, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4172558704865875057, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
+      value: CloseSubmarineMap
       objectReference: {fileID: 0}
     - target: {fileID: 4172558704865875057, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: Submarine, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4172558704865875057, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -1260,7 +1260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5922161912345506072, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5922161912345506072, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1273,18 +1273,18 @@ PrefabInstance:
     - target: {fileID: 5922161912345506072, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 8962422029025853095}
+      objectReference: {fileID: 8398810796539994389}
     - target: {fileID: 5922161912345506072, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5922161912345506072, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
+      value: CloseSubmarineMap
       objectReference: {fileID: 0}
     - target: {fileID: 5922161912345506072, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: Submarine, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5922161912345506072, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -1332,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6856512882753320590, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6856512882753320590, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1345,18 +1345,18 @@ PrefabInstance:
     - target: {fileID: 6856512882753320590, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 8962422029025853095}
+      objectReference: {fileID: 8398810796539994389}
     - target: {fileID: 6856512882753320590, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6856512882753320590, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
+      value: CloseSubmarineMap
       objectReference: {fileID: 0}
     - target: {fileID: 6856512882753320590, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: Submarine, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6856512882753320590, guid: a9f66470590ea4249a1a155fca599b1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument

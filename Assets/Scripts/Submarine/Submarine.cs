@@ -25,8 +25,6 @@ public class Submarine : MonoBehaviour
     [SerializeField] GameObject buttonZone4;
     [SerializeField] GameObject buttonZone5;
 
-    //[SerializeField] GameObject playerWater;
-    //[SerializeField] GameObject playerGround;
     [SerializeField] GameObject player;
 
     int sceneToTPSubmarine;
@@ -52,8 +50,6 @@ public class Submarine : MonoBehaviour
         //submarineMark = GameObject.FindWithTag("SubmarineRangeMark");
         //submarineMap = GameObject.FindWithTag("SubmarineMap");
         canvasFades = GameObject.FindWithTag("PanelFades");
-        //playerWater = GameObject.FindWithTag("PlayerWater");
-        //playerGround = GameObject.FindWithTag("PlayerGround");
         playerControllerWater = FindObjectOfType<PlayerControllerWater>();
         playerControllerGround = FindObjectOfType<PlayerController_Ground>();
         player = GameObject.FindWithTag("Player");
@@ -150,14 +146,6 @@ public class Submarine : MonoBehaviour
         {
             submarineMap = GameObject.FindWithTag("SubmarineMap");
         }
-        /*if (!playerControllerWater)
-        {
-            playerControllerWater = FindObjectOfType<PlayerControllerWater>();
-        }
-        if (!playerControllerGround)
-        {
-            playerControllerGround = FindObjectOfType<PlayerController_Ground>();
-        }*/
         if (!sceneTypeChecker)
         {
             sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
@@ -178,24 +166,6 @@ public class Submarine : MonoBehaviour
 
         if (isSubmarineMapOpen)
         {
-            /*if (playerGround)
-            {
-                playerControllerGround.enabled = false;
-            }
-            else
-            {
-                Debug.Log("PlayerGround esta off en esta escena");
-            }
-
-            if (playerWater)
-            {
-                playerControllerWater.enabled = false;
-            }
-            else
-            {
-                Debug.Log("PlayerWater esta off en esta escena");
-            }*/
-
             playerControllerGround.enabled = false;
             playerControllerWater.enabled = false;
         }
@@ -217,24 +187,6 @@ public class Submarine : MonoBehaviour
         submarineMap.SetActive(false);
         isSubmarineMapOpen = false;
 
-        /*if (playerGround)
-        {
-            playerControllerGround.enabled = true;
-        }
-        else
-        {
-            Debug.Log("PlayerGround esta off en esta escena");
-        }
-
-        if (playerWater)
-        {
-            playerControllerWater.enabled = true;
-        }
-        else
-        {
-            Debug.Log("PlayerWater esta off en esta escena");
-        }*/
-
         playerControllerGround.enabled = true;
         playerControllerWater.enabled = true;
     }
@@ -252,18 +204,8 @@ public class Submarine : MonoBehaviour
         SceneManager.LoadScene(sceneToTPSubmarine);
 
         //muevo al player al punto de la pantalla en que quiero que aparezca
-        //playerPositionOnEnter = GameObject.FindWithTag("PositionPlayerOnEntry");
-        /*if (playerWater)
-        {
-            playerWater.transform.position = submarinePositionOnEnter.transform.position;
-        }
-        else if (playerGround)
-        {
-            playerGround.transform.position = submarinePositionOnEnter.transform.position;
-        }*/
-
         player.transform.position = submarinePositionOnEnter.transform.position;
-
+        
         //Reactivo los controles del player
         playerControllerWater.enabled = true;
         playerControllerGround.enabled = true;

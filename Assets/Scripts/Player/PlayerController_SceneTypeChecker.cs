@@ -23,6 +23,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
     [SerializeField] GameObject player; //GameObject del player
     [SerializeField] PlayerControllerWater playerControllerWater;
     [SerializeField] PlayerController_Ground playerControllerGround;
+    [SerializeField] Animator animatorPlayer;
 
     #endregion
 
@@ -34,6 +35,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
         //playerGround = GameObject.FindWithTag("PlayerGround");
 
         player = GameObject.FindWithTag("Player");
+        animatorPlayer = player.GetComponent<Animator>();
         playerControllerWater = player.GetComponent<PlayerControllerWater>();
         playerControllerGround = player.GetComponent<PlayerController_Ground>();
     }
@@ -50,6 +52,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
         {
             playerControllerWater.enabled = false;
             playerControllerGround.enabled = true;
+            animatorPlayer.SetBool("IsGrounded", true);
             //playerGround.SetActive(true); //Activa el control terrestre
             //playerWater.SetActive(false); //Desactiva el control acuático
             //playerGroundIsActive = true; //Valida como verdadera la variable que indica que playerGround es el activo
@@ -59,6 +62,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
         {
             playerControllerWater.enabled = true;
             playerControllerGround.enabled = false;
+            animatorPlayer.SetBool("IsGrounded", false);
             //playerWater.SetActive(true); //Activa el control terrestre
             //playerGround.SetActive(false); //Desactiva el control acuático
             //playerWaterIsActive = true; //Valida como falsa la variable que indica que playerGround es el activo

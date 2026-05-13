@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1534652977, guid: 7eb6cce7a624be242b1fc20847d9d95b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e1fb49459aeabe4c8f74b015a61e96b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,21 +116,21 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
 --- !u!114 &2816545361200598525
 MonoBehaviour:
@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bbd512f6f332314c9e7ab03936207f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: PezLinterna
-  quantity: 1
-  sprite: {fileID: -1534652977, guid: 7eb6cce7a624be242b1fc20847d9d95b, type: 3}
+  itemName: Cobre
+  quantity: 10
+  sprite: {fileID: 21300000, guid: 1e1fb49459aeabe4c8f74b015a61e96b, type: 3}
   inventoryManager: {fileID: 0}
 --- !u!114 &4749177855675902797
 MonoBehaviour:
