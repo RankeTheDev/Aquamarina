@@ -47,7 +47,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
         if (sceneIndex == 1)
         {
             playerControllerGround.enabled = true; //Activa el script de control terrestre
-            playerControllerWater.enabled = false; //Desactiva el script de control acuático
+            playerControllerWater.enabled = true; //Desactiva el script de control acuático
             playerControllerEquipment.enabled = false; //Desactiva el script de uso de equipamientos
             animator.runtimeAnimatorController = animatorControllers[0]; //Activa el animation controller para Grounded Levels
         }
