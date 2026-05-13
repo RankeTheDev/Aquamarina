@@ -1784,6 +1784,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -740.53754
       objectReference: {fileID: 0}
+    - target: {fileID: 5319477343083545517, guid: 209793c0e60e1784a9cf6d18f1e77e37, type: 3}
+      propertyPath: m_Color.a
+      value: 0.44313726
+      objectReference: {fileID: 0}
     - target: {fileID: 6569877690701816321, guid: 209793c0e60e1784a9cf6d18f1e77e37, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4088,6 +4092,8 @@ GameObject:
   - component: {fileID: 2793687127294802160}
   - component: {fileID: 6327133801910368397}
   - component: {fileID: 1372707543698844563}
+  - component: {fileID: 8556470600069225042}
+  - component: {fileID: 8556470600069225041}
   m_Layer: 5
   m_Name: Canvas Ajustes
   m_TagString: Untagged
@@ -5597,7 +5603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 529.85, y: 473.21494}
+  m_AnchoredPosition: {x: 529.85, y: 481.35507}
   m_SizeDelta: {x: 777.8547, y: 911.816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7880860422594497229
@@ -5862,6 +5868,44 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &8556470600069225041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544622079822329546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.44313726}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &8556470600069225042
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544622079822329546}
+  m_CullTransparentMesh: 1
 --- !u!224 &8669853526874451342
 RectTransform:
   m_ObjectHideFlags: 0
