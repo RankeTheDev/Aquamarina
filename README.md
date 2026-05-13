@@ -20,3 +20,4 @@ Sistema de captura de peces basado en un lanzaredes con el que puedes apuntar a 
 Preparación de DEMO inicial.
 Menús con diferentes opciones de ajustes. Como cambiar el volumen de la música y activar la pantalla completa.
 Inicio Preparacion 1º Build.
+Con unos bonitos fondos con paralaje y una bella fauna.
