@@ -42,7 +42,7 @@ public class PlayerController_Ground : MonoBehaviour
         rigidbodyPlayer = GetComponent<Rigidbody2D>(); // Compartida
         animator = GetComponent<Animator>();
         timer = GetComponent<Timer>();
-        sceneTypeChecker = GetComponent<PlayerController_SceneTypeChecker>();
+        sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
     }
 
     void Update()
@@ -60,16 +60,16 @@ public class PlayerController_Ground : MonoBehaviour
     void LateUpdate()
     {
         //ANIMATOR VARIABLES SETTINGS
-        animator.SetBool("Idle", moveAmmount == Vector2.zero);
+        animator.SetBool("IdleGround", moveAmmount == Vector2.zero);
 
         // Long Idle
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Idle"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("IdleGround"))
         {
             longIdleTimer += Time.deltaTime;
 
             if (longIdleTimer >= longIdleTime)
             {
-                animator.SetTrigger("LongIdle");
+                animator.SetTrigger("LongIdleGround");
             }
         }
         else

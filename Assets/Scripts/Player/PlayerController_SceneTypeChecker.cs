@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor.Animations;
 
 public class PlayerController_SceneTypeChecker : MonoBehaviour
 {
@@ -17,11 +16,8 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
     [SerializeField] Scene currentScene;
 
     //Almacena referencias a los scripts de control de player para desactivarlos segun tipo de nivel y otros datos necesarios
-    [SerializeField] Animator animator;
-    [SerializeField] PlayerControllerWater playerControllerWater;
-    [SerializeField] PlayerController_Equipment playerControllerEquipment;
-    [SerializeField] PlayerController_Ground playerControllerGround;
-    [SerializeField] AnimatorController[] animatorControllers;
+    [SerializeField] GameObject playerWater;
+    [SerializeField] GameObject playerGround;
 
     #endregion
 
@@ -29,32 +25,39 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
     // Awake is called when the script instance is being loaded
     void Awake()
     {
-        animator = GetComponent<Animator>();
-        playerControllerEquipment = GetComponent<PlayerController_Equipment>();
-        playerControllerWater = GetComponent<PlayerControllerWater>();
-        playerControllerGround = GetComponent<PlayerController_Ground>();
+        playerWater = GameObject.FindWithTag("PlayerWater");
+        playerGround = GameObject.FindWithTag("PlayerGround");
     }
 
     // Update is called once per frame
     void Update()
     {
+        //playerControllerWater.enabled = false; //MUERE
+
         currentScene = SceneManager.GetActiveScene(); //Obtiene la escena actual
         sceneIndex = currentScene.buildIndex; //Obtiene el indice de la escena actual (1 es la terrestre)
 
         if (sceneIndex == 1)
         {
-            playerControllerGround.enabled = true; //Activa el script de control terrestre
-            playerControllerWater.enabled = true; //Desactiva el script de control acuático
-            playerControllerEquipment.enabled = false; //Desactiva el script de uso de equipamientos
-            animator.runtimeAnimatorController = animatorControllers[0]; //Activa el animation controller para Grounded Levels
+            playerGround.SetActive(true); //Activa el control terrestre
+            playerWater.SetActive(false); //Desactiva el control acuático
         }
         else
         {
-            playerControllerGround.enabled = false; //Desactiva el script de control terrestre
-            playerControllerWater.enabled = true; //Activa el script de control acuático
-            playerControllerEquipment.enabled = true; //Activa el script de uso de equipamientos
-            animator.runtimeAnimatorController = animatorControllers[1]; //Activa el animation controller para Water Levels
+            playerWater.SetActive(true); //Activa el control terrestre
+            playerGround.SetActive(false); //Desactiva el control acuático
         }
+
+        IgualarTransform();
+    }
+
+    void IgualarTransform()
+    {
+        playerGround.transform.position = playerWater.transform.position;
+        playerWater.transform.position = playerGround.transform.position;
+
+        playerGround.transform.localScale = playerWater.transform.localScale;
+        playerWater.transform.localScale = playerGround.transform.localScale;
     }
     #endregion
 }

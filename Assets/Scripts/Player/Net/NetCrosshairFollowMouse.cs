@@ -18,7 +18,7 @@ public class NetLauncherFollowMouse : MonoBehaviour
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("PlayerWater");
         mainCameraComponent = mainCamera.GetComponent<Camera>();
         playerControllerWater = player.GetComponent<PlayerControllerWater>();
     }

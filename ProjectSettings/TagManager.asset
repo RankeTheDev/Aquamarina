@@ -28,6 +28,8 @@ TagManager:
   - SubmarineZone3
   - SubmarineZone4
   - SubmarineZone5
+  - PlayerGround
+  - PlayerWater
   layers:
   - Default
   - TransparentFX

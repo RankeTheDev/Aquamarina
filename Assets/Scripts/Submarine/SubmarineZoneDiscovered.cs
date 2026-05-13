@@ -28,7 +28,7 @@ public class SubmarineZoneDiscovered : MonoBehaviour
     // Awake
     void Awake()
     {
-        sceneTypeChecker = GetComponent<PlayerController_SceneTypeChecker>();
+        sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
 
         zone2Discover = GameObject.FindWithTag("SubmarineZone2").GetComponent<Collider2D>();
         zone3Discover = GameObject.FindWithTag("SubmarineZone3").GetComponent<Collider2D>();

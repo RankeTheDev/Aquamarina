@@ -51,7 +51,7 @@ public class PlayerControllerWater : MonoBehaviour
         rigidbodyPlayer = GetComponent<Rigidbody2D>();
         timer = GetComponent<Timer>();
         animator = GetComponent<Animator>();
-        sceneTypeChecker = GetComponent<PlayerController_SceneTypeChecker>();
+        sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
     }
 
     void Update()
@@ -76,7 +76,7 @@ public class PlayerControllerWater : MonoBehaviour
         CheckGravity();
 
         //ANIMATOR VARIABLES SETTINGS
-        animator.SetBool("Idle", moveAmmount == Vector2.zero);
+        animator.SetBool("IdleWater", moveAmmount == Vector2.zero);
         animator.SetBool("IsRunning", isRunning);
         animator.SetBool("Y Moving", movementY);
         animator.SetFloat("Y Movement", moveAmmount.y);

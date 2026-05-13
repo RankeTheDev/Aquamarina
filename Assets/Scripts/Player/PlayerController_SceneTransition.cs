@@ -9,11 +9,13 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] Animator canvasAnimator;
 
     [SerializeField] AnimationClip animacionFinal;
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject playerWater;
+    [SerializeField] GameObject playerGround;
     [SerializeField] GameObject canvasFades;
     [SerializeField] PlayerControllerWater playerControllerWater;
     [SerializeField] PlayerController_Ground playerControllerGround;
-    [SerializeField] PlayerController_Triggers playerController_Triggers;
+    [SerializeField] PlayerController_Triggers playerTriggersWater;
+    [SerializeField] PlayerController_Triggers playerTriggersGround;
 
     #endregion
 
@@ -23,10 +25,12 @@ public class SceneTransition : MonoBehaviour
     {
         canvasFades = GameObject.FindWithTag("PanelFades");
         canvasAnimator = canvasFades.GetComponent<Animator>();
-        player = GameObject.FindWithTag("Player");
+        playerWater = GameObject.FindWithTag("PlayerWater");
+        playerGround = GameObject.FindWithTag("PlayerGround");
         playerControllerWater = FindObjectOfType<PlayerControllerWater>();
         playerControllerGround = FindObjectOfType<PlayerController_Ground>();
-        playerController_Triggers = FindObjectOfType<PlayerController_Triggers>();
+        playerTriggersWater = playerControllerWater.GetComponent<PlayerController_Triggers>();
+        playerTriggersGround = playerControllerWater.GetComponent<PlayerController_Triggers>();
     }
 
     // Update is called once per frame
@@ -56,11 +60,11 @@ public class SceneTransition : MonoBehaviour
 
         yield return new WaitForSeconds(animacionFinal.length);
 
-        SceneManager.LoadScene(playerController_Triggers.sceneToTPPlayer);
+        SceneManager.LoadScene(playerTriggersWater.sceneToTPPlayer);
 
         //muevo al player al punto de la pantalla en que quiero que aparezca
         //playerPositionOnEnter = GameObject.FindWithTag("PositionPlayerOnEntry");
-        player.transform.position = playerController_Triggers.playerPositionOnEnter.transform.position;
+        playerWater.GetComponent<Transform>().position = playerTriggersWater.playerPositionOnEnter.transform.position;      
 
         //Reactivo los controles del player
         if (playerControllerWater != null)
