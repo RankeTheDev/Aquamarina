@@ -217,6 +217,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 217133733573458813, guid: 8b33b5e9fd1373f43a650334959303f2, type: 3}
+      propertyPath: actionMove.m_Name
+      value: Action Move
+      objectReference: {fileID: 0}
     - target: {fileID: 1454644744081574198, guid: 8b33b5e9fd1373f43a650334959303f2, type: 3}
       propertyPath: m_Name
       value: PlayerBase
