@@ -6,6 +6,7 @@ public class AirBubble : MonoBehaviour
 {
     #region VARIABLES
     [SerializeField] Timer timer;
+    [SerializeField] PlayerController_Equipment playerEquipment;
 
     #endregion
 
@@ -14,22 +15,25 @@ public class AirBubble : MonoBehaviour
     void Awake()
     {
         timer = FindObjectOfType<Timer>();
+        playerEquipment = FindObjectOfType<PlayerController_Equipment>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer != null)
+        if (!timer || !playerEquipment)
         {
             timer = FindObjectOfType<Timer>();
+            playerEquipment = FindObjectOfType<PlayerController_Equipment>();
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D trigger)
     {
         //Detects if player gathers an air bubble
-        if (collision.gameObject.tag == ("Player"))
+        if (trigger.gameObject.tag == ("Player") && !playerEquipment.cameraEquipped)
         {
             timer.currentTime += timer.addAir;
+            Debug.Log("O2 añadido");
             Destroy(this.gameObject);
         }
     }

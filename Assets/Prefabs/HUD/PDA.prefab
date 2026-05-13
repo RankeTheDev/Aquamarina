@@ -4527,6 +4527,7 @@ GameObject:
   - component: {fileID: 3228647472855599565}
   - component: {fileID: 2077537927190780614}
   - component: {fileID: 1307379717044262469}
+  - component: {fileID: 3309806736694747587}
   m_Layer: 5
   m_Name: PDA
   m_TagString: PDAMenu
@@ -4617,6 +4618,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3309806736694747587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135084539107404387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825a8166ab8d0e74ca46f2f11064094f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIndex: 9
 --- !u!1 &1211723411092760048
 GameObject:
   m_ObjectHideFlags: 0
@@ -10352,8 +10366,8 @@ RectTransform:
   - {fileID: 6377336509290195782}
   - {fileID: 7525678976209319113}
   - {fileID: 3611248854318766163}
-  - {fileID: 1935838706920353182}
   - {fileID: 1672256154213723128}
+  - {fileID: 1935838706920353182}
   - {fileID: 2797731597151338196}
   - {fileID: 6868155728892185499}
   - {fileID: 2233315161266580904}
@@ -10369,18 +10383,18 @@ RectTransform:
   - {fileID: 6245585113921651114}
   - {fileID: 6733546990995872867}
   - {fileID: 5393677656047934549}
-  - {fileID: 5865418012088181183}
   - {fileID: 6365166497380062473}
   - {fileID: 1139037517043049000}
   - {fileID: 6039596525336413085}
-  - {fileID: 2290578509248095124}
   - {fileID: 9106687120535391138}
-  - {fileID: 2287798785019288477}
+  - {fileID: 2290578509248095124}
+  - {fileID: 6197087509554364195}
   - {fileID: 2093083937070596198}
   - {fileID: 7776164248978066726}
-  - {fileID: 446911104895404738}
-  - {fileID: 6197087509554364195}
   - {fileID: 4316886004782535313}
+  - {fileID: 5865418012088181183}
+  - {fileID: 2287798785019288477}
+  - {fileID: 446911104895404738}
   m_Father: {fileID: 4279145047400597174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -14700,8 +14714,8 @@ Transform:
   - {fileID: 8347924999546524289}
   - {fileID: 4016768253885647193}
   - {fileID: 1511495728165663468}
-  - {fileID: 4239885092254029259}
   - {fileID: 3460801287206401792}
+  - {fileID: 4239885092254029259}
   - {fileID: 3145661942815775149}
   - {fileID: 8994248613192613247}
   - {fileID: 9100470283565233157}
@@ -14717,18 +14731,18 @@ Transform:
   - {fileID: 7580125431447551313}
   - {fileID: 658523353275706856}
   - {fileID: 8828474781159530532}
-  - {fileID: 7809735106180171944}
-  - {fileID: 4232341758540667139}
   - {fileID: 6240444111161125887}
+  - {fileID: 4232341758540667139}
   - {fileID: 8625788573158264352}
-  - {fileID: 3261802333506666706}
   - {fileID: 3157249275039286566}
-  - {fileID: 1717761835069591850}
+  - {fileID: 3261802333506666706}
+  - {fileID: 125056592675333579}
   - {fileID: 6677043761549355887}
   - {fileID: 6981089343048993783}
-  - {fileID: 5950053213055375713}
-  - {fileID: 125056592675333579}
   - {fileID: 8951229442890710892}
+  - {fileID: 7809735106180171944}
+  - {fileID: 1717761835069591850}
+  - {fileID: 5950053213055375713}
   m_Father: {fileID: 3935159810236420827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4682569629054809768
@@ -17659,7 +17673,7 @@ MonoBehaviour:
   quantity: 0
   maxNumberOfItems: 15
   itemSprite: {fileID: 0}
-  emptySprite: {fileID: 0}
+  emptySprite: {fileID: 21300000, guid: d3a25a56abec3a04da623a6a8c5b5f1b, type: 3}
   isFull: 0
   quantityText: {fileID: 7010368143131138855}
   itemImage: {fileID: 7977045241189032125}

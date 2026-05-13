@@ -24,6 +24,12 @@ TagManager:
   - FishGatherer
   - NetLauncher
   - NetLauncherBasePoint
+  - CanvasTimer
+  - SubmarineZone3
+  - SubmarineZone4
+  - SubmarineZone5
+  - PlayerGround
+  - PlayerWater
   layers:
   - Default
   - TransparentFX
@@ -58,12 +64,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Foreground
-    uniqueID: 615320279
+  - name: Background
+    uniqueID: 208682073
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 208682073
+  - name: Foreground
+    uniqueID: 615320279
     locked: 0

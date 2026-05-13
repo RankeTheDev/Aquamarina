@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1113977328978199949}
   m_Layer: 0
-  m_Name: SubmarinePositions
+  m_Name: SubmarinePositions_Deprecated
   m_TagString: SubmarinePositions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

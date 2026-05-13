@@ -12,7 +12,6 @@ public class PlayerController_Equipment : MonoBehaviour
     public InputAction actionAttack;
     InputAction actionEquipo1Camera;
     InputAction actionEquipo2NetLauncher;
-    InputAction actionPDA;
 
     [Header("Variables generales")]
     [SerializeField] Vector2 moveAmmount;
@@ -32,6 +31,7 @@ public class PlayerController_Equipment : MonoBehaviour
     [SerializeField] CameraFollowMouse cameraFollowMouse;
     [SerializeField] NetLauncherFollowMouse netLauncherFollowMouse;
     [SerializeField] Animator animator;
+    [SerializeField] Animator animatorCamera;
     [SerializeField] PlayerControllerWater playerControllerWater;
     [SerializeField] NetLauncher netLauncher;
 
@@ -47,22 +47,20 @@ public class PlayerController_Equipment : MonoBehaviour
         actionAttack = InputSystem.actions.FindAction("Attack");
         actionEquipo1Camera = InputSystem.actions.FindAction("Equipo1_Camera");
         actionEquipo2NetLauncher = InputSystem.actions.FindAction("Equipo2_NetLauncher");
-        actionPDA = InputSystem.actions.FindAction("PDA");
 
         //ASIGNO LAS VARIABLES DE COMPONENTES
         animator = GetComponent<Animator>();
+        animatorCamera = GameObject.FindWithTag("CameraPhotos").GetComponent<Animator>();
         cameraFollowMouse = GetComponentInChildren<CameraFollowMouse>();
         netLauncherFollowMouse = GetComponentInChildren<NetLauncherFollowMouse>();
         playerControllerWater = GetComponentInChildren<PlayerControllerWater>();
         netLauncher = GetComponentInChildren<NetLauncher>();
-        menuPDA = GameObject.FindWithTag("PDAMenu");
     }
 
     // Update is called once per frame
     void Update()
     {
         //EQUIPMENT FUNCTIONS
-        OpenClosePDA();
         CameraEquip();
         TakePhoto();
         NetLauncherEquip();
@@ -97,7 +95,8 @@ public class PlayerController_Equipment : MonoBehaviour
     {
         if (cameraEquipped && actionAttack.WasPressedThisFrame())
         {
-            animator.SetTrigger("CameraTakePhoto");
+            animator.SetTrigger("CameraTakePhoto"); 
+            animatorCamera.SetTrigger("TakePhoto");
         }
     }
 
@@ -126,29 +125,6 @@ public class PlayerController_Equipment : MonoBehaviour
         {
             animator.SetTrigger("NetLauncherShoot");
             netLauncher.Shoot();
-        }
-    }
-
-    void OpenClosePDA()
-    {
-        menuPDA.SetActive(true);
-
-        if (!menuPDAActivated)
-        {
-            menuPDA.SetActive(false);
-        }
-
-        if (actionPDA.WasPressedThisFrame() && menuPDAActivated)
-        {
-            Time.timeScale = 1;
-            menuPDA.SetActive(false);
-            menuPDAActivated = false;
-        }
-        else if (actionPDA.WasPressedThisFrame() && !menuPDAActivated)
-        {
-            Time.timeScale = 0;
-            menuPDA.SetActive(true);
-            menuPDAActivated = true;
         }
     }
     #endregion

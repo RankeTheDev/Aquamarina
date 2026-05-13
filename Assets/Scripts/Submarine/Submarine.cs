@@ -11,7 +11,8 @@ public class Submarine : MonoBehaviour
     [Header("Variables Input System")]
     [SerializeField] InputActionAsset inputActionAsset;
 
-    InputAction actionInteract;
+    InputAction actionInteractGround;
+    InputAction actionInteractWater;
 
     [Header("Variables Generales")]
     [SerializeField] GameObject canvasFades;
@@ -19,11 +20,13 @@ public class Submarine : MonoBehaviour
     [SerializeField] AnimationClip animacionFinal;
     [SerializeField] GameObject submarineMark;
 
-    [SerializeField] GameObject buttonZone0;
-    [SerializeField] GameObject buttonZone1;
     [SerializeField] GameObject buttonZone2;
+    [SerializeField] GameObject buttonZone3;
+    [SerializeField] GameObject buttonZone4;
+    [SerializeField] GameObject buttonZone5;
 
     [SerializeField] GameObject player;
+
     int sceneToTPSubmarine;
     public string sceneToTPCode;
     bool isPlayerInSubmarineRange;
@@ -42,35 +45,38 @@ public class Submarine : MonoBehaviour
     void Awake()
     {
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
-        actionInteract = InputSystem.actions.FindAction("Interact");
-        submarineMark = GameObject.FindWithTag("SubmarineRangeMark");
-        //submarineMark = GameObject.FindWithTag("SubmarineMap");
+        actionInteractGround = InputSystem.actions.FindAction("Player_Ground/Interact");
+        actionInteractWater = InputSystem.actions.FindAction("Player_Water/Interact");
+        //submarineMark = GameObject.FindWithTag("SubmarineRangeMark");
+        //submarineMap = GameObject.FindWithTag("SubmarineMap");
         canvasFades = GameObject.FindWithTag("PanelFades");
+        playerControllerWater = FindObjectOfType<PlayerControllerWater>();
+        playerControllerGround = FindObjectOfType<PlayerController_Ground>();
         player = GameObject.FindWithTag("Player");
         submarinePositionOnEnter = GameObject.FindWithTag("SubmarinePositions");
 
         canvasAnimator = canvasFades.GetComponent<Animator>();
-        playerControllerWater = FindObjectOfType<PlayerControllerWater>();
-        playerControllerGround = FindObjectOfType<PlayerController_Ground>();
+        
         sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
         submarineZones = FindObjectOfType<SubmarineZoneDiscovered>();
+    }
+
+    private void Start()
+    {
+        buttonZone2.SetActive(false);
+        buttonZone3.SetActive(false);
+        buttonZone4.SetActive(false);
+        buttonZone5.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canvasAnimator == null)
-        {
-            canvasAnimator = GetComponentInChildren<Animator>();
-        }
-        if (submarineMap == null)
-        {
-            submarineMap = GameObject.FindWithTag("SubmarineMap");
-        }
-
+        GetReferences();
         MapHandler();
 
         SubmarineMapButtonsActivate();
+        UpdateSubmarinePosition();
 
         if (isSubmarineMapOpen == false && sceneTypeChecker.sceneIndex == 0)
         {
@@ -83,31 +89,82 @@ public class Submarine : MonoBehaviour
 
         switch (sceneToTPCode)
         {
-            case "TP Scene 0":
-                sceneToTPSubmarine = 0;
-                submarinePositionOnEnter = submarinePositionsArrayOnEnter[0];
-                break;
             case "TP Scene 1":
                 sceneToTPSubmarine = 1;
-                submarinePositionOnEnter = submarinePositionsArrayOnEnter[1];
+                submarinePositionOnEnter = submarinePositionsArrayOnEnter[0];
                 break;
             case "TP Scene 2":
                 sceneToTPSubmarine = 2;
+                submarinePositionOnEnter = submarinePositionsArrayOnEnter[1];
+                break;
+            case "TP Scene 3":
+                sceneToTPSubmarine = 3;
                 submarinePositionOnEnter = submarinePositionsArrayOnEnter[2];
+                break;
+            case "TP Scene 4":
+                sceneToTPSubmarine = 4;
+                submarinePositionOnEnter = submarinePositionsArrayOnEnter[3];
+                break;
+            case "TP Scene 5":
+                sceneToTPSubmarine = 5;
+                submarinePositionOnEnter = submarinePositionsArrayOnEnter[4];
                 break;
 
         }
     }
 
+    void UpdateSubmarinePosition()
+    {
+        switch (sceneTypeChecker.sceneIndex)
+        {
+            case 1:
+                this.transform.position = submarinePositionsArrayOnEnter[0].transform.position;
+                break;
+            case 2:
+                this.transform.position = submarinePositionsArrayOnEnter[1].transform.position;
+                break;
+            case 3:
+                this.transform.position = submarinePositionsArrayOnEnter[2].transform.position;
+                break;
+            case 4:
+                this.transform.position = submarinePositionsArrayOnEnter[3].transform.position;
+                break;
+            case 5:
+                this.transform.position = submarinePositionsArrayOnEnter[4].transform.position;
+                break;
+        }
+    }
+
+
+    private void GetReferences()
+    {
+        if (!canvasAnimator)
+        {
+            canvasAnimator = GetComponentInChildren<Animator>();
+        }
+        if (!submarineMap)
+        {
+            submarineMap = GameObject.FindWithTag("SubmarineMap");
+        }
+        if (!sceneTypeChecker)
+        {
+            sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
+        }
+        if (!submarineZones)
+        {
+            submarineZones = FindObjectOfType<SubmarineZoneDiscovered>();
+        }
+    }
+
     void MapHandler()
     {
-        if (isPlayerInSubmarineRange && actionInteract.WasPressedThisFrame())
+        if (isPlayerInSubmarineRange && (actionInteractWater.WasPressedThisFrame() || actionInteractGround.WasPressedThisFrame()))
         {
             submarineMap.SetActive(true);
             isSubmarineMapOpen = true;
         }
 
-        if (isSubmarineMapOpen == true)
+        if (isSubmarineMapOpen)
         {
             playerControllerGround.enabled = false;
             playerControllerWater.enabled = false;
@@ -129,6 +186,9 @@ public class Submarine : MonoBehaviour
     {
         submarineMap.SetActive(false);
         isSubmarineMapOpen = false;
+
+        playerControllerGround.enabled = true;
+        playerControllerWater.enabled = true;
     }
 
     IEnumerator ChangeSceneSubmarine()
@@ -136,45 +196,24 @@ public class Submarine : MonoBehaviour
         canvasAnimator.SetTrigger("Iniciar");
 
         //Desactivo los controles del player
-        if (playerControllerWater != null)
-        {
-            playerControllerWater.enabled = false;
-        }
-        if (playerControllerGround != null)
-        {
-            playerControllerGround.enabled = false;
-        }
+        playerControllerWater.enabled = false;
+        playerControllerGround.enabled = false;
 
         yield return new WaitForSeconds(animacionFinal.length);
 
         SceneManager.LoadScene(sceneToTPSubmarine);
 
         //muevo al player al punto de la pantalla en que quiero que aparezca
-        //playerPositionOnEnter = GameObject.FindWithTag("PositionPlayerOnEntry");
         player.transform.position = submarinePositionOnEnter.transform.position;
-
+        
         //Reactivo los controles del player
-        if (playerControllerWater != null)
-        {
-            playerControllerWater.enabled = true;
-        }
-        if (playerControllerGround != null)
-        {
-            playerControllerGround.enabled = true;
-        }
+        playerControllerWater.enabled = true;
+        playerControllerGround.enabled = true;
     }
 
     void SubmarineMapButtonsActivate()
     {
-        if (submarineZones.zone1Discovered)
-        {
-            buttonZone1.SetActive(true);
-        }
-        else 
-        {
-            buttonZone1.SetActive(false);
-        }
-
+        //Activar - desacttivar boton de viaje rapido con submarino a la zona 2 en funcion de si esta descubierta o no
         if (submarineZones.zone2Discovered)
         {
             buttonZone2.SetActive(true);
@@ -183,10 +222,41 @@ public class Submarine : MonoBehaviour
         {
             buttonZone2.SetActive(false);
         }
+
+        //Activar - desacttivar boton de viaje rapido con submarino a la zona 3 en funcion de si esta descubierta o no
+        if (submarineZones.zone3Discovered)
+        {
+            buttonZone3.SetActive(true);
+        }
+        else
+        {
+            buttonZone3.SetActive(false);
+        }
+
+        //Activar - desacttivar boton de viaje rapido con submarino a la zona 4 en funcion de si esta descubierta o no
+        if (submarineZones.zone4Discovered)
+        {
+            buttonZone4.SetActive(true);
+        }
+        else
+        {
+            buttonZone4.SetActive(false);
+        }
+
+        //Activar - desacttivar boton de viaje rapido con submarino a la zona 5 en funcion de si esta descubierta o no
+        if (submarineZones.zone5Discovered)
+        {
+            buttonZone5.SetActive(true);
+        }
+        else
+        {
+            buttonZone5.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //if (collision.gameObject.CompareTag("PlayerWater") || collision.gameObject.CompareTag("PlayerGround"))
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInSubmarineRange = true;
@@ -196,6 +266,7 @@ public class Submarine : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //if (collision.gameObject.CompareTag("PlayerWater") || collision.gameObject.CompareTag("PlayerGround"))
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInSubmarineRange = false;

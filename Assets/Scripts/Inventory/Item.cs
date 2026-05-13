@@ -8,14 +8,11 @@ public class Item : MonoBehaviour
     [SerializeField] string itemName;
     [SerializeField] int quantity;
     [SerializeField] Sprite sprite; //SPRITE QUE SE MOSTRARA EN EL INVENTARIO
-
     [SerializeField] InventoryManager inventoryManager;
 
     #endregion
 
     #region METHODS
-    // Start is called before the first frame update
-    void Start()
     {
         inventoryManager = FindAnyObjectByType<InventoryManager>();
     }

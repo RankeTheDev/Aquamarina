@@ -12,7 +12,7 @@ public class PlayerController_Ground : MonoBehaviour
     [Header("Variables Input System")]
     [SerializeField] InputActionAsset inputActionAsset;
 
-    InputAction actionMove;
+    [SerializeField] InputAction actionMove;
 
     [Header("Variables generales")]
     public Vector2 moveAmmount;
@@ -34,6 +34,18 @@ public class PlayerController_Ground : MonoBehaviour
     //public AudioManager audioManager;
     #endregion
 
+    #region METHODS
+    /*private void OnEnable() //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
+    {
+        inputActionAsset.FindActionMap("Player_Ground").Enable();
+        inputActionAsset.FindActionMap("Player_Water").Disable();
+    }
+    private void OnDisable() //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
+    {
+        inputActionAsset.FindActionMap("Player_Ground").Disable();
+        inputActionAsset.FindActionMap("Player_Water").Enable();
+    }*/
+
     void Awake() //Usado para guardar componentes al iniciar
     {
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
@@ -42,7 +54,9 @@ public class PlayerController_Ground : MonoBehaviour
         rigidbodyPlayer = GetComponent<Rigidbody2D>(); // Compartida
         animator = GetComponent<Animator>();
         timer = GetComponent<Timer>();
-        sceneTypeChecker = GetComponent<PlayerController_SceneTypeChecker>();
+        sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
+
+        animator.enabled = true;
     }
 
     void Update()
@@ -60,16 +74,16 @@ public class PlayerController_Ground : MonoBehaviour
     void LateUpdate()
     {
         //ANIMATOR VARIABLES SETTINGS
-        animator.SetBool("Idle", moveAmmount == Vector2.zero);
+        animator.SetBool("IdleGround", moveAmmount == Vector2.zero);
 
         // Long Idle
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Idle"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("IdleGround"))
         {
             longIdleTimer += Time.deltaTime;
 
             if (longIdleTimer >= longIdleTime)
             {
-                animator.SetTrigger("LongIdle");
+                animator.SetTrigger("LongIdleGround");
             }
         }
         else
@@ -104,19 +118,16 @@ public class PlayerController_Ground : MonoBehaviour
     //MAIN BASIC MOVEMENT
     void Walking()
     {
-        if (isAttacking == false)
-        {
-            rigidbodyPlayer.velocity = new Vector2(moveAmmount.x * speed, 0);
+        rigidbodyPlayer.velocity = new Vector2(moveAmmount.x * speed, 0);
 
-            //FLIP PLAYER
-            if (moveAmmount.x < 0f && sceneTypeChecker.facingRight == true)
-            {
-                Flip();
-            }
-            else if (moveAmmount.x > 0f && sceneTypeChecker.facingRight == false)
-            {
-                Flip();
-            }
+        //FLIP PLAYER
+        if (moveAmmount.x < 0f && sceneTypeChecker.facingRight == true)
+        {
+            Flip();
+        }
+        else if (moveAmmount.x > 0f && sceneTypeChecker.facingRight == false)
+        {
+            Flip();
         }
     }
 
@@ -128,5 +139,6 @@ public class PlayerController_Ground : MonoBehaviour
         localScaleX = localScaleX * -1f;
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
+    #endregion
     #endregion
 }

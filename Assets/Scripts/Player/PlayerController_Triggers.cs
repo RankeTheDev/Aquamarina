@@ -57,29 +57,37 @@ public class PlayerController_Triggers : MonoBehaviour
         {
             switch (trigger.name)
             {
-                case "TP Scene 0":
-                    sceneToTPPlayer = 0;
+                case "TP Scene 1":
+                    sceneToTPPlayer = 1;
                     playerPositionOnEnter = playerPositionsArrayOnEnter[0];
                     break;
-                case "TP Scene 1L":
-                    sceneToTPPlayer = 1;
+                case "TP Scene 2L":
+                    sceneToTPPlayer = 2;
                     playerPositionOnEnter = playerPositionsArrayOnEnter[1];
                     break;
-                case "TP Scene 1R":
-                    sceneToTPPlayer = 1;
+                case "TP Scene 2R":
+                    sceneToTPPlayer = 2;
                     playerPositionOnEnter = playerPositionsArrayOnEnter[2];
                     break;
-                case "TP Scene 2":
-                    sceneToTPPlayer = 2;
+                case "TP Scene 3In":
+                    sceneToTPPlayer = 3;
                     playerPositionOnEnter = playerPositionsArrayOnEnter[3];
                     break;
-                case "TP Scene 3":
+                case "TP Scene 3Out":
                     sceneToTPPlayer = 3;
                     playerPositionOnEnter = playerPositionsArrayOnEnter[4];
                     break;
-                case "TP Scene 4":
+                case "TP Scene 4L":
                     sceneToTPPlayer = 4;
                     playerPositionOnEnter = playerPositionsArrayOnEnter[5];
+                    break;
+                case "TP Scene 4R":
+                    sceneToTPPlayer = 4;
+                    playerPositionOnEnter = playerPositionsArrayOnEnter[6];
+                    break;
+                case "TP Scene 5":
+                    sceneToTPPlayer = 5;
+                    playerPositionOnEnter = playerPositionsArrayOnEnter[7];
                     break;
             }
 

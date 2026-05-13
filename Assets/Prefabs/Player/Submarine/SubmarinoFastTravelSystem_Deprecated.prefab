@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2740666786547733904}
   m_Layer: 0
-  m_Name: SubmarinoFastTravelSystem
+  m_Name: SubmarinoFastTravelSystem_Deprecated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

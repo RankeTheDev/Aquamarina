@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerController_SceneTypeChecker : MonoBehaviour
@@ -16,16 +12,16 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
     public bool facingRight = false;
 
     //Comprobaciones de Ground/Water para desactivar controles segun tipo de nivel
-    public bool currentSceneIsGrounded;
     public int sceneIndex;
     [SerializeField] Scene currentScene;
 
     //Almacena referencias a los scripts de control de player para desactivarlos segun tipo de nivel y otros datos necesarios
-    [SerializeField] Animator animator;
+    public bool playerGroundIsActive;
+    public bool playerWaterIsActive;
+    [SerializeField] GameObject player; //GameObject del player
     [SerializeField] PlayerControllerWater playerControllerWater;
-    [SerializeField] PlayerController_Equipment playerControllerEquipment;
     [SerializeField] PlayerController_Ground playerControllerGround;
-    [SerializeField] AnimatorController[] animatorControllers;
+    [SerializeField] Animator animatorPlayer;
 
     #endregion
 
@@ -33,31 +29,34 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
     // Awake is called when the script instance is being loaded
     void Awake()
     {
-        animator = GetComponent<Animator>();
-        playerControllerEquipment = GetComponent<PlayerController_Equipment>();
-        playerControllerWater = GetComponent<PlayerControllerWater>();
-        playerControllerGround = GetComponent<PlayerController_Ground>();
+        //playerWater = GameObject.FindWithTag("PlayerWater");
+        //playerGround = GameObject.FindWithTag("PlayerGround");
+
+        player = GameObject.FindWithTag("Player");
+        animatorPlayer = player.GetComponent<Animator>();
+        playerControllerWater = player.GetComponent<PlayerControllerWater>();
+        playerControllerGround = player.GetComponent<PlayerController_Ground>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentScene = SceneManager.GetActiveScene(); //Obtiene la escena actual
-        sceneIndex = currentScene.buildIndex; //Obtiene el indice de la escena actual (0 es la terrestre)
+        //playerControllerWater.enabled = false; //MUERE
 
-        if (sceneIndex == 0)
+        currentScene = SceneManager.GetActiveScene(); //Obtiene la escena actual
+        sceneIndex = currentScene.buildIndex; //Obtiene el indice de la escena actual (1 es la terrestre)
+
+        if (sceneIndex == 1)
         {
-            playerControllerGround.enabled = true; //Activa el script de control terrestre
-            playerControllerWater.enabled = false; //Desactiva el script de control acuático
-            playerControllerEquipment.enabled = false; //Desactiva el script de uso de equipamientos
-            animator.runtimeAnimatorController = animatorControllers[0]; //Activa el animation controller para Grounded Levels
+            playerControllerWater.enabled = false;
+            playerControllerGround.enabled = true;
+            animatorPlayer.SetBool("IsGrounded", true);
         }
         else
         {
-            playerControllerGround.enabled = false; //Desactiva el script de control terrestre
-            playerControllerWater.enabled = true; //Activa el script de control acuático
-            playerControllerEquipment.enabled = true; //Activa el script de uso de equipamientos
-            animator.runtimeAnimatorController = animatorControllers[1]; //Activa el animation controller para Water Levels
+            playerControllerWater.enabled = true;
+            playerControllerGround.enabled = false;
+            animatorPlayer.SetBool("IsGrounded", false);
         }
     }
     #endregion

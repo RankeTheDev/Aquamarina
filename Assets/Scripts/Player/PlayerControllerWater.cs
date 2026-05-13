@@ -39,6 +39,17 @@ public class PlayerControllerWater : MonoBehaviour
     #endregion
 
     #region METHODS
+    /*private void OnEnable() //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
+    {
+        inputActionAsset.FindActionMap("Player_Ground").Disable();
+        inputActionAsset.FindActionMap("Player_Water").Enable();
+    }
+    private void OnDisable() //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
+    {
+        inputActionAsset.FindActionMap("Player_Ground").Enable();
+        inputActionAsset.FindActionMap("Player_Water").Disable();
+    }*/
+
     void Awake() //ASIGNO COMPONENTES Y ACTIONS
     {
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
@@ -51,7 +62,7 @@ public class PlayerControllerWater : MonoBehaviour
         rigidbodyPlayer = GetComponent<Rigidbody2D>();
         timer = GetComponent<Timer>();
         animator = GetComponent<Animator>();
-        sceneTypeChecker = GetComponent<PlayerController_SceneTypeChecker>();
+        sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
     }
 
     void Update()
@@ -76,7 +87,7 @@ public class PlayerControllerWater : MonoBehaviour
         CheckGravity();
 
         //ANIMATOR VARIABLES SETTINGS
-        animator.SetBool("Idle", moveAmmount == Vector2.zero);
+        animator.SetBool("IdleWater", moveAmmount == Vector2.zero);
         animator.SetBool("IsRunning", isRunning);
         animator.SetBool("Y Moving", movementY);
         animator.SetFloat("Y Movement", moveAmmount.y);

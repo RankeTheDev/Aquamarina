@@ -10,10 +10,15 @@ public class SubmarineZoneDiscovered : MonoBehaviour
     public bool zone0Discovered = true;
     public bool zone1Discovered = false;
     public bool zone2Discovered = false;
+    public bool zone3Discovered = false;
+    public bool zone4Discovered = false;
+    public bool zone5Discovered = false;
 
     //VARIABLES DE ACTIVACION DE TRIGGERS DE DESCUBRIR ZONAS
-    [SerializeField] Collider2D zone1Discover;
     [SerializeField] Collider2D zone2Discover;
+    [SerializeField] Collider2D zone3Discover;
+    [SerializeField] Collider2D zone4Discover;
+    [SerializeField] Collider2D zone5Discover;
 
     //VARIABLES DE SCRIPTS Y COMPONENTES
     [SerializeField] PlayerController_SceneTypeChecker sceneTypeChecker;
@@ -23,7 +28,12 @@ public class SubmarineZoneDiscovered : MonoBehaviour
     // Awake
     void Awake()
     {
-        sceneTypeChecker = GetComponent<PlayerController_SceneTypeChecker>();
+        sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
+
+        zone2Discover = GameObject.FindWithTag("SubmarineZone2").GetComponent<Collider2D>();
+        zone3Discover = GameObject.FindWithTag("SubmarineZone3").GetComponent<Collider2D>();
+        zone4Discover = GameObject.FindWithTag("SubmarineZone4").GetComponent<Collider2D>();
+        zone5Discover = GameObject.FindWithTag("SubmarineZone5").GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -36,13 +46,29 @@ public class SubmarineZoneDiscovered : MonoBehaviour
     {
         switch (sceneTypeChecker.sceneIndex)
         {
-            case 1:
-                zone1Discover.enabled = true;
-                zone2Discover.enabled = false;
-                break;
             case 2:
-                zone1Discover.enabled = false;
                 zone2Discover.enabled = true;
+                zone3Discover.enabled = false;
+                zone4Discover.enabled = false;
+                zone5Discover.enabled = false;
+                break;
+            case 3:
+                zone2Discover.enabled = false;
+                zone3Discover.enabled = true;
+                zone4Discover.enabled = false;
+                zone5Discover.enabled = false;
+                break;
+            case 4:
+                zone2Discover.enabled = false;
+                zone3Discover.enabled = false;
+                zone4Discover.enabled = true;
+                zone5Discover.enabled = false;
+                break;
+            case 5:
+                zone2Discover.enabled = false;
+                zone3Discover.enabled = false;
+                zone4Discover.enabled = false;
+                zone5Discover.enabled = true;
                 break;
         }
     }
@@ -57,6 +83,21 @@ public class SubmarineZoneDiscovered : MonoBehaviour
         if (trigger.gameObject.tag == ("SubmarineZone2"))
         {
             zone2Discovered = true;
+        }
+
+        if (trigger.gameObject.tag == ("SubmarineZone3"))
+        {
+            zone3Discovered = true;
+        }
+
+        if (trigger.gameObject.tag == ("SubmarineZone4"))
+        {
+            zone4Discovered = true;
+        }
+
+        if (trigger.gameObject.tag == ("SubmarineZone5"))
+        {
+            zone5Discovered = true;
         }
     }
     #endregion
