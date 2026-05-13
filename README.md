@@ -19,5 +19,5 @@ Escenarios creados con Tilesets pixelart.
 Sistema de captura de peces basado en un lanzaredes con el que puedes apuntar a placer. Tan solo no llenes el mar de redes ;).
 Preparación de DEMO inicial.
 Menús con diferentes opciones de ajustes. Como cambiar el volumen de la música y activar la pantalla completa.
-Inicio Preparacion 1º Build.
+Inicio Preparacion de la Build de la demo final.
 Con unos bonitos fondos con paralaje y una bella fauna.
