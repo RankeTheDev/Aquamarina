@@ -55,6 +55,8 @@ public class PlayerController_Ground : MonoBehaviour
         animator = GetComponent<Animator>();
         timer = GetComponent<Timer>();
         sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
+
+        animator.enabled = true;
     }
 
     void Update()

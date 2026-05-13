@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Cobre
-  quantity: 10
+  quantity: 12
   sprite: {fileID: 21300000, guid: 1e1fb49459aeabe4c8f74b015a61e96b, type: 3}
   inventoryManager: {fileID: 0}
 --- !u!114 &4749177855675902797
