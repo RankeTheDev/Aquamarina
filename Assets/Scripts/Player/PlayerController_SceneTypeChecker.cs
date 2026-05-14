@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerController_SceneTypeChecker : MonoBehaviour
 {
     #region VARIABLES
+    [Header("Variables Input System")]
+    [SerializeField] InputActionAsset inputActionAsset;
+
     //Valores de gravedad según el tipo de nivel
     public float gravityWater = 0.005f;
     public float gravityGround = 1f;
@@ -41,13 +45,14 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
         currentScene = SceneManager.GetActiveScene(); //Obtiene la escena actual
         sceneIndex = currentScene.buildIndex; //Obtiene el indice de la escena actual (1 es la terrestre)
 
-        if (sceneIndex == 1) //Si la escena actual es la 1
+
+        if (sceneIndex == 1) //Si la escena actual es la 1 //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
         {
             playerControllerWater.enabled = false; //Desactivo el controller de water
             playerControllerGround.enabled = true; //Activo el controller de tierra
             animatorPlayer.SetBool("IsGrounded", true); //Activo el bool de grounded para el animator del player
         }
-        else //En demás casos
+        else //En demás casos //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
         {
             playerControllerWater.enabled = true; //Activo el controller de water
             playerControllerGround.enabled = false; //Desactivo el controller de tierra;

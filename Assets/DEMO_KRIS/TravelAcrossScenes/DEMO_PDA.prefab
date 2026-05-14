@@ -2713,7 +2713,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5457585060176305575}
   - component: {fileID: 8056141625427255858}
-  - component: {fileID: 2427042546218537825}
   m_Layer: 5
   m_Name: Panel_InventorySlots
   m_TagString: Untagged
@@ -2784,41 +2783,6 @@ MonoBehaviour:
   m_Spacing: {x: 15, y: 15}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &2427042546218537825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889211212497414363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1a85ca1fadca548b3efc4ea02c2780, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemSlots:
-  - {fileID: 2064500097951863134}
-  - {fileID: 9212940429406119714}
-  - {fileID: 660764393744423126}
-  - {fileID: 6405890569961936126}
-  - {fileID: 5370912035912103201}
-  - {fileID: 687266375304309006}
-  - {fileID: 8379068625599675333}
-  - {fileID: 7743533056215649173}
-  - {fileID: 9091726759226187073}
-  - {fileID: 9070761027176269925}
-  - {fileID: 690052834664778272}
-  - {fileID: 8239068049377860616}
-  - {fileID: 1295576291539491620}
-  - {fileID: 2268150341184726177}
-  - {fileID: 2149388910095090689}
-  - {fileID: 6387728556734799164}
-  - {fileID: 3266164318694868905}
-  - {fileID: 4078040245894181745}
-  - {fileID: 6324841213983603752}
-  - {fileID: 5000948138122983382}
-  itemSOs:
-  - {fileID: 11400000, guid: 2ee7633e5c1477d439e057204c2a347f, type: 2}
 --- !u!1 &920881790595015680
 GameObject:
   m_ObjectHideFlags: 0

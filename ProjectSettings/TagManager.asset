@@ -30,6 +30,7 @@ TagManager:
   - SubmarineZone5
   - PlayerGround
   - PlayerWater
+  - MenuAjustes
   layers:
   - Default
   - TransparentFX

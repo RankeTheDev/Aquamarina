@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
+    [SerializeField] InputActionAsset inputActionAsset;
+    InputAction actionAjustes;
+
     [SerializeField] private GameObject menuPausa;
     [SerializeField] private GameObject menuAjustes; // Añade esta referencia
     [SerializeField] private GameObject botonPausa;
@@ -12,9 +16,14 @@ public class MenuPausa : MonoBehaviour
     private bool juegoPausado = false;
     private bool ajustesAbiertos = false;
 
+    void Start() ///GUARDO PREFERENCIAS
+    {
+        actionAjustes = InputSystem.actions.FindAction("Ajustes");
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (actionAjustes.WasPressedThisFrame())
         {
             // Si los ajustes están abiertos, cerrarlos
             if (ajustesAbiertos)

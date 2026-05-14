@@ -163,6 +163,7 @@ MonoBehaviour:
   fishCaptured: {fileID: 1954459973081012182}
   player: {fileID: 0}
   speed: 6
+  audioManager: {fileID: 0}
   moveToPlayer: 0
   fishScript: {fileID: 0}
 --- !u!114 &6187149707602025785
@@ -255,8 +256,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 35c1cfcf5a8455d4ca9466b083dfb4ca, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.047968864, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8e09888071adff04db13f800c84fed15, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

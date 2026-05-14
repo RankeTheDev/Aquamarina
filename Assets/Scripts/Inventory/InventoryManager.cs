@@ -12,6 +12,11 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
     #region METHODS
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
     public bool UseItem(string itemName)  //Usar un Item
     {
         for (int i = 0; i < itemSOs.Length; i++)

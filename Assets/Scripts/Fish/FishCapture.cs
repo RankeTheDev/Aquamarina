@@ -23,7 +23,8 @@ public class FishCapture : MonoBehaviour
     {
         fishStandard = GetComponent<SpriteRenderer>();
         player = GameObject.FindWithTag("FishGatherer").GetComponent<Transform>();
-        fishScript = GetComponent<Fish>();  
+        fishScript = GetComponent<Fish>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame

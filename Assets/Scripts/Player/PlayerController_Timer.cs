@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     public float totalTime = 120f; // Tiempo total del timer
     public float timeDecreaseSpeed = 1f; //Modificador de velocidad a la que disminuye el aire
     public float currentTime; //Cantidad de aire que tiene el player actualmente
-    public float addAir = 20f; //Cantidad de aire que consigue el player al tomar burbujas
+    public float addAir = 30f; //Cantidad de aire que consigue el player al tomar burbujas
     public float depleteAir = 10f; //Cantidad de aire que pierde el player al recibir daño (a futuro variaría según origen del daño)
     #endregion
 

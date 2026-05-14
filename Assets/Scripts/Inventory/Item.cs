@@ -15,6 +15,7 @@ public class Item : MonoBehaviour
     #region METHODS
     void Start() //Guardo referencias al script de inventory manager
     {
+        audioManager = FindObjectOfType<AudioManager>();
         inventoryManager = FindAnyObjectByType<InventoryManager>();
     }
 

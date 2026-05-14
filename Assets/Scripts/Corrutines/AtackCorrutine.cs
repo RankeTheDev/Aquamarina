@@ -102,7 +102,7 @@ public class AtackCorrutine : MonoBehaviour
 
 
             
-            transform.Translate(distanceDirecction * -1f * agresiveVelocity * Time.deltaTime);
+                transform.Translate(distanceDirecction * -1f * agresiveVelocity * Time.deltaTime);
 
                 if(distanceDifference < 0.4) //Deja de ser agresivo si es casi la distancia al player
                 {
