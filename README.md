@@ -24,4 +24,4 @@ Con unos bonitos fondos con paralaje y una bella fauna a lo largo de los 5 nivel
 
 Nueva animacion para la red.
 Montando Dialogos directos
-Preparacion fase final bugfixes
+Preparacion fase final bugfixes. Todos los peces capturables e items recogibles
