@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30243acd3c7b4524a2faeb30f69b75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  netPrefab: {fileID: 9138191430410896773, guid: 3d246caa22ec54917a285457f0736c2f, type: 3}
+  netPrefab: {fileID: 9138191430410896773, guid: 3242575899d269e4f821f5520333791b, type: 3}
   shooter: {fileID: 4345427096927852349}
   myNet: {fileID: 0}
   netAlreadyInstantiated: 0

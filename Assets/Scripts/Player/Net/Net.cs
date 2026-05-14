@@ -17,6 +17,9 @@ public class Net : MonoBehaviour
 	private SpriteRenderer _renderer;
 	private Rigidbody2D _rigidbody;
 	private float _startingTime;
+	Animator animator;
+	[SerializeField] GameObject player;
+	[SerializeField] SpriteRenderer spriteRenderer;
 
     [SerializeField] NetLauncherFollowMouse netLauncherFollowMouse;
 
@@ -25,6 +28,9 @@ public class Net : MonoBehaviour
 		_renderer = GetComponent<SpriteRenderer>();
 		_rigidbody = GetComponent<Rigidbody2D>();
         netLauncherFollowMouse = FindObjectOfType<NetLauncherFollowMouse>();
+        animator = GetComponent<Animator>();
+		player = GameObject.FindWithTag("Player");
+		spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 	// Start is called before the first frame update
@@ -37,30 +43,36 @@ public class Net : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Vector2 netPosition = transform.position;
+		if (player.GetComponent<Transform>().localScale.x == -1)
+		{
+            spriteRenderer.flipX = true;
+        }
+		else if (player.GetComponent<Transform>().localScale.x == 1)
+		{
+            spriteRenderer.flipX = false;
+        }
 
-        if (netPosition != netLauncherFollowMouse.GetWorldPositionFromMouse())
+			//Almacena position de la net
+			Vector2 netPosition = transform.position;
+
+        if (netPosition != netLauncherFollowMouse.GetWorldPositionFromMouse()) //Si la posicion de la net difiere de la del objetivo, sigue moviendose hacia este
 		{
 			transform.position = Vector2.MoveTowards(transform.position, netLauncherFollowMouse.GetWorldPositionFromMouse(), speed * Time.deltaTime);
 		}
-		else if (netPosition == netLauncherFollowMouse.GetWorldPositionFromMouse())
-		{
-            Vanish();
-        }
 
         // Change bullet's color over time
         float _timeSinceStarted = Time.time - _startingTime;
 		float _percentageCompleted = _timeSinceStarted / livingTime;
-
 		_renderer.color = Color.Lerp(initialColor, finalColor, _percentageCompleted);
-
+		
+		//Si el tiempo de vida de la bala se agota, desaparece
 		if (_percentageCompleted >= 1f) 
 		{
             Vanish(); 
 		}
 	}
 
-	private void FixedUpdate()
+	private void FixedUpdate() //Movimiento de la net
 	{
 		//  Move object
 		Vector2 movement = direction.normalized * speed;
@@ -76,19 +88,19 @@ public class Net : MonoBehaviour
         }
     }*/
 
-    private void OnTriggerEnter2D(Collider2D trigger)
+    private void OnTriggerEnter2D(Collider2D trigger) //DEteccion de colision con el pez y llamada a su metodo de captura
 	{
         if (trigger.gameObject.tag == "Fish")
         {
-			trigger.GetComponent<FishCapture>().Captured();
-			Vanish();
+            trigger.GetComponent<FishCapture>().Captured();
+            Vanish();
         }
     }
 
-	public void Vanish()
+    public void Vanish() //Eliminacion paulatina de la red
 	{
 		speed = 0f;
         _renderer.enabled = false;
-		Destroy(this.gameObject);
+		Destroy(this.gameObject, 1f);
 	}
 }
