@@ -82,6 +82,7 @@ public class AtackCorrutine : MonoBehaviour
                 {
                     currentPosition = (currentPosition + 1) % points.Length;
                     agent.SetDestination(points[currentPosition].position);
+                    Flip();
 
                 }
                 yield return null;
@@ -97,8 +98,25 @@ public class AtackCorrutine : MonoBehaviour
 
                 Vector2 distanceDirecction = (transform.position - tarjectPosition).normalized;
                 Debug.Log("ÑomÑom");
+            /*
+                if (distanceDifference > 0.1)
+                {
+                    if (transform.localScale.x > 0.1)
+                    {
+                        Flip();
+                    }
 
-                transform.Translate(distanceDirecction * -1f * agresiveVelocity * Time.deltaTime);
+                }
+
+                else if (distanceDifference < 0.1)
+                {
+                    if (transform.localScale.x < 0.1)
+                    {
+                        Flip();
+                    }
+                }
+            */
+            transform.Translate(distanceDirecction * -1f * agresiveVelocity * Time.deltaTime);
 
                 if(distanceDifference < 0.4) //Deja de ser agresivo si es casi la distancia al player
                 {
@@ -107,11 +125,16 @@ public class AtackCorrutine : MonoBehaviour
             }
         
     }
-        
 
-    
 
-       //Detecta si el multiplicador de velocidad del player es mayor que su límite de detección, en tal caso   , se cumple el if
+    public void Flip()
+    {
+        float localScaleX = transform.localScale.x;
+        localScaleX = localScaleX * -1f;
+        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+    }
+
+    //Detecta si el multiplicador de velocidad del player es mayor que su límite de detección, en tal caso   , se cumple el if
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == ("Player"))

@@ -66,6 +66,7 @@ public class IgnoreCorrutine : MonoBehaviour
             {
                 currentPosition = (currentPosition + 1) % points.Length;
                 agent.SetDestination(points[currentPosition].position);
+                Flip();
             }
         }
         else if (catchFailed == true)
@@ -94,6 +95,13 @@ public class IgnoreCorrutine : MonoBehaviour
         //Huida
         distanceDifference = (transform.position - tarject.position).normalized;
         transform.Translate(distanceDifference * scaredVelocity * Time.deltaTime);
+    }
+
+    public void Flip()
+    {
+        float localScaleX = transform.localScale.x;
+        localScaleX = localScaleX * -1f;
+        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
 
     public void TriggerEvent() //Se triggerea al final de la animación del pez huyendo

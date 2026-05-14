@@ -16,6 +16,7 @@ public class PlayerControllerWater : MonoBehaviour
     InputAction actionLook;
     InputAction actionRun;
     InputAction actionInteract;
+    InputAction actionCrouch;
 
     [Header("Variables generales")]
     public Vector2 moveAmmount;
@@ -57,6 +58,7 @@ public class PlayerControllerWater : MonoBehaviour
         actionLook = InputSystem.actions.FindAction("Look");
         actionRun = InputSystem.actions.FindAction("Run");
         actionInteract = InputSystem.actions.FindAction("Interact");
+        actionCrouch = InputSystem.actions.FindAction("Crouch");
 
         //ASIGNO LAS VARIABLES DE COMPONENTES
         rigidbodyPlayer = GetComponent<Rigidbody2D>();
@@ -163,7 +165,21 @@ public class PlayerControllerWater : MonoBehaviour
             timer.timeDecreaseSpeed = 1.0f;
         }
     }
-    
+
+    private void Crouch()
+    {
+        if (actionCrouch.IsPressed())
+        {
+            speedMultiplier = 0.5f;
+            timer.timeDecreaseSpeed = 0.5f;
+        }
+        else
+        {
+            speedMultiplier = 1.0f;
+            timer.timeDecreaseSpeed = 1.0f;
+        }
+    }
+
     //CHECK IF PLAYER IS ATTACKING
     void AnimationTagCheck()
     {
