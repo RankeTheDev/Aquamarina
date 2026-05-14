@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Dialogue : MonoBehaviour
+public class DialogoPorTrigger : MonoBehaviour
 {
     #region VARIABLES
     [Header("Variables Input System")]
@@ -13,26 +13,25 @@ public class Dialogue : MonoBehaviour
     InputAction actionInteract;
 
     [Header("Dialogue Test Variables")]
-    [SerializeField, TextArea(2, 4 )] private string[] dialogueLines;
-    private bool isPlayerInDialogueRange;
+    [SerializeField, TextArea(2, 4 )] private string[] dialogueLines; // Referencia al texto que se mostrrará del character hablando.
+    [SerializeField] private Sprite[] portraitsSprites; // Referencia a la imagen portrait que se mostrará del character hablando.
+    [SerializeField] private AudioClip[] voices; // Referencia al audio que se reproducirá durante el diálogo, si es necesario y para cada personaje
+    private bool isPlayerInDialogueRange; //Bool para saber cuando mostrar la alerta de dialogo
     private bool didDialogueStart = false; // Variable para controlar si el diálogo está activo o no.
     [SerializeField] private int lineIndex = 0; // Índice de la línea de diálogo actual. 
     [SerializeField] private float typingTime = 0.05f;
-    public PlayerControllerWater playerController; // Referencia al controlador del jugador, si es necesario para otras interacciones.
+    public PlayerControllerWater playerControllerWater; // Referencia al controlador del jugador, si es necesario para otras interacciones.
+    public PlayerController_Ground playerControllerGround; // Referencia al controlador del jugador, si es necesario para otras interacciones.
     [SerializeField] private int charsToPlayAudio; // Número de caracteres a escribir antes de reproducir el audio del NPC.
     [SerializeField] private bool isPlayerTalking = false;
     
     [Space]
 
     [Header("Dialogue Test References")]
-    [SerializeField] private GameObject dialogueMark; // Referencia al objeto visual que se mostrará al jugador cuando esté en rango.
     [SerializeField] private GameObject dialoguePanel; // Referencia al panel de diálogo que se mostrará al jugador.
     [SerializeField] private TMP_Text dialogueText; // Referencia al cuadro de diálogo que se mostrará al jugador.
-    [SerializeField] private AudioClip npcVoice; // Referencia al audio que se reproducirá durante el diálogo, si es necesario.
-    [SerializeField] private AudioClip playerVoice; // Referencia al audio que se reproducirá durante el diálogo, si es necesario.
     [SerializeField] private AudioSource audioSource; // Referencia al audio que se reproducirá durante el diálogo, si es necesario.
-    [SerializeField] private Image portraitNPC; // Referencia a la iamgen portrait que se mostrará del NPC hablando.
-    [SerializeField] private Image portraitPlayer; // Referencia a la iamgen portrait que se mostrrará del player hablando.
+    [SerializeField] private Image portrait; // Referencia a la iamgen portrait que se mostrrará del player hablando.
 
     #endregion
 
@@ -41,18 +40,19 @@ public class Dialogue : MonoBehaviour
     {
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
         actionInteract = InputSystem.actions.FindAction("Interact");
+        playerControllerWater = FindObjectOfType<PlayerControllerWater>();
+        playerControllerGround = FindObjectOfType<PlayerController_Ground>();
     }
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>(); // Obtiene el componente AudioSource del objeto actual.
-        audioSource.clip = npcVoice; // Asigna el clip de audio del NPC al AudioSource.
     }
 
     // Update is called once per frame. Used to see what the player does each frame.
     void Update()
     {
-        if(isPlayerInDialogueRange && actionInteract.WasPressedThisFrame())
+        if(isPlayerInDialogueRange)
         {
             if (!didDialogueStart)
             {
@@ -60,25 +60,33 @@ public class Dialogue : MonoBehaviour
             }
             else if (dialogueText.text == dialogueLines[lineIndex])
             {
-                NextDialogueLine(); // Si el diálogo ya ha comenzado y la línea actual está completa, muestra la siguiente línea.
+                if (actionInteract.WasPressedThisFrame())
+                {
+                    NextDialogueLine(); // Si el diálogo ya ha comenzado y la línea actual está completa, muestra la siguiente línea.
+                }
             }
             else
             {
-                StopAllCoroutines(); // Si el jugador presiona F antes de que termine la línea actual, detiene la corrutina de escritura.
-                dialogueText.text = dialogueLines[lineIndex]; // Muestra la línea completa inmediatamente.
+                if (actionInteract.WasPressedThisFrame())
+                {
+                    StopAllCoroutines(); // Si el jugador presiona F antes de que termine la línea actual, detiene la corrutina de escritura.
+                    dialogueText.text = dialogueLines[lineIndex]; // Muestra la línea completa inmediatamente.
+                }
             }
         }
+
+        portrait.sprite = portraitsSprites[lineIndex];
     }
 
     private void StartDialogue()
     {
         didDialogueStart = true;
         dialoguePanel.SetActive(true); // Activa el panel de diálogo.
-        dialogueMark.SetActive(false); // Desactiva el objeto visual de entrada.
         lineIndex = 0; // Reinicia el índice de la línea de diálogo actual.
         StartCoroutine(ShowLine()); // Inicia la corrutina para mostrar la primera línea de diálogo.
         //Time.timeScale = 0f; // Pausa el juego para que el jugador pueda leer el diálogo sin distracciones.
-        playerController.enabled = false; // Desactiva el controlador del jugador para evitar movimientos durante el diálogo.
+        playerControllerWater.enabled = false; // Desactiva el controlador del jugador para evitar movimientos durante el diálogo.
+        playerControllerGround.enabled = false; // Desactiva el controlador del jugador para evitar movimientos durante el diálogo.
     }
 
     private void NextDialogueLine()
@@ -92,10 +100,10 @@ public class Dialogue : MonoBehaviour
         {
             didDialogueStart = false; // Resetea la variable de control del diálogo.
             dialoguePanel.SetActive(false);
-            dialogueMark.SetActive(true); // Reactiva el objeto visual de entrada.
             //Time.timeScale = 1f; // Reanuda el juego una vez que se han mostrado todas las líneas de diálogo.
-            playerController.enabled = true; // Reactiva el controlador del jugador para que pueda moverse nuevamente.
-        }
+            lineIndex = 0; // Reinicia el índice de la línea de diálogo actual.
+            playerControllerWater.enabled = true; // Reactiva el controlador del jugador para que pueda moverse nuevamente.
+        }   playerControllerGround.enabled = true; // Reactiva el controlador del jugador para que pueda moverse nuevamente.
     }
 
     private void SelectAudioClip()
@@ -105,36 +113,13 @@ public class Dialogue : MonoBehaviour
             isPlayerTalking = !isPlayerTalking; // Alterna el estado de si el jugador está hablando o no.
         }
 
-        audioSource.clip = isPlayerTalking ? playerVoice : npcVoice; // Cambia el clip de audio según quién esté hablando. Es igual al bloque if comentado a continuación.
-
-        /*if (isPlayerTalking)
-        {
-            audioSource.clip = playerVoice; // Cambia el clip de audio al del jugador si está hablando.
-        }
-        else
-        {
-            audioSource.clip = npcVoice; // Cambia el clip de audio al del NPC si no está hablando.
-        }*/
-    }
-
-    private void SelectPortrait()
-    {
-        if (isPlayerTalking)
-        {
-            portraitPlayer.enabled = true; // Activa el portrait del jugador si está hablando.
-            portraitNPC.enabled = false; // Activa el portrait del jugador si está hablando.
-        }
-        else
-        {
-            portraitPlayer.enabled = false; // Desactiva el portrait del jugador si no está hablando.
-            portraitNPC.enabled = true; // Activa el portrait del NPC si está hablando.
-        }
+        audioSource.clip = voices[lineIndex]; // Cambia el clip de audio según quién esté hablando.
     }
 
     private IEnumerator ShowLine()
     {
         SelectAudioClip(); // Selecciona el clip de audio correcto según quién esté hablando.
-        SelectPortrait(); // Selecciona el portrait correcto según quién esté hablando.
+        //SelectPortrait(); // Selecciona el portrait correcto según quién esté hablando.
         dialogueText.text = string.Empty;
         int charIndex = 0; // Índice del carácter actual que se está mostrando.
 
@@ -157,7 +142,6 @@ public class Dialogue : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInDialogueRange = true;
-            dialogueMark.SetActive(true); // Activa el objeto visual para indicar que el jugador está en rango.
         }
     }
 
@@ -166,9 +150,7 @@ public class Dialogue : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInDialogueRange = false;
-            dialogueMark.SetActive(false); // Desactiva el objeto visual para indicar que el jugador ya no está en rango.
         }
     }
-
     #endregion
 }
