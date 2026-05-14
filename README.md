@@ -22,3 +22,4 @@ Menús con diferentes opciones de ajustes. Como cambiar el volumen de la música
 Inicio Preparacion de la Build de la demo final.
 Con unos bonitos fondos con paralaje y una bella fauna.
 Nuevo sprite para la red.
+Demo cerca.
