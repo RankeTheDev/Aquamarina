@@ -28,7 +28,7 @@ public class PlayerControllerWater : MonoBehaviour
     [SerializeField] bool isRunning;
     [SerializeField] bool movementY;
 
-    [Header("Variables de Componente y Scripts")]
+    [Header("Variables de Componente/GameObject y Scripts")]
     [SerializeField] Animator animator;
     [SerializeField] Rigidbody2D rigidbodyPlayer;
     [SerializeField] Timer timer;
@@ -40,16 +40,6 @@ public class PlayerControllerWater : MonoBehaviour
     #endregion
 
     #region METHODS
-    /*private void OnEnable() //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
-    {
-        inputActionAsset.FindActionMap("Player_Ground").Disable();
-        inputActionAsset.FindActionMap("Player_Water").Enable();
-    }
-    private void OnDisable() //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
-    {
-        inputActionAsset.FindActionMap("Player_Ground").Enable();
-        inputActionAsset.FindActionMap("Player_Water").Disable();
-    }*/
 
     void Awake() //ASIGNO COMPONENTES Y ACTIONS
     {
@@ -64,7 +54,7 @@ public class PlayerControllerWater : MonoBehaviour
         rigidbodyPlayer = GetComponent<Rigidbody2D>();
         timer = GetComponent<Timer>();
         animator = GetComponent<Animator>();
-        sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>();
+        sceneTypeChecker = FindObjectOfType<PlayerController_SceneTypeChecker>(); 
     }
 
     void Update()

@@ -13,6 +13,8 @@ public class Timer : MonoBehaviour
     public float currentTime; //Cantidad de aire que tiene el player actualmente
     public float addAir = 30f; //Cantidad de aire que consigue el player al tomar burbujas
     public float depleteAir = 10f; //Cantidad de aire que pierde el player al recibir daño (a futuro variaría según origen del daño)
+    public bool playerDead = false;
+
     #endregion
 
     #region METHODS
@@ -29,10 +31,20 @@ public class Timer : MonoBehaviour
         //Actualizar el contador
         currentTime -= Time.deltaTime * timeDecreaseSpeed;
 
+        if (currentTime <= 0f)
+        {
+            playerDead = true;
+        }
+        else
+        {
+            playerDead = false;
+        }
+
         //Evitar que el contador baje de 0
         if (currentTime < 0f)
         {
             currentTime = 0f;
+            timeDecreaseSpeed = 0f;
         }
 
         //Evitar que el contador suba de la capacidad máxima del tanque de 02

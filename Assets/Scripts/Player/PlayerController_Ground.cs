@@ -35,17 +35,6 @@ public class PlayerController_Ground : MonoBehaviour
     #endregion
 
     #region METHODS
-    /*private void OnEnable() //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
-    {
-        inputActionAsset.FindActionMap("Player_Ground").Enable();
-        inputActionAsset.FindActionMap("Player_Water").Disable();
-    }
-    private void OnDisable() //Desactivo el action map innecesario y lo sustituyo por el adecuado a la escena
-    {
-        inputActionAsset.FindActionMap("Player_Ground").Disable();
-        inputActionAsset.FindActionMap("Player_Water").Enable();
-    }*/
-
     void Awake() //Usado para guardar componentes al iniciar
     {
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM

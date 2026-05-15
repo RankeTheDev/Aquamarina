@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 858965037320245498}
   - component: {fileID: 7572045660074730597}
   - component: {fileID: 6328421301083760629}
+  - component: {fileID: 709283672475571654}
   m_Layer: 0
   m_Name: DEMO_Player
   m_TagString: Player
@@ -610,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365021325c49d3843bc49f7c4df39eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputActionAsset: {fileID: 0}
   gravityWater: 0.005
   gravityGround: 1
   facingRight: 0
@@ -621,6 +623,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerControllerWater: {fileID: 0}
   playerControllerGround: {fileID: 0}
+  playerControllerEquipment: {fileID: 0}
   animatorPlayer: {fileID: 0}
 --- !u!114 &7838655228165033928
 MonoBehaviour:
@@ -758,8 +761,9 @@ MonoBehaviour:
   totalTime: 180
   timeDecreaseSpeed: 0
   currentTime: 0
-  addAir: 20
+  addAir: 30
   depleteAir: 10
+  playerDead: 0
 --- !u!114 &3339728475501518832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,7 +801,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActionAsset: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
   menuPDA: {fileID: 0}
+  menuAjustes: {fileID: 0}
   menuPDAActivated: 0
+  menuAjustesActivated: 0
 --- !u!114 &858965037320245498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +874,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectIndex: 1
+--- !u!114 &709283672475571654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4345427096927852349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfff31967f17824b83627f7f416723c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasDeath: {fileID: 0}
+  timer: {fileID: 0}
 --- !u!1001 &3499441953071397769
 PrefabInstance:
   m_ObjectHideFlags: 0

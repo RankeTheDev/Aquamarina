@@ -31,6 +31,7 @@ TagManager:
   - PlayerGround
   - PlayerWater
   - MenuAjustes
+  - CanvasDeath
   layers:
   - Default
   - TransparentFX
