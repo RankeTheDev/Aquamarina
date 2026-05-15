@@ -448,6 +448,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1016430568773607475, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016430568773607475, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3959083375128449161}
+    - target: {fileID: 1016430568773607475, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016430568773607475, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CerrarJuego, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2104081632303258865, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -671,8 +687,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5579866229573192661, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3959083375128449161}
   m_SourcePrefab: {fileID: 100100000, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
+--- !u!1 &1991553353600159540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5579866229573192661, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
+  m_PrefabInstance: {fileID: 6254587272926840033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3959083375128449161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991553353600159540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d869cd34c763d489e76a9ece42ed8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3484285490478529167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7392213270959947374, guid: 589824a8a46fa004a9c163a2313779ec, type: 3}
