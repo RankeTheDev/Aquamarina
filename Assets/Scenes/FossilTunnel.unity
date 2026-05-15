@@ -7870,6 +7870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DEMO_DialogueTriggerScene5
       objectReference: {fileID: 0}
+    - target: {fileID: 6881064299261054552, guid: c3ee2ffb2cffe4a4eaf4a8eb0efd51c2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7627987767926223649, guid: c3ee2ffb2cffe4a4eaf4a8eb0efd51c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

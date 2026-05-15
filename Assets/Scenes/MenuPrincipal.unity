@@ -562,6 +562,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 971373292}
+    - target: {fileID: 7815775924927991983, guid: 9cf0ee0ee2ec6424e98cd54d0938b945, type: 3}
+      propertyPath: inputActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
     - target: {fileID: 8516077537159492038, guid: 9cf0ee0ee2ec6424e98cd54d0938b945, type: 3}
       propertyPath: m_Name
       value: DEMO_AjustesMainMenu
