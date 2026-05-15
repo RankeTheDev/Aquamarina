@@ -41,6 +41,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8580812428142012082}
     m_Modifications:
+    - target: {fileID: 1453652711298351790, guid: 41b951ccba4e9a04e9c416ab859a2ae7, type: 3}
+      propertyPath: menuAjustes
+      value: 
+      objectReference: {fileID: 732210713969500064}
     - target: {fileID: 2145664948456192456, guid: 41b951ccba4e9a04e9c416ab859a2ae7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
