@@ -12,10 +12,9 @@ public class PlayerController_Triggers : MonoBehaviour
     [Header("Variables de Componente y Scripts")]
     [SerializeField] Timer timer;
     [SerializeField] Animator animator;
-    [SerializeField] Animator bubblesDamageAnimator;
     [SerializeField] SceneTransition sceneTransition;
-    [SerializeField] PlayerController_Equipment playerEquipment;
 
+    [SerializeField] Animator bubblesDamageAnimator;
     [SerializeField] GameObject bubblesDamage;
     public GameObject playerPositionOnEnter;
     [SerializeField] GameObject[] playerPositionsArrayOnEnter;
@@ -30,8 +29,6 @@ public class PlayerController_Triggers : MonoBehaviour
         timer = GetComponent<Timer>();
         animator = GetComponent<Animator>();
         sceneTransition = FindObjectOfType<SceneTransition>();
-        playerEquipment = FindObjectOfType<PlayerController_Equipment>();
-
     }
 
     // Update is called once per frame
