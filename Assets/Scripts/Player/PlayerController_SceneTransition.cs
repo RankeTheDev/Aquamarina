@@ -15,7 +15,6 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] PlayerController_SceneTypeChecker player_SceneTypeChecker;
     [SerializeField] PlayerController_Triggers playerController_Triggers;
-
     #endregion
 
     #region METHODS
@@ -31,23 +30,13 @@ public class SceneTransition : MonoBehaviour
         playerController_Triggers = player.GetComponent<PlayerController_Triggers>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void SceneChange()
     {
+        playerController_Triggers.isTransitioningToScene = true;
+
         //Desactivo los controles del player
-        if (playerControllerWater)
-        {
-            playerControllerWater.enabled = false;
-        }
-        if (playerControllerGround)
-        {
-            playerControllerGround.enabled = false;
-        }
+        playerControllerWater.enabled = false;
+        playerControllerGround.enabled = false;
 
         StartCoroutine(ChangeScenePlayer());
     }
@@ -60,20 +49,9 @@ public class SceneTransition : MonoBehaviour
 
         SceneManager.LoadScene(playerController_Triggers.sceneToTPPlayer);
 
-        //muevo al player al punto de la pantalla en que quiero que aparezca
-        //playerPositionOnEnter = GameObject.FindWithTag("PositionPlayerOnEntry");
-        /*if (player_SceneTypeChecker.playerGroundIsActive)
-        {
-            playerGround.GetComponent<Transform>().position = playerTriggersWater.playerPositionOnEnter.transform.position;
-        }
-        else if (player_SceneTypeChecker.playerWaterIsActive)
-        {
-            playerWater.GetComponent<Transform>().position = playerTriggersWater.playerPositionOnEnter.transform.position;
-        }*/
-
         player.GetComponent<Transform>().position = playerController_Triggers.playerPositionOnEnter.transform.position;
 
-        //Reactivo los controles del player
+        /*//Reactivo los controles del player. Desactivado porque puede que se haga solo desde scen checker con el isTransitioningToScene
         if (playerControllerWater)
         {
             playerControllerWater.enabled = true;
@@ -81,7 +59,9 @@ public class SceneTransition : MonoBehaviour
         if (playerControllerGround)
         {
             playerControllerGround.enabled = true;
-        }
+        }*/
+
+        playerController_Triggers.isTransitioningToScene = false;
     }
     #endregion
 }

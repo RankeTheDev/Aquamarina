@@ -7,6 +7,7 @@ public class PlayerController_Triggers : MonoBehaviour
 {
     #region VARIABLES
     public int sceneToTPPlayer;
+    public bool isTransitioningToScene = false;
 
     [Header("Variables de Componente y Scripts")]
     [SerializeField] Timer timer;

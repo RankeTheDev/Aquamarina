@@ -26,6 +26,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
     [SerializeField] PlayerControllerWater playerControllerWater; //Script controller de water
     [SerializeField] PlayerController_Ground playerControllerGround; //Script controller de tierra
     [SerializeField] PlayerController_Equipment playerControllerEquipment; //Script controller de tierra
+    [SerializeField] SceneTransition sceneTransition; //Script de transicion de escena
     [SerializeField] Animator animatorPlayer; //Animator del player
 
     #endregion
@@ -50,8 +51,11 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
 
         if (sceneIndex == 1) //Si la escena actual es la 1
         {
-            playerControllerWater.enabled = false; //Desactivo el controller de water
-            playerControllerEquipment.enabled = false; //Desactivo el controller de equipos
+            if (facingRight)
+            {
+                playerControllerWater.enabled = false; //Desactivo el controller de water
+                playerControllerEquipment.enabled = false; //Desactivo el controller de equipos 
+            }
             playerControllerGround.enabled = true; //Activo el controller de tierra
             animatorPlayer.SetBool("IsGrounded", true); //Activo el bool de grounded para el animator del player
         }
