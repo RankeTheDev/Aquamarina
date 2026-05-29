@@ -2,7 +2,7 @@
 
 ##### Versión 0.2
 
-Si entrando al juego el player se encuentra como suspendido en el aire, sencillamente ir a ajustes, menú principal y volver a darle a continuar para solucionarlo.
+
 
 Explora y descubre una fosa marina inédita para el ser humano, La Fosa de los Tritones. Con bellos y variados paisajes y fauna creados en un precioso estilo pixel art.
 Movimiento Subacuático centrado en exploración y movimiento terrestre relajado. Con una mecánica de vida basada en Oxígeno, deberás cuidar el oxígeno que disminuye paulatinamente con el tiempo, y cuando recibes daño por alguno de los peces hostiles de la fosa.
