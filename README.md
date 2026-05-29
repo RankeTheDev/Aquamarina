@@ -6,7 +6,7 @@
 
 
 
-Si entrando al juego el player se encuentra como suspendido en el aire, sencillamente ir a ajustes, menú principal y volver a darle a continuar para solucionarlo.
+Recordar reactivar el dialogo por trigger de la escena del Lab. Desactivado temporalmente para facilitar el arreglo de bugs.
 
 
 
