@@ -1839,6 +1839,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2764558151041197122, guid: a1466edac840c514e940590ab69a7216, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843566059383691033, guid: a1466edac840c514e940590ab69a7216, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843566059383691033, guid: a1466edac840c514e940590ab69a7216, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843566059383691033, guid: a1466edac840c514e940590ab69a7216, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843566059383691033, guid: a1466edac840c514e940590ab69a7216, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843566059383691033, guid: a1466edac840c514e940590ab69a7216, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843566059383691033, guid: a1466edac840c514e940590ab69a7216, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7238451460572700414, guid: a1466edac840c514e940590ab69a7216, type: 3}
       propertyPath: submarinePositionsArrayOnEnter.Array.data[0]
       value: 
@@ -1859,6 +1887,10 @@ PrefabInstance:
       propertyPath: submarinePositionsArrayOnEnter.Array.data[4]
       value: 
       objectReference: {fileID: 2034266936}
+    - target: {fileID: 7607106548539744088, guid: a1466edac840c514e940590ab69a7216, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8059418871613367017, guid: a1466edac840c514e940590ab69a7216, type: 3}
       propertyPath: m_Name
       value: Submarino_Demo
