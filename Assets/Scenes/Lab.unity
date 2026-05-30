@@ -680,6 +680,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 561256345853493223, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
+      propertyPath: inputActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
     - target: {fileID: 709283672475571654, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: canvasDeath
       value: 

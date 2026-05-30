@@ -38,7 +38,7 @@ public class PlayerController_Ground : MonoBehaviour
     void Awake() //Usado para guardar componentes al iniciar
     {
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
-        actionMove = InputSystem.actions.FindAction("Move");
+        actionMove = InputSystem.actions.FindAction("Player_Ground/Move");
 
         rigidbodyPlayer = GetComponent<Rigidbody2D>(); // Compartida
         animator = GetComponent<Animator>();

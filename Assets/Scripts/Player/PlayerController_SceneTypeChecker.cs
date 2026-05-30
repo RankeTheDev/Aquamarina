@@ -6,6 +6,8 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
 {
     #region VARIABLES
     [Header("Variables Input System")]
+    [SerializeField] InputActionAsset inputActionAsset;
+
     //Valores de gravedad según el tipo de nivel
     public float gravityWater = 0.005f;
     public float gravityGround = 1f;
@@ -31,6 +33,10 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
     // Awake is called when the script instance is being loaded
     void Awake() //Guardo preferencias de objects y componentes/scripts
     {
+        //Activo ambos action map de base
+        inputActionAsset.FindActionMap("Player_Water").Enable();
+        inputActionAsset.FindActionMap("Player_Ground").Enable();
+
         player = this.gameObject;
         animatorPlayer = GetComponent<Animator>();
         playerControllerWater = GetComponent<PlayerControllerWater>();
@@ -56,6 +62,8 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
             playerControllerWater.enabled = false; //Desactivo el controller de water
             playerControllerEquipment.enabled = false; //Desactivo el controller de equipos 
             animatorPlayer.SetBool("IsGrounded", true); //Activo el bool de grounded para el animator del player
+            inputActionAsset.FindActionMap("Player_Water").Disable(); //Desactivo el ActionMap acuatico 
+            inputActionAsset.FindActionMap("Player_Ground").Enable(); //Activo el ActionMap terrestre
         }
         else //En demás casos
         {
@@ -63,60 +71,9 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
             playerControllerGround.enabled = false; //Desactivo el controller de tierra
             playerControllerEquipment.enabled = true; //Activo el controller de equipos
             animatorPlayer.SetBool("IsGrounded", false); //Desactivo el bool de grounded para el animator del player
-        }
-
-        /*
-        if (sceneIndex == 1) //Si la escena actual es la 1
-        {
-            //GroundContollerOn();
-            //playerControllerGround.enabled = true; //Activo el controller de tierra
-            //playerControllerWater.enabled = false; //Desactivo el controller de water
-            playerControllerEquipment.enabled = false; //Desactivo el controller de equipos 
-            animatorPlayer.SetBool("IsGrounded", true); //Activo el bool de grounded para el animator del player
-        }
-        else if (sceneIndex != 0 && sceneIndex != 1) //En demás casos
-        {
-            //WaterControllerOn();
-            //playerControllerGround.enabled = false; //Desactivo el controller de tierra
-            //playerControllerWater.enabled = true; //Activo el controller de water
-            playerControllerEquipment.enabled = true; //Activo el controller de equipos
-            animatorPlayer.SetBool("IsGrounded", false); //Desactivo el bool de grounded para el animator del player
-        }
-        else
-        {
-            //Desactivo los controles del player
-            playerControllerWater.enabled = false;
-            playerControllerGround.enabled = false;
-        }
-        */
-    }
-    /*
-    void GroundContollerOn()
-    {
-        if (playerController_Triggers.isTransitioningToScene == true)
-        {
-            //Desactivo los controles del player
-            playerControllerWater.enabled = false;
-            playerControllerGround.enabled = false;
-        }
-        else
-        {
-            playerControllerGround.enabled = true; //Activo el controller de tierra
+            inputActionAsset.FindActionMap("Player_Water").Enable(); //Activo el ActionMap acuatico
+            inputActionAsset.FindActionMap("Player_Ground").Disable(); //Desactivo el ActionMap terrestre
         }
     }
-
-    void WaterControllerOn()
-    {
-        if (playerController_Triggers.isTransitioningToScene == true)
-        {
-            //Desactivo los controles del player
-            playerControllerWater.enabled = false;
-            playerControllerGround.enabled = false;
-        }
-        else
-        {
-            playerControllerWater.enabled = true; //Activo el controller de water
-        }
-    }*/
     #endregion
 }
