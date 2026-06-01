@@ -1,6 +1,6 @@
 # AQUAMARINA
 
-## Versión 0.2.2
+## Versión 0.2.3
 
 Recordar reactivar el dialogo por trigger de la escena del Lab. Desactivado temporalmente para facilitar el arreglo de bugs y testing.
 
