@@ -11,4 +11,3 @@ El juego cuenta con una fluida transición entre escenas con fundidos a negro y 
 
 Interactúa con personajes como Mortimer y el Dr. Coralius, quienes tienen con interesantes historias que contar.
 Viaja rápidamente entre zonas gracias a un pequeño submarino proporcionado por Dr. Coralius y Mortimer.
-
