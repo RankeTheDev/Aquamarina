@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &36061297 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1387563323520386126, guid: 50eda9ec344657c4381cebb26f51cc68, type: 3}
+  m_PrefabInstance: {fileID: 687744643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &76041778
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,10 +357,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1387563323520386126, guid: 50eda9ec344657c4381cebb26f51cc68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387563323520386126, guid: 50eda9ec344657c4381cebb26f51cc68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.82
+      objectReference: {fileID: 0}
     - target: {fileID: 5748695739894920021, guid: 50eda9ec344657c4381cebb26f51cc68, type: 3}
       propertyPath: m_Name
       value: PecesShiny
       objectReference: {fileID: 0}
+    - target: {fileID: 6187697416658352496, guid: 50eda9ec344657c4381cebb26f51cc68, type: 3}
+      propertyPath: points.Array.data[0]
+      value: 
+      objectReference: {fileID: 2069005807}
+    - target: {fileID: 6187697416658352496, guid: 50eda9ec344657c4381cebb26f51cc68, type: 3}
+      propertyPath: points.Array.data[1]
+      value: 
+      objectReference: {fileID: 36061297}
     - target: {fileID: 7373762837851479253, guid: 50eda9ec344657c4381cebb26f51cc68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -44.98
@@ -29581,6 +29602,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd5577d829d6ad4daf11ef5e4cd875e, type: 3}
+--- !u!4 &2069005807 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8045651365359066760, guid: 50eda9ec344657c4381cebb26f51cc68, type: 3}
+  m_PrefabInstance: {fileID: 687744643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
