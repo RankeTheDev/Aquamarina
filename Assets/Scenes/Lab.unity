@@ -4507,6 +4507,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4005305040408609745, guid: ba0d6feb088afbc499967665069032e1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 355857c278d91254eaac9f84b5979225, type: 2}
+    - target: {fileID: 4005305040408609745, guid: ba0d6feb088afbc499967665069032e1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5362307669132966990, guid: ba0d6feb088afbc499967665069032e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.8
@@ -4570,6 +4578,14 @@ PrefabInstance:
     - target: {fileID: 798777951473209160, guid: 0bd4c79e21e356c4d80f3aceac529990, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328161406467939007, guid: 0bd4c79e21e356c4d80f3aceac529990, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 355857c278d91254eaac9f84b5979225, type: 2}
+    - target: {fileID: 1328161406467939007, guid: 0bd4c79e21e356c4d80f3aceac529990, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1537931771295641100, guid: 0bd4c79e21e356c4d80f3aceac529990, type: 3}
       propertyPath: m_IsActive
@@ -4748,6 +4764,14 @@ PrefabInstance:
     - target: {fileID: 5377031405669326007, guid: c50831a3d8042ae4e9a6a7d6d36ede26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332974893082508039, guid: c50831a3d8042ae4e9a6a7d6d36ede26, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 355857c278d91254eaac9f84b5979225, type: 2}
+    - target: {fileID: 7332974893082508039, guid: c50831a3d8042ae4e9a6a7d6d36ede26, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
