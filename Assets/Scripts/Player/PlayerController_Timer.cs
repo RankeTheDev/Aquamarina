@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Timer : MonoBehaviour
 {
     #region VARIABLES
-    public TextMeshProUGUI timerText; //ref al TextMeshPro del timer (test)
+   
 
-    public float totalTime = 120f; // Tiempo total del timer
+    public float totalTime = 180f; // Tiempo total del timer
     public float timeDecreaseSpeed = 1f; //Modificador de velocidad a la que disminuye el aire
     public float currentTime; //Cantidad de aire que tiene el player actualmente
     public float addAir = 30f; //Cantidad de aire que consigue el player al tomar burbujas
     public float depleteAir = 10f; //Cantidad de aire que pierde el player al recibir daño (a futuro variaría según origen del daño)
     public bool playerDead = false;
+    public Image Oxigen;
+    public Sprite[] OxigenState;
 
     #endregion
 
@@ -21,7 +25,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerText = GameObject.FindWithTag("CanvasTimer").GetComponentInChildren<TextMeshProUGUI>();
+   
         currentTime = totalTime;
     }
 
@@ -53,22 +57,20 @@ public class Timer : MonoBehaviour
             currentTime = totalTime;
         }
 
-        //Metodo para actualizar el timer en pantalla
-        UpdateTimerUI();
+        //Transforma el aire en un numero entre 0 y 1
+        float porcentaje = currentTime / totalTime;
+
+        //Parar convertir el porcentaje en sprite
+        int index = Mathf.FloorToInt((1-porcentaje)*(OxigenState.Length-1));
+
+        //Para que no se rompa dand negativos o superiores
+        index = Mathf.Clamp(index, 0, OxigenState.Length - 1);
+
+        //Cambio de sprite
+        Oxigen.sprite = OxigenState[index];
     }
 
-    void UpdateTimerUI()
-    {
-        //Calcular minutos y segundos
-        int minutes = Mathf.FloorToInt(currentTime / 60f);
-        int seconds = Mathf.FloorToInt(currentTime % 60f);
-
-        //Formato de tiempo en 00:00
-        string timeString = string.Format("{00:00}:{01:00}", minutes, seconds);
-
-        //Update the UI text
-        timerText.text = timeString;
-    }
+    
 
     public void AddTime(float ammountTOChangeStat)
     {
