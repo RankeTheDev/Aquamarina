@@ -1,7 +1,8 @@
 # AQUAMARINA
+
 ## Versión 0.2.2
 
-Recordar reactivar el dialogo por trigger de la escena del Lab. Desactivado temporalmente para facilitar el arreglo de bugs.
+Recordar reactivar el dialogo por trigger de la escena del Lab. Desactivado temporalmente para facilitar el arreglo de bugs y testing.
 
 Explora y descubre una fosa marina inédita para el ser humano, La Fosa de los Tritones. Con bellos y variados paisajes y fauna creados en un precioso estilo pixel art.
 Movimiento Subacuático centrado en exploración y movimiento terrestre relajado. Con una mecánica de vida basada en Oxígeno, deberás cuidar el oxígeno que disminuye paulatinamente con el tiempo, y cuando recibes daño por alguno de los peces hostiles de la fosa.
@@ -10,3 +11,4 @@ El juego cuenta con una fluida transición entre escenas con fundidos a negro y 
 
 Interactúa con personajes como Mortimer y el Dr. Coralius, quienes tienen con interesantes historias que contar.
 Viaja rápidamente entre zonas gracias a un pequeño submarino proporcionado por Dr. Coralius y Mortimer.
+
