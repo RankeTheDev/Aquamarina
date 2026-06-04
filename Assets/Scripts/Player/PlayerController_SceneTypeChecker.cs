@@ -62,7 +62,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
         {
             if (dialogueController.isDialogueActive)
             {
-                playerControllerGround.enabled = false; //Activo el controller de tierra
+                playerControllerGround.enabled = false; //Desactivo el controller de tierra
             }
             else
             {
