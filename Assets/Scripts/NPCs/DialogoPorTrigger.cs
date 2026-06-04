@@ -9,10 +9,10 @@ public class DialogoPorTrigger : MonoBehaviour
 {
     #region VARIABLES
     [Header("Variables Input System")]
-    [SerializeField] InputActionAsset inputActionAsset;
+    [SerializeField] InputActionAsset inputActionAsset; // Referencia al InputActionAsset para las teclas de interacción
 
-    InputAction actionInteractGround;
-    InputAction actionInteractWater;
+    InputAction actionInteractGround; // Tecla de interaccion del mapa de teclas terrestre
+    InputAction actionInteractWater; // Tecla de interaccionn del mapa de teclas acuatico
 
     [Header("Dialogue Triggers Variables")]
     [SerializeField, TextArea(2, 4 )] private string[] dialogueLines; // Referencia al texto que se mostrrará del character hablando.
@@ -21,7 +21,8 @@ public class DialogoPorTrigger : MonoBehaviour
     private bool isPlayerInDialogueRange; //Bool para saber cuando mostrar la alerta de dialogo
     private bool didDialogueStart = false; // Variable para controlar si el diálogo está activo o no.
     [SerializeField] private int lineIndex = 0; // Índice de la línea de diálogo actual. 
-    [SerializeField] private float typingTime = 0.05f;
+    [SerializeField] private float typingTime = 0.05f; // Cadencia de escritura de los caracteres de la caja de dialogo
+    [SerializeField] DialogueController dialogueController; // Referencia al controlador de dialogos para comprobar la variable de dialogos activados/disponibles
     public PlayerControllerWater playerControllerWater; // Referencia al controlador del jugador, si es necesario para otras interacciones.
     public PlayerController_Ground playerControllerGround; // Referencia al controlador del jugador, si es necesario para otras interacciones.
     [SerializeField] private int charsToPlayAudio; // Número de caracteres a escribir antes de reproducir el audio del NPC.
@@ -46,6 +47,7 @@ public class DialogoPorTrigger : MonoBehaviour
 
         playerControllerWater = FindObjectOfType<PlayerControllerWater>();
         playerControllerGround = FindObjectOfType<PlayerController_Ground>();
+        dialogueController = FindObjectOfType<DialogueController>();
     }
 
     private void Start()
@@ -56,6 +58,8 @@ public class DialogoPorTrigger : MonoBehaviour
     // Update is called once per frame. Used to see what the player does each frame.
     void Update()
     {
+        isDialogueAvailable();
+
         portrait.sprite = portraitsSprites[lineIndex];
 
         if (isPlayerInDialogueRange)
@@ -70,7 +74,7 @@ public class DialogoPorTrigger : MonoBehaviour
             }
             else if (actionInteractWater.WasPressedThisFrame() || actionInteractGround.WasPressedThisFrame())
             {
-                StopAllCoroutines(); // Si el jugador presiona F antes de que termine la línea actual, detiene la corrutina de escritura.
+                StopAllCoroutines(); // Si el jugador presiona la tecla de interaccion antes de que termine la línea actual, detiene la corrutina de escritura.
                 dialogueText.text = dialogueLines[lineIndex]; // Muestra la línea completa inmediatamente.
             }
         }
@@ -134,6 +138,18 @@ public class DialogoPorTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInDialogueRange = true;
+        }
+    }
+
+    void isDialogueAvailable() //Metodo para comprobar la posibilidad de tener un dialogo 
+    {
+        if (didDialogueStart)
+        {
+            dialogueController.isDialogueActive = true;
+        }
+        else
+        {
+            dialogueController.isDialogueActive = false;
         }
     }
     #endregion
