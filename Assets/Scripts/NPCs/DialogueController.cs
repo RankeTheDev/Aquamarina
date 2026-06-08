@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class DialogueController : MonoBehaviour
     #endregion
 
     #region METHODS
-    private void Awake()
+    private void Awake() //ALMACENO REFS DE VARIABLES
     {
         coralius = GameObject.FindWithTag("DialogueCoralius");
         mortimer = GameObject.FindWithTag("DialogueMortimer");
@@ -41,28 +42,32 @@ public class DialogueController : MonoBehaviour
         }
     }
     
-    void GatherMissingRefs()
+    void GatherMissingRefs() //Relinkea variables perdidas
     {
-        if (!coralius)
-            {
-                coralius = GameObject.FindWithTag("DialogueCoralius");
-            }
-        if (!mortimer)
-            {
-                mortimer = GameObject.FindWithTag("DialogueMortimer");
-            }
-        if (!coraliusDialogue)
-            {
-                coraliusDialogue = coralius.GetComponent<DialogoPorInteract>();
-            }
-        if (!mortimerDialogue)
-            {
-                mortimerDialogue = mortimer.GetComponent<DialogoPorInteract>();
-            }
-        if (!dialogueTrigger)
-            {
-                dialogueTrigger = FindObjectOfType<DialogoPorTrigger>();
-            }
+        if (!coralius) //Variable GameObject de coralius
+        {
+            coralius = GameObject.FindWithTag("DialogueCoralius");
+        }
+
+        if (!mortimer) //Variable GameObject de mortimer
+        {
+            mortimer = GameObject.FindWithTag("DialogueMortimer");
+        }
+
+        if (!coraliusDialogue) //Variable del script de dialogo de coralius
+        {
+            coraliusDialogue = coralius.GetComponent<DialogoPorInteract>();
+        }
+
+        if (!mortimerDialogue) //Variable del script de dialogo de mortimer
+        {
+            mortimerDialogue = mortimer.GetComponent<DialogoPorInteract>();
+        }
+
+        if (!dialogueTrigger) //Variable del script de dialogo por triggers
+        {
+            dialogueTrigger = FindObjectOfType<DialogoPorTrigger>();
+        }
     }
     #endregion
 }
