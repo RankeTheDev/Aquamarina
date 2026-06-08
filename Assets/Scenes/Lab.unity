@@ -717,6 +717,7 @@ MonoBehaviour:
   mortimer: {fileID: 0}
   coraliusDialogue: {fileID: 0}
   mortimerDialogue: {fileID: 0}
+  dialogueTrigger: {fileID: 0}
   isDialogueActive: 0
 --- !u!4 &673079758
 Transform:
@@ -4775,7 +4776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2503235224215158166, guid: 0bd4c79e21e356c4d80f3aceac529990, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8647511755016422114, guid: 0bd4c79e21e356c4d80f3aceac529990, type: 3}
       propertyPath: m_LocalPosition.x

@@ -53,11 +53,21 @@ public class DialogoPorInteract : MonoBehaviour
     // Update is called once per frame. Used to see what the player does each frame.
     void Update()
     {
-        //isDialogueAvailable();
-
         portrait.sprite = portraitsSprites[lineIndex];
 
-        if(isPlayerInDialogueRange && actionInteractGround.WasPressedThisFrame())
+        if (dialogueController.dialogueTrigger.didDialogueStart == false)
+        {
+            DialogueInteractions();
+        }
+        else
+        {
+            dialogueMark.SetActive(false);
+        }
+    }
+
+    void DialogueInteractions()
+    {
+        if (isPlayerInDialogueRange && actionInteractGround.WasPressedThisFrame())
         {
             if (!didDialogueStart)
             {
@@ -149,18 +159,5 @@ public class DialogoPorInteract : MonoBehaviour
             dialogueMark.SetActive(false); // Desactiva el objeto visual para indicar que el jugador ya no está en rango.
         }
     }
-
-    /*
-    void isDialogueAvailable() //Metodo para comprobar la posibilidad de tener un dialogo 
-    {
-        if (didDialogueStart)
-        {
-            dialogueController.isDialogueActive = true;
-        }
-        else
-        {
-            dialogueController.isDialogueActive = false;
-        }
-    }*/
     #endregion
 }

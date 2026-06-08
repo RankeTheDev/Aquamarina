@@ -19,7 +19,7 @@ public class DialogoPorTrigger : MonoBehaviour
     [SerializeField] private Sprite[] portraitsSprites; // Referencia a la imagen portrait que se mostrará del character hablando.
     [SerializeField] private AudioClip[] voices; // Referencia al audio que se reproducirá durante el diálogo, si es necesario y para cada personaje
     private bool isPlayerInDialogueRange; //Bool para saber cuando mostrar la alerta de dialogo
-    private bool didDialogueStart = false; // Variable para controlar si el diálogo está activo o no.
+    public bool didDialogueStart = false; // Variable para controlar si el diálogo está activo o no.
     [SerializeField] private int lineIndex = 0; // Índice de la línea de diálogo actual. 
     [SerializeField] private float typingTime = 0.05f; // Cadencia de escritura de los caracteres de la caja de dialogo
     [SerializeField] DialogueController dialogueController; // Referencia al controlador de dialogos para comprobar la variable de dialogos activados/disponibles
@@ -35,7 +35,6 @@ public class DialogoPorTrigger : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText; // Referencia al cuadro de diálogo que se mostrará al jugador.
     [SerializeField] private AudioSource audioSource; // Referencia al audio que se reproducirá durante el diálogo, si es necesario.
     [SerializeField] private Image portrait; // Referencia a la iamgen portrait que se mostrrará del player hablando.
-
     #endregion
 
     #region METHODS
@@ -58,10 +57,13 @@ public class DialogoPorTrigger : MonoBehaviour
     // Update is called once per frame. Used to see what the player does each frame.
     void Update()
     {
-        isDialogueAvailable();
-
         portrait.sprite = portraitsSprites[lineIndex];
 
+        DialogueInteractions();
+    }
+
+    void DialogueInteractions()
+    {
         if (isPlayerInDialogueRange)
         {
             if (!didDialogueStart)
@@ -138,18 +140,6 @@ public class DialogoPorTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInDialogueRange = true;
-        }
-    }
-
-    void isDialogueAvailable() //Metodo para comprobar la posibilidad de tener un dialogo 
-    {
-        if (didDialogueStart)
-        {
-            dialogueController.isDialogueActive = true;
-        }
-        else
-        {
-            dialogueController.isDialogueActive = false;
         }
     }
     #endregion

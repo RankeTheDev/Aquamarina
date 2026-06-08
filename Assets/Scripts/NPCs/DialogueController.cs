@@ -9,6 +9,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] GameObject mortimer;
     [SerializeField] DialogoPorInteract coraliusDialogue;
     [SerializeField] DialogoPorInteract mortimerDialogue;
+    public DialogoPorTrigger dialogueTrigger;
     public bool isDialogueActive = false;
     #endregion
 
@@ -19,6 +20,7 @@ public class DialogueController : MonoBehaviour
         mortimer = GameObject.FindWithTag("DialogueMortimer");
         coraliusDialogue = coralius.GetComponent<DialogoPorInteract>();
         mortimerDialogue = mortimer.GetComponent<DialogoPorInteract>();
+        dialogueTrigger = FindObjectOfType<DialogoPorTrigger>();
     }
 
     private void Update()
@@ -56,6 +58,10 @@ public class DialogueController : MonoBehaviour
         if (!mortimerDialogue)
             {
                 mortimerDialogue = mortimer.GetComponent<DialogoPorInteract>();
+            }
+        if (!dialogueTrigger)
+            {
+                dialogueTrigger = FindObjectOfType<DialogoPorTrigger>();
             }
     }
     #endregion
