@@ -60,9 +60,12 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
 
         if (sceneIndex == 1) //Si la escena actual es la 1
         {
-            if (dialogueController.isDialogueActive)
+            if (dialogueController.isDialogueActive == true)
             {
+                playerControllerGround.playerRigidbody2D.velocity = Vector3.zero;
+                playerControllerGround.moveAmmount = Vector2.zero;
                 playerControllerGround.enabled = false; //Desactivo el controller de tierra
+                animatorPlayer.SetBool("IdleGround", true);
             }
             else
             {

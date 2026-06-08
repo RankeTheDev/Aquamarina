@@ -53,7 +53,7 @@ public class DialogoPorInteract : MonoBehaviour
     // Update is called once per frame. Used to see what the player does each frame.
     void Update()
     {
-        isDialogueAvailable();
+        //isDialogueAvailable();
 
         portrait.sprite = portraitsSprites[lineIndex];
 
@@ -150,6 +150,7 @@ public class DialogoPorInteract : MonoBehaviour
         }
     }
 
+    /*
     void isDialogueAvailable() //Metodo para comprobar la posibilidad de tener un dialogo 
     {
         if (didDialogueStart)
@@ -160,6 +161,6 @@ public class DialogoPorInteract : MonoBehaviour
         {
             dialogueController.isDialogueActive = false;
         }
-    }
+    }*/
     #endregion
 }

@@ -693,6 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 673079758}
   - component: {fileID: 673079757}
+  - component: {fileID: 673079759}
   m_Layer: 0
   m_Name: DialogueController
   m_TagString: Untagged
@@ -712,6 +713,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c17a324718da54daedbb7180faac21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coralius: {fileID: 0}
+  mortimer: {fileID: 0}
+  coraliusDialogue: {fileID: 0}
+  mortimerDialogue: {fileID: 0}
   isDialogueActive: 0
 --- !u!4 &673079758
 Transform:
@@ -728,6 +733,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &673079759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673079756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825a8166ab8d0e74ca46f2f11064094f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIndex: 11
 --- !u!1001 &780871775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4667,6 +4685,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4383249912310514031, guid: ba0d6feb088afbc499967665069032e1, type: 3}
+      propertyPath: m_TagString
+      value: DialogueMortimer
+      objectReference: {fileID: 0}
     - target: {fileID: 5362307669132966990, guid: ba0d6feb088afbc499967665069032e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.8
@@ -4852,6 +4874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FondoLaboratorio
       objectReference: {fileID: 0}
+    - target: {fileID: 9076431238353910708, guid: 60abd6fe7f288f24bb8a84c9cf1e63d9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4873,6 +4899,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1471318675973473659, guid: c50831a3d8042ae4e9a6a7d6d36ede26, type: 3}
+      propertyPath: m_TagString
+      value: DialogueCoralius
+      objectReference: {fileID: 0}
     - target: {fileID: 3301984036773834796, guid: c50831a3d8042ae4e9a6a7d6d36ede26, type: 3}
       propertyPath: m_Name
       value: Dialogue_Coralius
@@ -5009,7 +5039,6 @@ SceneRoots:
   - {fileID: 629342739264884100}
   - {fileID: 6937509963774979729}
   - {fileID: 1545505289476291904}
-  - {fileID: 673079758}
   - {fileID: 1684249192}
   - {fileID: 1131718929}
   - {fileID: 1355463111}
@@ -5024,3 +5053,4 @@ SceneRoots:
   - {fileID: 1488288628}
   - {fileID: 378075825}
   - {fileID: 7678636282999980335}
+  - {fileID: 673079758}
