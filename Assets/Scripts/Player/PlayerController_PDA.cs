@@ -42,6 +42,12 @@ public class PlayerController_PDA : MonoBehaviour
     void Update()
     {
         OpenClosePDA();
+
+        if (!menuAjustes)
+        {
+            menuAjustes = GameObject.FindWithTag("MenuAjustes");
+        }
+
         OpenCloseMenu();
     }
 
