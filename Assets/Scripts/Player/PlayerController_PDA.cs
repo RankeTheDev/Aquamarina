@@ -10,7 +10,8 @@ public class PlayerController_PDA : MonoBehaviour
     [SerializeField] InputActionAsset inputActionAsset;
     InputAction actionPDAWater;
     InputAction actionPDAGround;
-    InputAction actionAjustes;
+    InputAction actionAjustesWater;
+    InputAction actionAjustesGround;
 
     public GameObject menuPDA;
     public GameObject menuAjustes;
@@ -24,7 +25,8 @@ public class PlayerController_PDA : MonoBehaviour
     {
         actionPDAWater = InputSystem.actions.FindAction("Player_Water/PDA");
         actionPDAGround = InputSystem.actions.FindAction("Player_Ground/PDA");
-        actionAjustes = InputSystem.actions.FindAction("Ajustes");
+        actionAjustesWater = InputSystem.actions.FindAction("Player_Water/Ajustes");
+        actionAjustesGround = InputSystem.actions.FindAction("Player_Ground/Ajustes");
 
         if (!menuPDA)
         {
@@ -40,7 +42,7 @@ public class PlayerController_PDA : MonoBehaviour
     void Update()
     {
         OpenClosePDA();
-        //OpenCloseMenu();
+        OpenCloseMenu();
     }
 
     void OpenClosePDA()
@@ -66,7 +68,7 @@ public class PlayerController_PDA : MonoBehaviour
         }
     }
 
-    /*void OpenCloseMenu()
+    void OpenCloseMenu()
     {
         menuAjustes.SetActive(true);
 
@@ -74,18 +76,18 @@ public class PlayerController_PDA : MonoBehaviour
         {
             menuAjustes.SetActive(false);
         }
-        if (actionAjustes.WasPressedThisFrame() && menuAjustesActivated)
+        if ((actionAjustesGround.WasPressedThisFrame() || actionAjustesWater.WasPressedThisFrame()) && menuAjustesActivated)
         {
             Time.timeScale = 1;
             menuAjustes.SetActive(false);
             menuAjustesActivated = false;
         }
-        else if (actionAjustes.WasPressedThisFrame() && !menuAjustesActivated)
+        else if ((actionAjustesGround.WasPressedThisFrame() || actionAjustesWater.WasPressedThisFrame()) && !menuAjustesActivated)
         {
             Time.timeScale = 0;
             menuAjustes.SetActive(true);
             menuAjustesActivated = true;
         }
-    }*/
+    }
     #endregion
 }
