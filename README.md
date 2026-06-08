@@ -11,4 +11,4 @@
 <br>
 <br>
 - Interactúa con personajes como Mortimer y el Dr. Coralius, quienes tienen con interesantes historias que contar.
-- Viaja rápidamente entre zonas gracias a un pequeño submarino proporcionado por el Dr. Coralius y Mortimer.
+- Viaja rápidamente entre zonas gracias a un pequeño submarino proporcionado por el Dr. Coralius y su ayudante Mortimer.
