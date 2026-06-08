@@ -11,12 +11,13 @@ public class CambioEscenAnimatica : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        Invoke("IniciarCarga", delay); // Ejecuta la función IniciarCarga pasados 10 segundos
+        //Invoke("IniciarCarga", delay); // Ejecuta la función IniciarCarga pasados 10 segundos
     }
 
 
     public void IniciarCarga()
     {
+        new WaitForSeconds(delay);
         SceneManager.LoadScene(escenaACambiar); //Carga una escena
     }
 }
