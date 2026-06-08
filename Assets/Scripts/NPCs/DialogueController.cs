@@ -1,0 +1,73 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DialogueController : MonoBehaviour
+{
+    #region VARIABLES
+    [SerializeField] GameObject coralius;
+    [SerializeField] GameObject mortimer;
+    [SerializeField] DialogoPorInteract coraliusDialogue;
+    [SerializeField] DialogoPorInteract mortimerDialogue;
+    public DialogoPorTrigger dialogueTrigger;
+    public bool isDialogueActive = false;
+    #endregion
+
+    #region METHODS
+    private void Awake() //ALMACENO REFS DE VARIABLES
+    {
+        coralius = GameObject.FindWithTag("DialogueCoralius");
+        mortimer = GameObject.FindWithTag("DialogueMortimer");
+        coraliusDialogue = coralius.GetComponent<DialogoPorInteract>();
+        mortimerDialogue = mortimer.GetComponent<DialogoPorInteract>();
+        dialogueTrigger = FindObjectOfType<DialogoPorTrigger>();
+    }
+
+    private void Update()
+    {
+        GatherMissingRefs();
+        CheckDialogueRunning();
+    }
+
+    void CheckDialogueRunning() //Comprueba si cualquiera de los dialogos esta teniendo lugar
+    {
+        if (coraliusDialogue.didDialogueStart || mortimerDialogue.didDialogueStart)
+        {
+            isDialogueActive = true;
+        }
+        else
+        {
+            isDialogueActive = false;
+        }
+    }
+    
+    void GatherMissingRefs() //Relinkea variables perdidas
+    {
+        if (!coralius) //Variable GameObject de coralius
+        {
+            coralius = GameObject.FindWithTag("DialogueCoralius");
+        }
+
+        if (!mortimer) //Variable GameObject de mortimer
+        {
+            mortimer = GameObject.FindWithTag("DialogueMortimer");
+        }
+
+        if (!coraliusDialogue) //Variable del script de dialogo de coralius
+        {
+            coraliusDialogue = coralius.GetComponent<DialogoPorInteract>();
+        }
+
+        if (!mortimerDialogue) //Variable del script de dialogo de mortimer
+        {
+            mortimerDialogue = mortimer.GetComponent<DialogoPorInteract>();
+        }
+
+        if (!dialogueTrigger) //Variable del script de dialogo por triggers
+        {
+            dialogueTrigger = FindObjectOfType<DialogoPorTrigger>();
+        }
+    }
+    #endregion
+}

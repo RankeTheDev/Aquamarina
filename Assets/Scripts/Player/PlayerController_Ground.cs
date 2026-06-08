@@ -15,6 +15,7 @@ public class PlayerController_Ground : MonoBehaviour
     [SerializeField] InputAction actionMove;
 
     [Header("Variables generales")]
+    public Rigidbody2D playerRigidbody2D;
     public Vector2 moveAmmount;
     [SerializeField] float speed = 3;
 
@@ -40,6 +41,7 @@ public class PlayerController_Ground : MonoBehaviour
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
         actionMove = InputSystem.actions.FindAction("Player_Ground/Move");
 
+        playerRigidbody2D = GetComponent<Rigidbody2D>();
         rigidbodyPlayer = GetComponent<Rigidbody2D>(); // Compartida
         animator = GetComponent<Animator>();
         timer = GetComponent<Timer>();
@@ -57,7 +59,7 @@ public class PlayerController_Ground : MonoBehaviour
         CheckGravity();
 
         //CHECKING IF GRAVITY IS RIGHT FOR THE LEVEL TYPE
-        CheckAir(); 
+        CheckAir();
     }
 
     void LateUpdate()

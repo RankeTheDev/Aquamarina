@@ -26,6 +26,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
     [SerializeField] PlayerController_Equipment playerControllerEquipment; //Script controller de tierra
     [SerializeField] SceneTransition sceneTransition; //Script de transicion de escena
     [SerializeField] PlayerController_Triggers playerController_Triggers;
+    [SerializeField] DialogueController dialogueController;
     [SerializeField] Animator animatorPlayer; //Animator del player
     #endregion
 
@@ -43,6 +44,7 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
         playerControllerEquipment = GetComponent<PlayerController_Equipment>();
         playerControllerGround = GetComponent<PlayerController_Ground>();
         playerController_Triggers = GetComponent<PlayerController_Triggers>();
+        dialogueController = FindObjectOfType<DialogueController>();
     }
 
     // Update is called once per frame
@@ -58,7 +60,17 @@ public class PlayerController_SceneTypeChecker : MonoBehaviour
 
         if (sceneIndex == 1) //Si la escena actual es la 1
         {
-            playerControllerGround.enabled = true; //Activo el controller de tierra
+            if (dialogueController.isDialogueActive == true)
+            {
+                playerControllerGround.playerRigidbody2D.velocity = Vector3.zero;
+                playerControllerGround.moveAmmount = Vector2.zero;
+                playerControllerGround.enabled = false; //Desactivo el controller de tierra
+                animatorPlayer.SetBool("IdleGround", true);
+            }
+            else
+            {
+                playerControllerGround.enabled = true; //Activo el controller de tierra
+            } 
             playerControllerWater.enabled = false; //Desactivo el controller de water
             playerControllerEquipment.enabled = false; //Desactivo el controller de equipos 
             animatorPlayer.SetBool("IsGrounded", true); //Activo el bool de grounded para el animator del player

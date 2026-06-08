@@ -8,18 +8,19 @@ public class DialogoPorInteract : MonoBehaviour
 {
     #region VARIABLES
     [Header("Variables Input System")]
-    [SerializeField] InputActionAsset inputActionAsset;
+    [SerializeField] InputActionAsset inputActionAsset; // Referencia al InputActionAsset para las teclas de interacción
 
-    InputAction actionInteract;
+    InputAction actionInteractGround; // Tecla de interaccion del mapa de teclas terrestre
 
     [Header("Dialogue Interact Variables")]
     [SerializeField, TextArea(2, 4 )] private string[] dialogueLines; // Referencia al texto que se mostrrará del character hablando.
     [SerializeField] private Sprite[] portraitsSprites; // Referencia a la imagen portrait que se mostrará del character hablando.
     [SerializeField] private AudioClip[] voices; // Referencia al audio que se reproducirá durante el diálogo, si es necesario y para cada personaje
     private bool isPlayerInDialogueRange; //Bool para saber cuando mostrar la alerta de dialogo
-    private bool didDialogueStart = false; // Variable para controlar si el diálogo está activo o no.
+    public bool didDialogueStart = false; // Variable para controlar si el diálogo está activo o no.
     [SerializeField] private int lineIndex = 0; // Índice de la línea de diálogo actual. 
-    [SerializeField] private float typingTime = 0.05f;
+    [SerializeField] private float typingTime = 0.05f; // Cadencia de escritura de los caracteres de la caja de dialogo
+    [SerializeField] DialogueController dialogueController; // Referencia al controlador de dialogos para comprobar la variable de dialogos activados/disponibles
     public PlayerController_Ground playerControllerGround; // Referencia al controlador del jugador, si es necesario para otras interacciones.
     [SerializeField] private int charsToPlayAudio; // Número de caracteres a escribir antes de reproducir el audio del NPC.
     [SerializeField] private bool isPlayerTalking = false;
@@ -39,8 +40,9 @@ public class DialogoPorInteract : MonoBehaviour
     private void Awake()
     {
         //ASIGNO LAS VARIABLES DE ACCIONES DEL INPUT SYSTEM
-        actionInteract = InputSystem.actions.FindAction("Player_Ground/Interact");
+        actionInteractGround = InputSystem.actions.FindAction("Player_Ground/Interact");
         playerControllerGround = FindObjectOfType<PlayerController_Ground>();
+        dialogueController = FindObjectOfType<DialogueController>();
     }
 
     private void Start()
@@ -53,7 +55,19 @@ public class DialogoPorInteract : MonoBehaviour
     {
         portrait.sprite = portraitsSprites[lineIndex];
 
-        if(isPlayerInDialogueRange && actionInteract.WasPressedThisFrame())
+        if (dialogueController.dialogueTrigger.didDialogueStart == false)
+        {
+            DialogueInteractions();
+        }
+        else
+        {
+            dialogueMark.SetActive(false);
+        }
+    }
+
+    void DialogueInteractions()
+    {
+        if (isPlayerInDialogueRange && actionInteractGround.WasPressedThisFrame())
         {
             if (!didDialogueStart)
             {
@@ -65,7 +79,7 @@ public class DialogoPorInteract : MonoBehaviour
             }
             else
             {
-                StopAllCoroutines(); // Si el jugador presiona F antes de que termine la línea actual, detiene la corrutina de escritura.
+                StopAllCoroutines(); // Si el jugador presiona la tecla de interaccion antes de que termine la línea actual, detiene la corrutina de escritura.
                 dialogueText.text = dialogueLines[lineIndex]; // Muestra la línea completa inmediatamente.
             }
         }
@@ -88,7 +102,7 @@ public class DialogoPorInteract : MonoBehaviour
         {
             StartCoroutine(ShowLine()); // Muestra la siguiente línea de diálogo.
         }
-        else
+        else //Cuando acaba el dialogo
         {
             didDialogueStart = false; // Resetea la variable de control del diálogo.
             dialoguePanel.SetActive(false);
@@ -145,6 +159,5 @@ public class DialogoPorInteract : MonoBehaviour
             dialogueMark.SetActive(false); // Desactiva el objeto visual para indicar que el jugador ya no está en rango.
         }
     }
-
     #endregion
 }

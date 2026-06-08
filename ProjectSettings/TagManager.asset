@@ -32,6 +32,8 @@ TagManager:
   - PlayerWater
   - MenuAjustes
   - CanvasDeath
+  - DialogueCoralius
+  - DialogueMortimer
   layers:
   - Default
   - TransparentFX
