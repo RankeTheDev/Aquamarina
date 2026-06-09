@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1030413201136759689}
   - component: {fileID: 4491659640892727634}
   - component: {fileID: 7644474525600715286}
-  - component: {fileID: 6192945171270170534}
   m_Layer: 0
   m_Name: Barracuda
   m_TagString: Fish
@@ -193,27 +192,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4
---- !u!114 &6192945171270170534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6075645943732109890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e652bed51eaa24d899ed3d224dcbe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: []
-  tarject: {fileID: 0}
-  tarjectRigidbody: {fileID: 0}
-  agresive: 0
-  distanceDirecction: {x: 0, y: 0}
-  distanceDifference: 0
-  agresiveVelocity: 0
-  detectVelocity: 0
-  playerScript: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  tarjectPosition: {x: 0, y: 0, z: 0}
-  tarjectPositionAlways: {x: 0, y: 0}
