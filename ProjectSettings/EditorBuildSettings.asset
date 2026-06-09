@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DemoFinal.unity
     guid: bbf5663c7c6bd6a47b5eccae6f203177
+  - enabled: 1
+    path: Assets/Scenes/TestRooms/Iker_Corrutinas_Try1.unity
+    guid: 85f8d5bd578164e43b074d70d9a2b71b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
