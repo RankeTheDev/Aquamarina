@@ -29,6 +29,7 @@ public class PlayerController_Triggers : MonoBehaviour
         timer = GetComponent<Timer>();
         animator = GetComponent<Animator>();
         sceneTransition = FindObjectOfType<SceneTransition>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -38,6 +39,10 @@ public class PlayerController_Triggers : MonoBehaviour
         if (sceneTransition == null)
         {
             sceneTransition = FindObjectOfType<SceneTransition>();
+        }
+        if (!audioManager)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
         }
     }
 
