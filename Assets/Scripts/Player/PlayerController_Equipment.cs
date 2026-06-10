@@ -75,7 +75,7 @@ public class PlayerController_Equipment : MonoBehaviour
     #region EQUIPMENT
     void CameraEquip()
     {
-        if (actionEquipo1Camera.WasPressedThisFrame() && cameraEquipped == false)
+        if (actionEquipo1Camera.WasPressedThisFrame() && !cameraEquipped && !netLauncherEquipped)
         {
             cameraEquipped = true;
             cameraFollowMouse.enabled = true;
@@ -103,7 +103,7 @@ public class PlayerController_Equipment : MonoBehaviour
 
     void NetLauncherEquip()
     {
-        if (actionEquipo2NetLauncher.WasPressedThisFrame() && netLauncherEquipped == false)
+        if (actionEquipo2NetLauncher.WasPressedThisFrame() && !netLauncherEquipped && !cameraEquipped)
         {
             netLauncherEquipped = true;
             netLauncherFollowMouse.enabled = true;
