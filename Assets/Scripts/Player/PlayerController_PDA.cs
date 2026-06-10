@@ -17,6 +17,7 @@ public class PlayerController_PDA : MonoBehaviour
     public GameObject menuAjustes;
     public bool menuPDAActivated;
     public bool menuAjustesActivated;
+    [SerializeField] MenuPausa menuPausaScript;
     #endregion
 
     #region METHODS
@@ -36,6 +37,11 @@ public class PlayerController_PDA : MonoBehaviour
         {
             menuAjustes = GameObject.FindWithTag("MenuAjustes");
         }
+        if (!menuPausaScript)
+        {
+            menuPausaScript = FindObjectOfType<MenuPausa>();
+        }
+
     }
 
     // Update is called once per frame
@@ -87,12 +93,14 @@ public class PlayerController_PDA : MonoBehaviour
             Time.timeScale = 1;
             menuAjustes.SetActive(false);
             menuAjustesActivated = false;
+            menuPausaScript.juegoPausado = false;
         }
         else if ((actionAjustesGround.WasPressedThisFrame() || actionAjustesWater.WasPressedThisFrame()) && !menuAjustesActivated)
         {
             Time.timeScale = 0;
             menuAjustes.SetActive(true);
             menuAjustesActivated = true;
+            menuPausaScript.juegoPausado = true;
         }
     }
     #endregion
