@@ -592,6 +592,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: MenuPausa, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5658678137567162862, guid: 17f0a98dda86ac64cb5c27c1337b4eea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5807344500338008091, guid: 17f0a98dda86ac64cb5c27c1337b4eea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -1018,6 +1022,8 @@ MonoBehaviour:
   menuPausa: {fileID: 5883169614113014547}
   menuAjustes: {fileID: 704946774}
   botonPausa: {fileID: 1271219480}
+  juegoPausado: 0
+  ajustesAbiertos: 0
 --- !u!1001 &7775891183744936500
 PrefabInstance:
   m_ObjectHideFlags: 0
