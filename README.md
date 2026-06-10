@@ -1,7 +1,5 @@
 # AQUAMARINA
 
-Reactivar el dialogo por trigger de la escena del Lab y recolocar al player.
-
 ## Versión 0.2.3
 
 - Explora y descubre una fosa marina inédita para el ser humano, La Fosa de los Tritones. Con bellos y variados paisajes y fauna creados en un precioso estilo pixel art.
