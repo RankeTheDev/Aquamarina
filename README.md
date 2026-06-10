@@ -1,6 +1,6 @@
 # AQUAMARINA
 
-Reactivar el dialogo por trigger de la escena del Lab..
+Reactivar el dialogo por trigger de la escena del Lab y recolocar al player
 
 ## Versión 0.2.3
 
