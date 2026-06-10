@@ -14,9 +14,10 @@ public class PlayerController_PDA : MonoBehaviour
     InputAction actionAjustesGround;
 
     public GameObject menuPDA;
+    public GameObject menuPausa;
     public GameObject menuAjustes;
     public bool menuPDAActivated;
-    public bool menuAjustesActivated;
+    public bool menuPausaActivated;
     [SerializeField] MenuPausa menuPausaScript;
     #endregion
 
@@ -37,6 +38,10 @@ public class PlayerController_PDA : MonoBehaviour
         {
             menuPDA = GameObject.FindWithTag("PDAMenu");
         }
+        if (!menuPausa)
+        {
+            menuPausa = GameObject.FindWithTag("MenuPausa");
+        }
         if (!menuAjustes)
         {
             menuAjustes = GameObject.FindWithTag("MenuAjustes");
@@ -47,12 +52,6 @@ public class PlayerController_PDA : MonoBehaviour
         }
 
         OpenClosePDA();
-
-        if (!menuAjustes)
-        {
-            menuAjustes = GameObject.FindWithTag("MenuAjustes");
-        }
-
         OpenCloseMenu();
     }
 
@@ -81,24 +80,24 @@ public class PlayerController_PDA : MonoBehaviour
 
     void OpenCloseMenu()
     {
-        menuAjustes.SetActive(true);
+        menuPausa.SetActive(true);
 
-        if (!menuAjustesActivated)
+        if (!menuPausaActivated)
         {
-            menuAjustes.SetActive(false);
+            menuPausa.SetActive(false);
         }
-        if ((actionAjustesGround.WasPressedThisFrame() || actionAjustesWater.WasPressedThisFrame()) && menuAjustesActivated)
+        if ((actionAjustesGround.WasPressedThisFrame() || actionAjustesWater.WasPressedThisFrame()) && menuPausaActivated) //Salgo de pausa
         {
             Time.timeScale = 1;
-            menuAjustes.SetActive(false);
-            menuAjustesActivated = false;
+            menuPausa.SetActive(false);
+            menuPausaActivated = false;
             menuPausaScript.juegoPausado = false;
         }
-        else if ((actionAjustesGround.WasPressedThisFrame() || actionAjustesWater.WasPressedThisFrame()) && !menuAjustesActivated)
+        else if ((actionAjustesGround.WasPressedThisFrame() || actionAjustesWater.WasPressedThisFrame()) && !menuPausaActivated) //Entro a pausa
         {
             Time.timeScale = 0;
-            menuAjustes.SetActive(true);
-            menuAjustesActivated = true;
+            menuPausa.SetActive(true);
+            menuPausaActivated = true;
             menuPausaScript.juegoPausado = true;
         }
     }

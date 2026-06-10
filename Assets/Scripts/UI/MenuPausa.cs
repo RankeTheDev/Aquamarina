@@ -52,10 +52,10 @@ public class MenuPausa : MonoBehaviour
 
     public void Reanudar()
     {
-        juegoPausado = false;
         Time.timeScale = 1f;
-        botonPausa.SetActive(true);
         menuPausa.SetActive(false);
+        juegoPausado = false;
+        botonPausa.SetActive(true);
 
         // Asegurarse de que ajustes también esté cerrado
         if (menuAjustes != null)
