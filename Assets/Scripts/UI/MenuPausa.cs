@@ -13,8 +13,8 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject menuAjustes; // Añade esta referencia
     [SerializeField] private GameObject botonPausa;
 
-    private bool juegoPausado = false;
-    private bool ajustesAbiertos = false;
+    public bool juegoPausado = false;
+    public bool ajustesAbiertos = false;
 
     void Start() ///GUARDO PREFERENCIAS
     {
