@@ -885,6 +885,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6192324285674375653, guid: 9cf0ee0ee2ec6424e98cd54d0938b945, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8516077537159492038, guid: 9cf0ee0ee2ec6424e98cd54d0938b945, type: 3}
       propertyPath: m_Name
       value: DEMO_AjustesMainMenu
