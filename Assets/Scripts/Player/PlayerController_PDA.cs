@@ -15,7 +15,7 @@ public class PlayerController_PDA : MonoBehaviour
 
     public GameObject menuPDA;
     public GameObject menuPausa;
-    public GameObject menuAjustes;
+    //public GameObject menuAjustes;
     public bool menuPDAActivated;
     public bool menuPausaActivated;
     [SerializeField] MenuPausa menuPausaScript;
@@ -42,10 +42,10 @@ public class PlayerController_PDA : MonoBehaviour
         {
             menuPausa = GameObject.FindWithTag("MenuPausa");
         }
-        if (!menuAjustes)
+        /*if (!menuAjustes)
         {
             menuAjustes = GameObject.FindWithTag("MenuAjustes");
-        }
+        }*/
         if (!menuPausaScript)
         {
             menuPausaScript = FindObjectOfType<MenuPausa>();
@@ -80,7 +80,7 @@ public class PlayerController_PDA : MonoBehaviour
 
     void OpenCloseMenu()
     {
-        menuPausa.SetActive(true);
+        //menuPausa.SetActive(true);
 
         if (!menuPausaActivated)
         {
