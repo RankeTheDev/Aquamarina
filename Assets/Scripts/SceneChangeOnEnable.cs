@@ -17,6 +17,8 @@ public class SceneChangeOnEnable : MonoBehaviour
 
     public void IniciarCarga()
     {
-        SceneManager.LoadScene(escenaACambiar); //Carga una escena
+        //SceneManager.LoadScene(escenaACambiar); //Carga una escena
+        Debug.Log("Kaput");
+        Application.Quit();
     }
 }
