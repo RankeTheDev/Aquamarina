@@ -291,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2564024940324815860, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
       propertyPath: m_TagString
-      value: MenuAjustes
+      value: MenuPausa
       objectReference: {fileID: 0}
     - target: {fileID: 2949973262442409578, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
       propertyPath: m_AnchorMax.y
@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3923004981217288134, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: MenuAjustes
       objectReference: {fileID: 0}
     - target: {fileID: 3961847000282546031, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
       propertyPath: m_AnchorMax.y
