@@ -16,9 +16,16 @@ public class MenuPausa : MonoBehaviour
     public bool juegoPausado = false;
     public bool ajustesAbiertos = false;
 
+    [SerializeField] PlayerController_PDA playerControllerPDA;
+
     void Start() ///GUARDO PREFERENCIAS
     {
         actionAjustes = InputSystem.actions.FindAction("Ajustes");
+
+        if (!playerControllerPDA)
+        {
+            playerControllerPDA = FindObjectOfType<PlayerController_PDA>();
+        }
     }
 
     private void Update()
@@ -56,13 +63,9 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale = 1f;
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
-
-        // Asegurarse de que ajustes también esté cerrado
-        if (menuAjustes != null)
-        {
-            menuAjustes.SetActive(false);
-            ajustesAbiertos = false;
-        }
+        menuAjustes.SetActive(false);
+        ajustesAbiertos = false;
+        playerControllerPDA.menuPausaActivated = false;
     }
 
     // Método para abrir ajustes (llámalo desde el botón de ajustes)
