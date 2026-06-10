@@ -87,9 +87,11 @@ public class MenuPausa : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Salir(string NombreMenu)
+    public void Salir(/*string NombreMenu*/)
     {
         Time.timeScale = 1f; // Importante: restaurar el tiempo
-        SceneManager.LoadScene(NombreMenu);
+        //SceneManager.LoadScene(NombreMenu);
+        Debug.Log("Kaput");
+        Application.Quit(); //Kaput
     }
 }
