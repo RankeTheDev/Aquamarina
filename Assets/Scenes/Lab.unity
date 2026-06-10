@@ -702,10 +702,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 561256345853493223, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: inputActionAsset
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
     - target: {fileID: 709283672475571654, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: canvasDeath
       value: 
@@ -1086,17 +1082,9 @@ PrefabInstance:
       propertyPath: buttonsPecesRegistro.Array.data[32]
       value: 
       objectReference: {fileID: 1838298629}
-    - target: {fileID: 3339728475501518832, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: zone5Discovered
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4345427096927852349, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4345427096927852349, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5092380774940804119, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: menuPDA
@@ -1118,98 +1106,6 @@ PrefabInstance:
       propertyPath: Oxigen
       value: 
       objectReference: {fileID: 1365301373}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: currentTime
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.size
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[0]
-      value: 
-      objectReference: {fileID: -343341432, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[1]
-      value: 
-      objectReference: {fileID: 1234181628, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[2]
-      value: 
-      objectReference: {fileID: -896842779, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[3]
-      value: 
-      objectReference: {fileID: 166442935, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[4]
-      value: 
-      objectReference: {fileID: -1640321398, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[5]
-      value: 
-      objectReference: {fileID: -1768619931, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[6]
-      value: 
-      objectReference: {fileID: -290047999, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[7]
-      value: 
-      objectReference: {fileID: 1437412255, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[8]
-      value: 
-      objectReference: {fileID: 320379028, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[9]
-      value: 
-      objectReference: {fileID: 1436846840, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[10]
-      value: 
-      objectReference: {fileID: -2118986171, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[11]
-      value: 
-      objectReference: {fileID: 101821394, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[12]
-      value: 
-      objectReference: {fileID: -1681984392, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[13]
-      value: 
-      objectReference: {fileID: -32426302, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[14]
-      value: 
-      objectReference: {fileID: 608541908, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[15]
-      value: 
-      objectReference: {fileID: 196096563, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[16]
-      value: 
-      objectReference: {fileID: -519843403, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[17]
-      value: 
-      objectReference: {fileID: -417014908, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[18]
-      value: 
-      objectReference: {fileID: 307653750, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[19]
-      value: 
-      objectReference: {fileID: -436673305, guid: c58f06a963829a744bb66661b8735c54, type: 3}
-    - target: {fileID: 6719906942247779276, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: OxigenState.Array.data[20]
-      value: 
-      objectReference: {fileID: -1048929754, guid: c58f06a963829a744bb66661b8735c54, type: 3}
     - target: {fileID: 7260254705554209216, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.43
@@ -1249,10 +1145,6 @@ PrefabInstance:
     - target: {fileID: 7260254705554209216, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8058492304229414612, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4606,6 +4498,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 273145263407843512, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273145263407843512, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273145263407843512, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273145263407843512, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1532403024096846924, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
       propertyPath: m_LocalPosition.x
       value: 785.0838
@@ -4650,6 +4558,38 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 69771660}
+    - target: {fileID: 6639387511285782448, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639387511285782448, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639387511285782448, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639387511285782448, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613876794659836886, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613876794659836886, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613876794659836886, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613876794659836886, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8538348032499230093, guid: 17b9c2c73e4b5f9468a64c9ff5549766, type: 3}
       propertyPath: m_Name
       value: AjustesGameplayNoReiniciar

@@ -611,19 +611,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365021325c49d3843bc49f7c4df39eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputActionAsset: {fileID: 0}
+  inputActionAsset: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
   gravityWater: 0.005
   gravityGround: 1
   facingRight: 0
   sceneIndex: 0
   currentScene:
     m_Handle: 0
-  playerGroundIsActive: 0
-  playerWaterIsActive: 0
   player: {fileID: 0}
   playerControllerWater: {fileID: 0}
   playerControllerGround: {fileID: 0}
   playerControllerEquipment: {fileID: 0}
+  sceneTransition: {fileID: 0}
+  playerController_Triggers: {fileID: 0}
+  dialogueController: {fileID: 0}
   animatorPlayer: {fileID: 0}
 --- !u!114 &7838655228165033928
 MonoBehaviour:
@@ -647,6 +648,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  playerRigidbody2D: {fileID: 0}
   moveAmmount: {x: 0, y: 0}
   speed: 3
   longIdleTime: 5
@@ -728,11 +730,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToTPPlayer: 0
+  isTransitioningToScene: 0
   timer: {fileID: 0}
   animator: {fileID: 0}
-  bubblesDamageAnimator: {fileID: 6267978094572503266}
   sceneTransition: {fileID: 0}
-  playerEquipment: {fileID: 0}
+  bubblesDamageAnimator: {fileID: 6267978094572503266}
   bubblesDamage: {fileID: 3607375535883870903}
   playerPositionOnEnter: {fileID: 0}
   playerPositionsArrayOnEnter:
@@ -757,13 +759,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa7358e786c5e44c98d7fc14f169e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
   totalTime: 180
   timeDecreaseSpeed: 0
-  currentTime: 0
+  currentTime: 180
   addAir: 30
   depleteAir: 10
   playerDead: 0
+  Oxigen: {fileID: 0}
+  OxigenState:
+  - {fileID: -343341432, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 1234181628, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -896842779, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 166442935, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -1640321398, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -1768619931, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -290047999, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 1437412255, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 320379028, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 1436846840, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -2118986171, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 101821394, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -1681984392, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -32426302, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 608541908, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 196096563, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -519843403, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -417014908, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: 307653750, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -436673305, guid: c58f06a963829a744bb66661b8735c54, type: 3}
+  - {fileID: -1048929754, guid: c58f06a963829a744bb66661b8735c54, type: 3}
 --- !u!114 &3339728475501518832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,9 +825,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActionAsset: {fileID: -944628639613478452, guid: 7723ea3da9515134597121e15c516c54, type: 3}
   menuPDA: {fileID: 0}
+  menuPausa: {fileID: 0}
   menuAjustes: {fileID: 0}
   menuPDAActivated: 0
-  menuAjustesActivated: 0
+  menuPausaActivated: 0
+  menuPausaScript: {fileID: 0}
 --- !u!114 &858965037320245498
 MonoBehaviour:
   m_ObjectHideFlags: 0
