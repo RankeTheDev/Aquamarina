@@ -1084,23 +1084,23 @@ PrefabInstance:
       objectReference: {fileID: 1838298629}
     - target: {fileID: 3339728475501518832, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: zone1Discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3339728475501518832, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: zone2Discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3339728475501518832, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: zone3Discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3339728475501518832, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: zone4Discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3339728475501518832, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: zone5Discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4345427096927852349, guid: 3897274529f5dae438c02cc22644c55c, type: 3}
       propertyPath: m_Name
