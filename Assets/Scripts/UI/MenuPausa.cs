@@ -13,7 +13,7 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject menuAjustes; // Añade esta referencia
     [SerializeField] private GameObject botonPausa;
 
-    private bool juegoPausado = false;
+    [SerializeField] bool juegoPausado = false;
     private bool ajustesAbiertos = false;
 
     void Start() ///GUARDO PREFERENCIAS
@@ -56,13 +56,8 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale = 1f;
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
-
-        // Asegurarse de que ajustes también esté cerrado
-        if (menuAjustes != null)
-        {
-            menuAjustes.SetActive(false);
-            ajustesAbiertos = false;
-        }
+        menuAjustes.SetActive(false);
+        ajustesAbiertos = false;
     }
 
     // Método para abrir ajustes (llámalo desde el botón de ajustes)
@@ -85,6 +80,7 @@ public class MenuPausa : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Reanudar();
     }
 
     public void Salir(string NombreMenu)
