@@ -49,6 +49,16 @@ public class Fish : MonoBehaviour
     {
         if (trigger.gameObject.tag == "Player" && fishCapture.moveToPlayer)
         {
+            Debug.Log("Pez en fase de captura");
+            AddItem();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D trigger) //Deteccion de colision con el player. Si el bool listado es verdadero y el pez colisiona con el player, se añade el item al inventario
+    {
+        if (trigger.gameObject.tag == "Player" && fishCapture.moveToPlayer)
+        {
+            Debug.Log("Pez en fase de captura");
             AddItem();
         }
     }
